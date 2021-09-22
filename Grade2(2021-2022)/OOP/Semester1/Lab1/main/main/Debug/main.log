@@ -1,0 +1,11 @@
+﻿  main.cpp
+f:\knustuding\year2\oop\semester1\lab1_1_1\main\main\main.cpp(81): warning C4244: инициализация: преобразование "__int64" в "int", возможна потеря данных
+f:\knustuding\year2\oop\semester1\lab1_1_1\main\main\main.cpp(406): warning C4244: инициализация: преобразование "__int64" в "int", возможна потеря данных
+f:\knustuding\year2\oop\semester1\lab1_1_1\main\main\main.cpp(412): warning C4244: инициализация: преобразование "__int64" в "int", возможна потеря данных
+f:\knustuding\year2\oop\semester1\lab1_1_1\main\main\main.cpp(429): warning C4244: инициализация: преобразование "__int64" в "int", возможна потеря данных
+f:\knustuding\year2\oop\semester1\lab1_1_1\main\main\main.cpp(430): warning C4244: инициализация: преобразование "__int64" в "int", возможна потеря данных
+f:\knustuding\year2\oop\semester1\lab1_1_1\main\main\main.cpp(497): warning C4244: =: преобразование "__int64" в "int", возможна потеря данных
+f:\knustuding\year2\oop\semester1\lab1_1_1\main\main\main.cpp(501): warning C4244: =: преобразование "__int64" в "int", возможна потеря данных
+f:\knustuding\year2\oop\semester1\lab1_1_1\main\main\main.cpp(504): warning C4244: =: преобразование "__int64" в "int", возможна потеря данных
+f:\knustuding\year2\oop\semester1\lab1_1_1\main\main\main.cpp(507): warning C4244: =: преобразование "__int64" в "int", возможна потеря данных
+  main.vcxproj -> F:\KNUStuding\Year2\OOP\Semester1\Lab1_1_1\main\Debug\main.exe
