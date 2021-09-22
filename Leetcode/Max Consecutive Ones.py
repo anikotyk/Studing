@@ -1,3 +1,4 @@
+# https://leetcode.com/explore/challenge/card/september-leetcoding-challenge-2021/638/week-3-september-15th-september-21st/3982/
 class Solution:
     def findMaxConsecutiveOnes(self, nums: List[int]) -> int:
         maxl=0
