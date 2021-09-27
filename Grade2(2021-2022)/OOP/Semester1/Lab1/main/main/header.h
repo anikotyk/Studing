@@ -2,36 +2,36 @@
 #define HEADER_H
 
 
-class fooldatetime {
+class datetime {
 private:
 	int year, month, day, hour, minute, second, timezone;
 	long long int dateInSeconds;
 
 public:
-	fooldatetime();
-	fooldatetime(int yearval);
-	fooldatetime(int yeardata, int monthdata, int daydata, int hourdata, int minutedata, int seconddata);
-	fooldatetime(int yeardata, int monthdata, int daydata);
+	datetime();
+	datetime(int yearval);
+	datetime(int yeardata, int monthdata, int daydata, int hourdata, int minutedata, int seconddata);
+	datetime(int yeardata, int monthdata, int daydata);
 
 
-	friend fooldatetime operator + (fooldatetime first, fooldatetime second);
-	friend fooldatetime operator - (fooldatetime first, fooldatetime second);
-	friend bool operator > (fooldatetime first, fooldatetime second);
-	friend bool operator >= (fooldatetime first, fooldatetime second);
-	friend bool operator < (fooldatetime first, fooldatetime second);
-	friend bool operator <= (fooldatetime first, fooldatetime second);
-	friend bool operator == (fooldatetime first, fooldatetime second);
-	friend bool operator != (fooldatetime first, fooldatetime second);
+	friend datetime operator + (datetime first, datetime second);
+	friend datetime operator - (datetime first, datetime second);
+	friend bool operator > (datetime first, datetime second);
+	friend bool operator >= (datetime first, datetime second);
+	friend bool operator < (datetime first, datetime second);
+	friend bool operator <= (datetime first, datetime second);
+	friend bool operator == (datetime first, datetime second);
+	friend bool operator != (datetime first, datetime second);
 
-	friend void StatisticsOfDayNumber(int day, fooldatetime startdate, fooldatetime enddate);
+	friend void StatisticsOfDayNumber(int day, datetime startdate, datetime enddate);
 	
 	void ConvertDateToSeconds();
 	void ConvertSecondsToDate();
 
-	void ConvertTimeSpanToSecondsForPlus(fooldatetime date);
+	void ConvertTimeSpanToSecondsForPlus(datetime date);
 
-	void ConvertTimeSpanToSecondsForMinus(fooldatetime date);
-	void GetDateTimeDifference(fooldatetime startdate);
+	void ConvertTimeSpanToSecondsForMinus(datetime date);
+	void GetDateTimeDifference(datetime startdate);
 
 	int GetDataInSeconds();
 

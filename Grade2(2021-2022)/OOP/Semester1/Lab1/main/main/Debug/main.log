@@ -1,6 +1,2 @@
 ﻿  sortfuncs.cpp
-f:\knustuding\year2\oop\git\studing\grade2(2021-2022)\oop\semester1\lab1\main\main\sortfuncs.cpp(37): warning C4018: <: несоответствие типов со знаком и без знака
-  f:\knustuding\year2\oop\git\studing\grade2(2021-2022)\oop\semester1\lab1\main\main\sortfuncs.cpp(35): note: при компиляции функции-члена "<Нет данных>" класса класс <Нет данных>
-  f:\knustuding\year2\oop\git\studing\grade2(2021-2022)\oop\semester1\lab1\main\main\sortfuncs.cpp(447): note: выполняется компиляция ссылки на экземпляр шаблон функции "void librarylist<int>::Print(void)"
-  f:\knustuding\year2\oop\git\studing\grade2(2021-2022)\oop\semester1\lab1\main\main\sortfuncs.cpp(437): note: выполняется компиляция ссылки на экземпляр шаблон класс "librarylist<int>"
   main.vcxproj -> F:\KNUStuding\Year2\OOP\Git\Studing\Grade2(2021-2022)\OOP\Semester1\Lab1\main\Debug\main.exe

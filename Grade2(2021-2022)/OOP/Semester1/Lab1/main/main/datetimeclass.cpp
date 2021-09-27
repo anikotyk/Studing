@@ -50,20 +50,20 @@ int FindNearestLeapYear(int year) {
 
 
 
-	fooldatetime::fooldatetime() : year(0), month(0), day(0), hour(0), minute(0), second(0), timezone(0), dateInSeconds(0) { }
-	fooldatetime::fooldatetime(int yearval) : year(yearval), month(0), day(0), hour(0), minute(0), second(0), timezone(0), dateInSeconds(0) {}
-	fooldatetime::fooldatetime(int yeardata, int monthdata, int daydata, int hourdata, int minutedata, int seconddata) :
+	datetime::datetime() : year(0), month(0), day(0), hour(0), minute(0), second(0), timezone(0), dateInSeconds(0) { }
+	datetime::datetime(int yearval) : year(yearval), month(0), day(0), hour(0), minute(0), second(0), timezone(0), dateInSeconds(0) {}
+	datetime::datetime(int yeardata, int monthdata, int daydata, int hourdata, int minutedata, int seconddata) :
 		year(yeardata), month(monthdata), day(daydata), hour(hourdata), minute(minutedata), second(seconddata), timezone(0), dateInSeconds(0)
 	{
 		ConvertDateToSeconds();
 	}
-	fooldatetime::fooldatetime(int yeardata, int monthdata, int daydata) :
+	datetime::datetime(int yeardata, int monthdata, int daydata) :
 		year(yeardata), month(monthdata), day(daydata), hour(0), minute(0), second(0), timezone(0), dateInSeconds(0)
 	{
 		ConvertDateToSeconds();
 	}
 
-	void fooldatetime::ConvertDateToSeconds() {
+	void datetime::ConvertDateToSeconds() {
 		int tmp = 0;
 		dateInSeconds = 0;
 		for (int i = 1970; i < year; i++) {
@@ -87,7 +87,7 @@ int FindNearestLeapYear(int year) {
 		dateInSeconds += second + minute * 60 + hour * 3600;
 	}
 
-	void fooldatetime::ConvertSecondsToDate() {
+	void datetime::ConvertSecondsToDate() {
 		int tmp = dateInSeconds;
 		year = 1970;
 		int amount = (365 + IsLeapYear(year)) * 24 * 3600;
@@ -117,10 +117,10 @@ int FindNearestLeapYear(int year) {
 		second = tmp;
 	}
 
-	void fooldatetime::ConvertTimeSpanToSecondsForPlus(fooldatetime date) {
+	void datetime::ConvertTimeSpanToSecondsForPlus(datetime date) {
 		dateInSeconds = day * 24 * 3600 + hour * 3600 + minute * 60 + second;
 
-		fooldatetime point = date;
+		datetime point = date;
 		point.month = 2;
 		point.day = 28;
 		int yeartmp = date.year;
@@ -146,10 +146,10 @@ int FindNearestLeapYear(int year) {
 
 	}
 
-	void fooldatetime::ConvertTimeSpanToSecondsForMinus(fooldatetime date) {
+	void datetime::ConvertTimeSpanToSecondsForMinus(datetime date) {
 		dateInSeconds = day * 24 * 3600 + hour * 3600 + minute * 60 + second;
 
-		fooldatetime point = date;
+		datetime point = date;
 		point.month = 2;
 		point.day = 28;
 		int yeartmp = date.year;
@@ -174,8 +174,8 @@ int FindNearestLeapYear(int year) {
 		}
 	}
 
-	void fooldatetime::GetDateTimeDifference(fooldatetime startdate) {
-		fooldatetime point = startdate;
+	void datetime::GetDateTimeDifference(datetime startdate) {
+		datetime point = startdate;
 		point.month = 2;
 		point.day = 28;
 		long long difference = dateInSeconds;
@@ -214,15 +214,15 @@ int FindNearestLeapYear(int year) {
 		second = difference;
 	}
 
-	int fooldatetime::GetDataInSeconds() {
+	int datetime::GetDataInSeconds() {
 		return dateInSeconds;
 	}
 
-	void fooldatetime::SetDataInSeconds(int data) {
+	void datetime::SetDataInSeconds(int data) {
 		dateInSeconds = data;
 	}
 
-	bool fooldatetime::isCorrectGrig() {
+	bool datetime::isCorrectGrig() {
 		if (second < 0 || second>59) {
 			return false;
 		}
@@ -241,11 +241,11 @@ int FindNearestLeapYear(int year) {
 		return true;
 	}
 
-	void fooldatetime::PrintFoolDatetime() {
+	void datetime::PrintFoolDatetime() {
 		std::cout << day << " / " << month << " / " << year << "    " << hour << " : " << minute << " : " << second << "\n";
 	}
 
-	void fooldatetime::PrintDatetimeWithoutNull() {
+	void datetime::PrintDatetimeWithoutNull() {
 		if (year > 0) {
 			std::cout << year;
 			if (year == 1) {
@@ -303,7 +303,7 @@ int FindNearestLeapYear(int year) {
 		std::cout << "\n";
 	}
 
-	void fooldatetime::PrintAllEqualForms() {
+	void datetime::PrintAllEqualForms() {
 		if (year > 0) {
 			std::cout << year << " years\n";
 		}
@@ -333,44 +333,44 @@ int FindNearestLeapYear(int year) {
 		}
 	}
 
-	void fooldatetime::PrintData() {
+	void datetime::PrintData() {
 		std::string days[] = { "first", "second", "third", "fourth", "fifth", "sixth", "seventh", "eighth", "ninth", "tenth", "eleventh", "twelfth", "thirteenth", "fourteenth", "fifteenth", "sixteenth", "seventeenth", "eighteenth", "nineteenth", "twentieth", "twenty first", "twenty second", "twenty third", "twenty fourth", "twenty fifth" , "twenty sixth" , "twenty seventh" , "twenty eighth" , "twenty ninth", "thirtieth", "thirty first" };
 		std::string months[] = { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
 
 		std::cout << days[day - 1] << " of " << months[month - 1] << " " << year << "\n";
 	}
 
-	void fooldatetime::PrintTime24Format() {
+	void datetime::PrintTime24Format() {
 		std::cout << hour << " : " << minute << " : " << second << "\n";
 	}
 
-	void fooldatetime::PrintTime12Format() {
+	void datetime::PrintTime12Format() {
 		if (hour > 12) {
 			hour -= 12;
 		}
 		std::cout << hour << " : " << minute << " : " << second << "\n";
 	}
 
-	void fooldatetime::ChangeTimeZone(int newtimezone) {
+	void datetime::ChangeTimeZone(int newtimezone) {
 		dateInSeconds -= timezone * 3600;
 		dateInSeconds += newtimezone * 3600;
 		this->ConvertSecondsToDate();
 		timezone = newtimezone;
 	}
 
-	int fooldatetime::GetDayOfWeek() {
+	int datetime::GetDayOfWeek() {
 		return (dateInSeconds / 3600 / 24 + 3) % 7;
 	}
 
-	int fooldatetime::GetWeekOfYear() {
-		fooldatetime point;
+	int datetime::GetWeekOfYear() {
+		datetime point;
 		point.year = 1970;
 		point.month = 1;
 		point.day = 1;
 		point.ConvertDateToSeconds();
 		int res1 = ((dateInSeconds - point.GetDataInSeconds()) / 3600 / 24 + 3) / 7;
 
-		fooldatetime point2 = point;
+		datetime point2 = point;
 		point2.year = year;
 		point2.ConvertDateToSeconds();
 
@@ -379,15 +379,15 @@ int FindNearestLeapYear(int year) {
 		return res1 - res2 + 1;
 	}
 
-	int fooldatetime::GetWeekOfMonth() {
-		fooldatetime point;
+	int datetime::GetWeekOfMonth() {
+		datetime point;
 		point.year = 1970;
 
 		point.month = 1;
 		point.day = 1;
 		point.ConvertDateToSeconds();
 
-		fooldatetime point2;
+		datetime point2;
 		point2.year = year;
 		point2.month = month;
 		point2.day = 1;
@@ -399,7 +399,7 @@ int FindNearestLeapYear(int year) {
 		return res1 - res2 + 1;
 	}
 
-	void fooldatetime::EnterDate(bool isTimeSpan ) {
+	void datetime::EnterDate(bool isTimeSpan ) {
 		if (isTimeSpan) {
 			std::cout << "Year: ";
 		}
@@ -427,53 +427,48 @@ int FindNearestLeapYear(int year) {
 		this->ConvertDateToSeconds();
 	}
 
-	int fooldatetime::GetDaysCountInThisMonth() {
+	int datetime::GetDaysCountInThisMonth() {
 		return GetDaysCountInMonth(month, year);
 	}
 
-	int fooldatetime::GetTimezone() {
+	int datetime::GetTimezone() {
 		return timezone;
 	}
 
 
-bool operator > (fooldatetime firstdate, fooldatetime seconddate) {
+bool operator > (datetime firstdate, datetime seconddate) {
 	return firstdate.GetDataInSeconds() > seconddate.GetDataInSeconds();
 }
 
-bool operator >= (fooldatetime firstdate, fooldatetime seconddate) {
+bool operator >= (datetime firstdate, datetime seconddate) {
 	return firstdate.GetDataInSeconds() >= seconddate.GetDataInSeconds();
 }
 
-bool operator < (fooldatetime firstdate, fooldatetime seconddate) {
+bool operator < (datetime firstdate, datetime seconddate) {
 	return firstdate.GetDataInSeconds() < seconddate.GetDataInSeconds();
 }
 
-bool operator <= (fooldatetime firstdate, fooldatetime seconddate) {
+bool operator <= (datetime firstdate, datetime seconddate) {
 	return firstdate.GetDataInSeconds() <= seconddate.GetDataInSeconds();
 }
 
-bool operator == (fooldatetime firstdate, fooldatetime seconddate) {
+bool operator == (datetime firstdate, datetime seconddate) {
 	return firstdate.GetDataInSeconds() == seconddate.GetDataInSeconds();
 }
-bool operator != (fooldatetime firstdate, fooldatetime seconddate) {
+bool operator != (datetime firstdate, datetime seconddate) {
 	return !(firstdate.GetDataInSeconds() == seconddate.GetDataInSeconds());
 }
 
-/*std::ostream& operator<< (std::ostream &out, fooldatetime date)
-{
-out << date.day << " / " << date.month << " / " << date.year << "    " << date.hour << " : " << date.minute << " : " << date.second << "\n";
-return out;
-}*/
 
 
-fooldatetime operator - (fooldatetime firstdate, fooldatetime seconddate) {
+datetime operator - (datetime firstdate, datetime seconddate) {
 	seconddate.ConvertTimeSpanToSecondsForMinus(firstdate);
 	firstdate.SetDataInSeconds(firstdate.GetDataInSeconds() - seconddate.GetDataInSeconds());
 	firstdate.ConvertSecondsToDate();
 	return firstdate;
 }
 
-fooldatetime operator + (fooldatetime firstdate, fooldatetime seconddate) {
+datetime operator + (datetime firstdate, datetime seconddate) {
 	seconddate.ConvertTimeSpanToSecondsForPlus(firstdate);
 	firstdate.SetDataInSeconds(firstdate.GetDataInSeconds() + seconddate.GetDataInSeconds());
 	firstdate.ConvertSecondsToDate();
@@ -482,8 +477,8 @@ fooldatetime operator + (fooldatetime firstdate, fooldatetime seconddate) {
 }
 
 
-fooldatetime GetDifference(fooldatetime firstdate, fooldatetime seconddate) {
-	fooldatetime date;
+datetime GetDifference(datetime firstdate, datetime seconddate) {
+	datetime date;
 	date.SetDataInSeconds(abs(firstdate.GetDataInSeconds() - seconddate.GetDataInSeconds()));
 	if (seconddate < firstdate) {
 		date.GetDateTimeDifference(seconddate);
@@ -495,9 +490,9 @@ fooldatetime GetDifference(fooldatetime firstdate, fooldatetime seconddate) {
 	return date;
 }
 
-void StatisticsOfDayNumber(int day, fooldatetime startdate, fooldatetime enddate) {
+void StatisticsOfDayNumber(int day, datetime startdate, datetime enddate) {
 
-	fooldatetime point;
+	datetime point;
 	point.year = startdate.year;
 	point.month = startdate.month;
 	point.day = day;
@@ -529,7 +524,7 @@ void StatisticsOfDayNumber(int day, fooldatetime startdate, fooldatetime enddate
 
 int UserInterfaceDateTime()
 {
-	fooldatetime date;
+	datetime date;
 	std::cout << "Enter date you want to work with\n";
 	date.EnterDate();
 
@@ -581,10 +576,10 @@ int UserInterfaceDateTime()
 		}
 		else if (userinput == 7) {
 			std::cout << "Enter second date\n";
-			fooldatetime date2;
+			datetime date2;
 			date2.EnterDate();
 
-			fooldatetime datetimespan;
+			datetime datetimespan;
 			datetimespan = GetDifference(date, date2);
 
 			std::cout << "\n\n";
@@ -600,14 +595,14 @@ int UserInterfaceDateTime()
 		}
 		else if (userinput == 8) {
 			std::cout << "Enter datetime to subtract\n";
-			fooldatetime datetimespan;
+			datetime datetimespan;
 			datetimespan.EnterDate(true);
 			date = date - datetimespan;
 			date.PrintFoolDatetime();
 		}
 		else if (userinput == 9) {
 			std::cout << "Enter datetime to add\n";
-			fooldatetime datetimespan;
+			datetime datetimespan;
 			datetimespan.EnterDate(true);
 			date = date + datetimespan;
 			date.PrintFoolDatetime();
@@ -648,8 +643,8 @@ int UserInterfaceDateTime()
 		else if (userinput == 18) {
 			int day;
 			bool flag = false;
-			fooldatetime datetime1(1970);
-			fooldatetime datetime2(2021);
+			datetime datetime1(1970);
+			datetime datetime2(2021);
 			std::cout << "Enter day number: ";
 			std::cin >> day;
 			std::cout << "Do you want to enter time limits? (Enter 1 if yes and 0 is not) \n";

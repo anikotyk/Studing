@@ -16,20 +16,13 @@ template<typename T>
 class librarylist {
 public:
 	std::list<T> list;
-	int g;
 public:
-	//list = {};
-	librarylist<T>() : g(0) {}
+	librarylist<T>() : list() {}
 	librarylist<T>(std::list<T> data) : list(data){}
 
 	void Add(T data) {
 		list.push_back(data);
 	}
-
-	friend T MergeSort(T arr, int start, int end);
-	//void _MergeSort() {
-	//	list = MergeSort<librarylist<T>>(this, 0, list.size());
-	//}
 	
 	void Print()
 	{
@@ -84,12 +77,6 @@ public:
 		}
 	}
 	
-	friend T MergeSort(T arr, int start, int end);
-	
-	void _MergeSort() {
-		list = MergeSort<mylistelem>(list, 0, list.size());
-	}
-	
 	void Print()
 	{
 		mylistelem<T> *tmp = list;
@@ -121,11 +108,7 @@ public:
 		reference operator*() const { return m_ptr->data; }
 		pointer operator->() { return m_ptr->data; }
 
-		// Prefix increment
 		Iterator& operator++() { m_ptr= m_ptr->next; return *this; }
-
-		// Postfix increment
-		//Iterator operator++(T) { Iterator tmp = *this; ++(*this); return tmp; }
 
 		friend bool operator== (const Iterator& a, const Iterator& b) { return a.m_ptr == b.m_ptr; };
 		friend bool operator!= (const Iterator& a, const Iterator& b) { return a.m_ptr != b.m_ptr; };
@@ -176,11 +159,6 @@ public:
 		current++;
 	}
 
-	friend T MergeSort(T arr, int start, int end);
-	void _MergeSort() {
-		list = MergeSort<T>(list, 0, current);
-	}
-
 	void Print()
 	{
 		for (int i = 0; i < current; i++) {
@@ -204,11 +182,7 @@ public:
 		reference operator*() const { return *m_ptr; }
 		pointer operator->() { return m_ptr; }
 
-		// Prefix increment
 		Iterator& operator++() { m_ptr++; return *this; }
-
-		// Postfix increment
-		//Iterator operator++(T) { Iterator tmp = *this; ++(*this); return tmp; }
 
 		friend bool operator== (const Iterator& a, const Iterator& b) { return a.m_ptr == b.m_ptr; };
 		friend bool operator!= (const Iterator& a, const Iterator& b) { return a.m_ptr != b.m_ptr; };
@@ -374,7 +348,7 @@ T InsertionSort(T list, int n)
 }
 
 template<typename T, typename T1>
-int partition(T list, int low, int high)
+int Partition(T list, int low, int high)
 {
 	auto arr = list->begin();
 	T1 tmp;
@@ -403,78 +377,12 @@ T QuickSort(T list, int low, int high)
 {
 	if (low < high)
 	{
-		int pi = partition<T*, T1>(&list, low, high);
+		int pi = Partition<T*, T1>(&list, low, high);
 
 		list = QuickSort<T, T1>(list, low, pi - 1);
 		list = QuickSort<T, T1>(list, pi + 1, high);
 	}
 	return list;
-}
-
-/*void UserInterface() {
-	std::string help = "Enter '0' to exit \nEnter '1' to see a list of available functions\nEnter '2' to create list\n";
-	std::cout << help;
-	int userinput;
-
-	while (true) {
-		std::cout << ">>> ";
-		std::cin >> userinput;
-
-		if (userinput == 0) {
-			break;
-		}
-		else if (userinput == 1) {
-			std::cout << help;
-		}
-		else if (userinput == 2) {
-		}
-
-	}
-}*/
-
-int _main() {
-
-	librarylist<int> list;
-	list.Add(7);
-	list.Add(4);
-	list.Add(8);
-	list.Add(-2);
-	list.Add(3);
-	//list = BubbleSort<librarylist<int>, int>(list, list.size());
-	//list = MergeSort<librarylist<int>>(list, 0, list.size()-1);
-	//list = InsertionSort<librarylist<int>, int>(list, list.size());
-	list = QuickSort<librarylist<int>, int>(list, 0, list.size()-1);
-	list.Print();
-
-	arraylist<int> list2;
-	
-	list2.Add(-5);
-	list2.Add(2);
-	list2.Add(3);
-	list2.Add(4);
-	list2.Add(10);
-	list2.Add(3); 
-	//list2 = BubbleSort<arraylist<int>, int>(list2, list2.size());
-	//list2 = MergeSort<arraylist<int>>(list2, 0, list2.size() - 1);
-	//list2 = InsertionSort<arraylist<int>, int>(list2, list2.size());
-	list2 = QuickSort<arraylist<int>, int>(list2, 0, list2.size()-1);
-	list2.Print();
-
-	mylist<int> list3;
-	list3.Add(7);
-	list3.Add(4);
-	list3.Add(8);
-	list3.Add(-2);
-	list3.Add(4);
-	list3.Add(0);
-	list3.Add(3);
-	//list3 = BubbleSort<mylist<int>, int>(list3, list3.size());
-	//list3 = MergeSort<mylist<int>>(list3, 0, list3.size()-1);
-	//list3 = InsertionSort<mylist<int>, int>(list3, list3.size());
-	list3 = QuickSort<mylist<int>, int>(list3, 0, list3.size()-1);
-	list3.Print();
-
-	return 0;
 }
 
 TEST_CASE("testing library list sorts") {
@@ -500,20 +408,20 @@ TEST_CASE("testing library list sorts") {
 	CHECK(listres2 == InsertionSort<librarylist<double>, double>(list2, list2.size()));
 
 	
-	librarylist<fooldatetime> list3;
+	librarylist<datetime> list3;
 	
-	list3.Add(fooldatetime(1990, 4, 5)); list3.Add(fooldatetime(1983, 8, 9, 3, 15, 45)); list3.Add(fooldatetime(2003, 13, 7));
-	list3.Add(fooldatetime(2020, 29, 2)); list3.Add(fooldatetime(1971, 1, 1)); list3.Add(fooldatetime(1971, 3, 5, 20, 15, 7));
+	list3.Add(datetime(1990, 4, 5)); list3.Add(datetime(1983, 8, 9, 3, 15, 45)); list3.Add(datetime(2003, 13, 7));
+	list3.Add(datetime(2020, 29, 2)); list3.Add(datetime(1971, 1, 1)); list3.Add(datetime(1971, 3, 5, 20, 15, 7));
 	
 
-	librarylist<fooldatetime> listres3;
-	listres3.Add(fooldatetime(1971, 1, 1)); listres3.Add(fooldatetime(1971, 3, 5, 20, 15, 7)); listres3.Add(fooldatetime(1983, 8, 9, 3, 15, 45));
-	listres3.Add(fooldatetime(1990, 4, 5)); listres3.Add(fooldatetime(2003, 13, 7)); listres3.Add(fooldatetime(2020, 29, 2));
+	librarylist<datetime> listres3;
+	listres3.Add(datetime(1971, 1, 1)); listres3.Add(datetime(1971, 3, 5, 20, 15, 7)); listres3.Add(datetime(1983, 8, 9, 3, 15, 45));
+	listres3.Add(datetime(1990, 4, 5)); listres3.Add(datetime(2003, 13, 7)); listres3.Add(datetime(2020, 29, 2));
 	
-	CHECK(listres3 == QuickSort<librarylist<fooldatetime>, fooldatetime>(list3, 0, list3.size() - 1));
-	CHECK(listres3 == BubbleSort<librarylist<fooldatetime>, fooldatetime>(list3, list3.size()));
-	CHECK(listres3 == MergeSort<librarylist<fooldatetime>>(list3, 0, list3.size() - 1));
-	CHECK(listres3 == InsertionSort<librarylist<fooldatetime>, fooldatetime>(list3, list3.size()));
+	CHECK(listres3 == QuickSort<librarylist<datetime>, datetime>(list3, 0, list3.size() - 1));
+	CHECK(listres3 == BubbleSort<librarylist<datetime>, datetime>(list3, list3.size()));
+	CHECK(listres3 == MergeSort<librarylist<datetime>>(list3, 0, list3.size() - 1));
+	CHECK(listres3 == InsertionSort<librarylist<datetime>, datetime>(list3, list3.size()));
 
 }
 
@@ -541,20 +449,20 @@ TEST_CASE("testing linked list own class sorts") {
 	CHECK(listres2 == InsertionSort<mylist<double>, double>(list2, list2.size()));
 
 	
-	mylist<fooldatetime> list3;
+	mylist<datetime> list3;
 
-	list3.Add(fooldatetime(1990, 4, 5)); list3.Add(fooldatetime(1983, 8, 9, 3, 15, 45)); list3.Add(fooldatetime(2003, 13, 7));
-	list3.Add(fooldatetime(2020, 29, 2)); list3.Add(fooldatetime(1971, 1, 1)); list3.Add(fooldatetime(1971, 3, 5, 20, 15, 7));
+	list3.Add(datetime(1990, 4, 5)); list3.Add(datetime(1983, 8, 9, 3, 15, 45)); list3.Add(datetime(2003, 13, 7));
+	list3.Add(datetime(2020, 29, 2)); list3.Add(datetime(1971, 1, 1)); list3.Add(datetime(1971, 3, 5, 20, 15, 7));
 
 
-	mylist<fooldatetime> listres3;
-	listres3.Add(fooldatetime(1971, 1, 1)); listres3.Add(fooldatetime(1971, 3, 5, 20, 15, 7)); listres3.Add(fooldatetime(1983, 8, 9, 3, 15, 45));
-	listres3.Add(fooldatetime(1990, 4, 5)); listres3.Add(fooldatetime(2003, 13, 7)); listres3.Add(fooldatetime(2020, 29, 2));
+	mylist<datetime> listres3;
+	listres3.Add(datetime(1971, 1, 1)); listres3.Add(datetime(1971, 3, 5, 20, 15, 7)); listres3.Add(datetime(1983, 8, 9, 3, 15, 45));
+	listres3.Add(datetime(1990, 4, 5)); listres3.Add(datetime(2003, 13, 7)); listres3.Add(datetime(2020, 29, 2));
 
-	CHECK(listres3 == QuickSort<mylist<fooldatetime>, fooldatetime>(list3, 0, list3.size() - 1));
-	CHECK(listres3 == BubbleSort<mylist<fooldatetime>, fooldatetime>(list3, list3.size()));
-	CHECK(listres3 == MergeSort<mylist<fooldatetime>>(list3, 0, list3.size() - 1));
-	CHECK(listres3 == InsertionSort<mylist<fooldatetime>, fooldatetime>(list3, list3.size()));
+	CHECK(listres3 == QuickSort<mylist<datetime>, datetime>(list3, 0, list3.size() - 1));
+	CHECK(listres3 == BubbleSort<mylist<datetime>, datetime>(list3, list3.size()));
+	CHECK(listres3 == MergeSort<mylist<datetime>>(list3, 0, list3.size() - 1));
+	CHECK(listres3 == InsertionSort<mylist<datetime>, datetime>(list3, list3.size()));
 
 }
 
@@ -582,19 +490,19 @@ TEST_CASE("testing array list sorts") {
 	CHECK(listres2 == InsertionSort<arraylist<double>, double>(list2, list2.size()));
 
 
-	arraylist<fooldatetime> list3;
+	arraylist<datetime> list3;
 
-	list3.Add(fooldatetime(1990, 4, 5)); list3.Add(fooldatetime(1983, 8, 9, 3, 15, 45)); list3.Add(fooldatetime(2003, 13, 7));
-	list3.Add(fooldatetime(2020, 29, 2)); list3.Add(fooldatetime(1971, 1, 1)); list3.Add(fooldatetime(1971, 3, 5, 20, 15, 7));
+	list3.Add(datetime(1990, 4, 5)); list3.Add(datetime(1983, 8, 9, 3, 15, 45)); list3.Add(datetime(2003, 13, 7));
+	list3.Add(datetime(2020, 29, 2)); list3.Add(datetime(1971, 1, 1)); list3.Add(datetime(1971, 3, 5, 20, 15, 7));
 
 
-	arraylist<fooldatetime> listres3;
-	listres3.Add(fooldatetime(1971, 1, 1)); listres3.Add(fooldatetime(1971, 3, 5, 20, 15, 7)); listres3.Add(fooldatetime(1983, 8, 9, 3, 15, 45));
-	listres3.Add(fooldatetime(1990, 4, 5)); listres3.Add(fooldatetime(2003, 13, 7)); listres3.Add(fooldatetime(2020, 29, 2));
+	arraylist<datetime> listres3;
+	listres3.Add(datetime(1971, 1, 1)); listres3.Add(datetime(1971, 3, 5, 20, 15, 7)); listres3.Add(datetime(1983, 8, 9, 3, 15, 45));
+	listres3.Add(datetime(1990, 4, 5)); listres3.Add(datetime(2003, 13, 7)); listres3.Add(datetime(2020, 29, 2));
 
-	CHECK(listres3 == QuickSort<arraylist<fooldatetime>, fooldatetime>(list3, 0, list3.size() - 1));
-	CHECK(listres3 == BubbleSort<arraylist<fooldatetime>, fooldatetime>(list3, list3.size()));
-	CHECK(listres3 == MergeSort<arraylist<fooldatetime>>(list3, 0, list3.size() - 1));
-	CHECK(listres3 == InsertionSort<arraylist<fooldatetime>, fooldatetime>(list3, list3.size()));
+	CHECK(listres3 == QuickSort<arraylist<datetime>, datetime>(list3, 0, list3.size() - 1));
+	CHECK(listres3 == BubbleSort<arraylist<datetime>, datetime>(list3, list3.size()));
+	CHECK(listres3 == MergeSort<arraylist<datetime>>(list3, 0, list3.size() - 1));
+	CHECK(listres3 == InsertionSort<arraylist<datetime>, datetime>(list3, list3.size()));
 
 }
