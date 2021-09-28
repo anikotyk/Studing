@@ -1,2 +1,20 @@
 ﻿  sortfuncs.cpp
+  datetime.cpp
+f:\knustuding\year2\oop\git\studing\grade2(2021-2022)\oop\semester1\lab1\main\main\datetime.cpp(209): warning C4244: =: преобразование "__int64" в "int", возможна потеря данных
+f:\knustuding\year2\oop\git\studing\grade2(2021-2022)\oop\semester1\lab1\main\main\datetime.cpp(214): warning C4244: =: преобразование "__int64" в "int", возможна потеря данных
+f:\knustuding\year2\oop\git\studing\grade2(2021-2022)\oop\semester1\lab1\main\main\datetime.cpp(219): warning C4244: =: преобразование "__int64" в "int", возможна потеря данных
+f:\knustuding\year2\oop\git\studing\grade2(2021-2022)\oop\semester1\lab1\main\main\datetime.cpp(260): warning C4244: =: преобразование "__int64" в "int", возможна потеря данных
+f:\knustuding\year2\oop\git\studing\grade2(2021-2022)\oop\semester1\lab1\main\main\datetime.cpp(263): warning C4244: =: преобразование "__int64" в "int", возможна потеря данных
+f:\knustuding\year2\oop\git\studing\grade2(2021-2022)\oop\semester1\lab1\main\main\datetime.cpp(266): warning C4244: =: преобразование "__int64" в "int", возможна потеря данных
+f:\knustuding\year2\oop\git\studing\grade2(2021-2022)\oop\semester1\lab1\main\main\datetime.cpp(269): warning C4244: =: преобразование "__int64" в "int", возможна потеря данных
+f:\knustuding\year2\oop\git\studing\grade2(2021-2022)\oop\semester1\lab1\main\main\datetime.cpp(313): warning C4244: инициализация: преобразование "__int64" в "int", возможна потеря данных
+f:\knustuding\year2\oop\git\studing\grade2(2021-2022)\oop\semester1\lab1\main\main\datetime.cpp(413): warning C4244: инициализация: преобразование "__int64" в "int", возможна потеря данных
+f:\knustuding\year2\oop\git\studing\grade2(2021-2022)\oop\semester1\lab1\main\main\datetime.cpp(419): warning C4244: инициализация: преобразование "__int64" в "int", возможна потеря данных
+f:\knustuding\year2\oop\git\studing\grade2(2021-2022)\oop\semester1\lab1\main\main\datetime.cpp(438): warning C4244: инициализация: преобразование "__int64" в "int", возможна потеря данных
+f:\knustuding\year2\oop\git\studing\grade2(2021-2022)\oop\semester1\lab1\main\main\datetime.cpp(439): warning C4244: инициализация: преобразование "__int64" в "int", возможна потеря данных
+f:\knustuding\year2\oop\git\studing\grade2(2021-2022)\oop\semester1\lab1\main\main\datetime.cpp(543): warning C4244: аргумент: преобразование "__int64" в "int", возможна потеря данных
+f:\knustuding\year2\oop\git\studing\grade2(2021-2022)\oop\semester1\lab1\main\main\datetime.cpp(550): warning C4244: аргумент: преобразование "__int64" в "int", возможна потеря данных
+f:\knustuding\year2\oop\git\studing\grade2(2021-2022)\oop\semester1\lab1\main\main\datetime.cpp(562): warning C4244: аргумент: преобразование "__int64" в "int", возможна потеря данных
+f:\knustuding\year2\oop\git\studing\grade2(2021-2022)\oop\semester1\lab1\main\main\datetime.cpp(595): warning C4244: аргумент: преобразование "__int64" в "int", возможна потеря данных
+  Создание кода...
   main.vcxproj -> F:\KNUStuding\Year2\OOP\Git\Studing\Grade2(2021-2022)\OOP\Semester1\Lab1\main\Debug\main.exe
