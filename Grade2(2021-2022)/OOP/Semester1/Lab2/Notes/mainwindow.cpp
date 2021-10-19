@@ -11,11 +11,14 @@ MainWindow::MainWindow(QApplication *parent, QString noteName) :
  connect(openAction, SIGNAL(triggered()), this, SLOT(open()));
  saveAction = new QAction(tr("&Сохранить"), this);
  connect(saveAction, SIGNAL(triggered()), this, SLOT(save()));
+ setActivenesAction = new QAction(tr("&Архив"), this);
+ connect(setActivenesAction, SIGNAL(triggered()), this, SLOT(setActivenes()));
  exitAction = new QAction(tr("&Выход"), this);
  connect(exitAction, SIGNAL(triggered()), this, SLOT(close()));
  fileMenu = this->menuBar()->addMenu(tr("&Файл"));
  fileMenu->addAction(openAction);
  fileMenu->addAction(saveAction);
+ fileMenu->addAction(setActivenesAction);
  fileMenu->addSeparator();
  fileMenu->addAction(exitAction);
  textEdit = new QTextEdit();
@@ -25,6 +28,10 @@ MainWindow::MainWindow(QApplication *parent, QString noteName) :
  JsonManager jsonManager;
  NoteData = jsonManager.ReadJson(jsonManager.fileName).object()[NoteName].toObject();
  JsonObjectTags=NoteData["Tags"].toArray();
+ if(noteName==""){
+     NoteData["isActive"]=true;
+ }
+ qDebug()<<NoteData["isActive"];
 }
 
 MainWindow::~MainWindow() { delete ui; }
@@ -86,3 +93,16 @@ void MainWindow::save() {
      JsonObjectTags.push_back(tag);
  }
 
+ void MainWindow::setActivenes() {
+     QString question;
+     if(NoteData["isActive"].toBool()){
+         question="Добавить запись в архив?";
+     }else{
+         question="Убрать запись из архива?";
+     }
+
+  QMessageBox::StandardButton reply = QMessageBox::question(this, "Архив", question, QMessageBox::Yes| QMessageBox::No );
+  if(reply==QMessageBox::Yes){
+    NoteData["isActive"]=!NoteData["isActive"].toBool();
+  }
+ }

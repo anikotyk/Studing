@@ -20,11 +20,13 @@ public:
 private slots:
  void open(); //метод для открытия файла
  void save(); //метод для сохранения файла
+ void setActivenes();
 private:
  Ui::MainWindow *ui;
  QTextEdit *textEdit; //указатель на поле ввода текста
  QAction *openAction; //указатели на действия "Открыть",
  QAction *saveAction; //"Сохранить"
+ QAction *setActivenesAction; //и "Выйти"
  QAction *exitAction; //и "Выйти"
  QMenu *fileMenu; //Указатель на меню
 
