@@ -27,7 +27,6 @@ public:
     QPushButton *pushButton;
     QWidget *verticalLayoutWidget;
     QVBoxLayout *verticalLayout;
-    QPushButton *pushButton_2;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -40,16 +39,13 @@ public:
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         pushButton = new QPushButton(centralwidget);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
-        pushButton->setGeometry(QRect(360, 80, 361, 131));
+        pushButton->setGeometry(QRect(190, 10, 421, 131));
         verticalLayoutWidget = new QWidget(centralwidget);
         verticalLayoutWidget->setObjectName(QString::fromUtf8("verticalLayoutWidget"));
-        verticalLayoutWidget->setGeometry(QRect(50, 200, 160, 80));
+        verticalLayoutWidget->setGeometry(QRect(40, 180, 721, 351));
         verticalLayout = new QVBoxLayout(verticalLayoutWidget);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         verticalLayout->setContentsMargins(0, 0, 0, 0);
-        pushButton_2 = new QPushButton(centralwidget);
-        pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
-        pushButton_2->setGeometry(QRect(400, 300, 93, 28));
         MenuWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MenuWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -68,7 +64,6 @@ public:
     {
         MenuWindow->setWindowTitle(QCoreApplication::translate("MenuWindow", "MainWindow", nullptr));
         pushButton->setText(QCoreApplication::translate("MenuWindow", "+", nullptr));
-        pushButton_2->setText(QCoreApplication::translate("MenuWindow", "PushButton", nullptr));
     } // retranslateUi
 
 };

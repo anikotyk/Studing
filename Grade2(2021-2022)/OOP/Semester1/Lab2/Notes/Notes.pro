@@ -12,16 +12,19 @@ SOURCES += \
     jsonmanager.cpp \
     main.cpp \
     mainwindow.cpp \
-    menuwindow.cpp
+    menuwindow.cpp \
+    tagslist.cpp
 
 HEADERS += \
     jsonmanager.h \
     mainwindow.h \
-    menuwindow.h
+    menuwindow.h \
+    tagslist.h
 
 FORMS += \
     mainwindow.ui \
-    menuwindow.ui
+    menuwindow.ui \
+    tagslist.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

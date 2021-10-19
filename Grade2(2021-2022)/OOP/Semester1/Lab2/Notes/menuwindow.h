@@ -1,8 +1,9 @@
 #ifndef MENUWINDOW_H
 #define MENUWINDOW_H
-
 #include <QMainWindow>
 #include <mainwindow.h>
+#include <QPushButton>
+#include "jsonmanager.h"
 
 namespace Ui {
 class MenuWindow;
@@ -15,15 +16,16 @@ class MenuWindow : public QMainWindow
 public:
     explicit MenuWindow(QWidget *parent = nullptr);
     ~MenuWindow();
+    void ShowAllNotes();
 
-private slots:
+public slots:
     void on_pushButton_clicked();
-
-    void on_pushButton_2_clicked();
+    void openNotes(QString noteName="");
 
 private:
     Ui::MenuWindow *ui;
-    MainWindow *MainWindow;
+    //MainWindow *MainWindow;
+
 };
 
 #endif // MENUWINDOW_H

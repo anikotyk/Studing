@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 #include <QtWidgets>
+#include <tagslist.h>
+#include <menuwindow.h>
 
 namespace Ui { class MainWindow; }
 
@@ -14,22 +16,23 @@ public:
     QJsonArray JsonObjectTags;
     QJsonObject NoteData;
 public:
- explicit MainWindow(QApplication *parent = 0, QString noteName="");
+ explicit MainWindow(QString noteName="", QWidget *parent = 0);
  ~MainWindow();
- void AddTag(QString tag);
 private slots:
  void open(); //метод для открытия файла
- void save(); //метод для сохранения файла
  void setActivenes();
+ void setTags();
+ void setTagsList(QJsonArray list);
+ void closeEvent (QCloseEvent *event);
+ void saveFunc();
+ void backToMenu();
 private:
  Ui::MainWindow *ui;
  QTextEdit *textEdit; //указатель на поле ввода текста
- QAction *openAction; //указатели на действия "Открыть",
- QAction *saveAction; //"Сохранить"
  QAction *setActivenesAction; //и "Выйти"
- QAction *exitAction; //и "Выйти"
+ QAction *setTagsAction; //и "Выйти"
+ QAction *backToMenuAction; //и "Выйти"
  QMenu *fileMenu; //Указатель на меню
-
 };
 
 #endif // MAINWINDOW_H

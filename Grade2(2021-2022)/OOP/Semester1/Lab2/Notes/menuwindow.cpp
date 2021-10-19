@@ -1,13 +1,13 @@
 #include "menuwindow.h"
 #include "ui_menuwindow.h"
-#include <QPushButton>
+
+
 MenuWindow::MenuWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MenuWindow)
 {
     ui->setupUi(this);
-
-    MainWindow = new class MainWindow();
+    ShowAllNotes();
 }
 
 MenuWindow::~MenuWindow()
@@ -18,71 +18,29 @@ MenuWindow::~MenuWindow()
 
 void MenuWindow::on_pushButton_clicked()
 {
-     MainWindow->show();  // Показываем второе окно
-         this->close();
+    openNotes();
 }
 
 
-void MenuWindow::on_pushButton_2_clicked()
+
+void MenuWindow::openNotes(QString noteName)
 {
-    QString fileName = QCoreApplication::applicationDirPath()+"/data.json";
-    QFile jsonFile(fileName);
-    QJsonArray recordsArray;
-    QJsonObject alls;
-    if (jsonFile.open(QIODevice::ReadOnly))
-    {
-        QByteArray saveData = jsonFile.readAll();
-        jsonFile.close();
-        QJsonDocument jsonDocument(QJsonDocument::fromJson(saveData));
-        recordsArray = jsonDocument.array();
-        alls = jsonDocument.object();
-        qDebug() << jsonDocument.toJson()<<"\n\n";
-        qDebug() <<"next\n";
+    MainWindow *w = new class MainWindow(noteName);
+    w->show();
+    this->close();
+}
+
+#include <QAction>
+void MenuWindow::ShowAllNotes(){
+    JsonManager jsonManager = JsonManager();
+    QJsonObject recordsObject = jsonManager.data.object();
+    QStringList keys = recordsObject.keys();
+    QString a="";
+    foreach(QString note, keys){
+        QPushButton *btn = new QPushButton();
+        btn->setText(recordsObject[note].toObject()["ShortText"].toString());
+        QObject::connect(btn, &QPushButton::clicked, [this, note](){openNotes(note);});
+        ui->verticalLayout->addWidget(btn);
     }
-    QJsonObject recordObject;
-    recordObject.insert("Hola", QJsonValue::fromVariant("John"));
-    recordObject.insert("LastName", QJsonValue::fromVariant("Doe"));
-    recordObject.insert("Age", QJsonValue::fromVariant(43));
-
-    QJsonObject addressObject;
-    addressObject.insert("Street", "Downing Street 10");
-    addressObject.insert("City", "London");
-    addressObject.insert("Country", "Great Britain");
-    recordObject.insert("Address", addressObject);
-
-    QJsonArray phoneNumbersArray;
-    phoneNumbersArray.push_back("+44 1234567");
-    phoneNumbersArray.push_back("+44 2345678");
-    recordObject.insert("Phone Numbers", phoneNumbersArray);
-
-    //recordsArray.push_back(recordObject);
-
-    QJsonObject dd;
-    QJsonObject ddq;
-    ddq.insert("Name", "a1aa");
-    ddq.insert("Surname", "bbob");
-    //dd.insert("Note"+QString::number(recordsArray.size()+1), ddq);
-  //  alls.insert("Note"+QString::number(alls.size()+1), ddq);
-    alls.insert("Note1", ddq);
-    QJsonDocument doc(alls);
-
-
-    if (fileName != "") {
-     QFile file(fileName);
-     if (!file.open(QIODevice::WriteOnly)) {
-      QMessageBox msgBox; msgBox.setText("Не могу записать файл"); msgBox.exec();
-     }
-     else {
-      QTextStream stream(&file);
-
-      stream <<doc.toJson();
-      stream.flush();
-      file.close();
-     }
-    }
-
-
-
-
 }
 
