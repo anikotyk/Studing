@@ -13,12 +13,16 @@ MainWindow::MainWindow(QString noteName, QWidget *parent) :
  connect(setTagsAction, SIGNAL(triggered()), this, SLOT(setTags()));
  backToMenuAction = new QAction(tr("&В меню"), this);
  connect(backToMenuAction, SIGNAL(triggered()), this, SLOT(backToMenu()));
+ deleteNoteAction = new QAction(tr("&Удалить"), this);
+ connect(deleteNoteAction, SIGNAL(triggered()), this, SLOT(deleteNote(); backToMenu()));
 
  fileMenu = this->menuBar()->addMenu(tr("&Файл"));
  fileMenu->addAction(setActivenesAction);
  fileMenu->addAction(setTagsAction);
  fileMenu->addSeparator();
  fileMenu->addAction(backToMenuAction);
+ fileMenu->addSeparator();
+ fileMenu->addAction(deleteNoteAction);
  textEdit = new QTextEdit();
  setCentralWidget(textEdit);
  setWindowTitle(tr("Блокнотик"));
@@ -31,7 +35,6 @@ MainWindow::MainWindow(QString noteName, QWidget *parent) :
  }else{
      open();
  }
- qDebug()<<NoteData["isActive"];
 }
 
 MainWindow::~MainWindow() { delete ui; }
@@ -76,21 +79,17 @@ void MainWindow::setActivenes() {
  }
 
  void MainWindow::saveFunc(){
-     JsonManager jsonManager = JsonManager();
-     QJsonObject recordsObject = jsonManager.data.object();
+
      QString textEditData = textEdit->toPlainText();
      if(textEditData==""){
          if(NoteName!=""){
-             QString fileName = QCoreApplication::applicationDirPath()+"/"+NoteName+".txt";
-             QFile file(fileName);
-             file.remove();
-             recordsObject.remove(NoteName);
-             jsonManager.data = QJsonDocument(recordsObject);
-             jsonManager.WriteJson(jsonManager.fileName, jsonManager.data);
+            deleteNote();
          }
          return;
      }
 
+     JsonManager jsonManager = JsonManager();
+     QJsonObject recordsObject = jsonManager.data.object();
 
 
      int stringsize=textEditData.size();
@@ -133,4 +132,16 @@ void MainWindow::setActivenes() {
      w->show();
 
      this->close();
+ }
+
+ void MainWindow::deleteNote(){
+     JsonManager jsonManager = JsonManager();
+     QJsonObject recordsObject = jsonManager.data.object();
+
+     QString fileName = QCoreApplication::applicationDirPath()+"/"+NoteName+".txt";
+     QFile file(fileName);
+     file.remove();
+     recordsObject.remove(NoteName);
+     jsonManager.data = QJsonDocument(recordsObject);
+     jsonManager.WriteJson(jsonManager.fileName, jsonManager.data);
  }

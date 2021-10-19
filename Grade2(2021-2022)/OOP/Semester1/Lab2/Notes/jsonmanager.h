@@ -20,11 +20,11 @@ public:
     QJsonDocument ReadJson(QString filepath);
     void WriteJson(QString filepath, QJsonDocument data);
     QJsonObject CreateJsonObject(QString shorttext, QJsonArray jsonObjectTags, bool isActive);
-    QStringList SortJsonKeysByDate(QJsonDocument jsonDocument, QStringList keys);
-    QStringList GetJsonKeysByTag(QJsonDocument jsonDocument, QString tag);
+    QStringList SortJsonKeysByDate(QStringList keys);
+    QStringList GetJsonKeysByTags(QStringList tags);
     QStringList AddKeysLists(QList<QStringList> lists);
     QStringList SubstractKeysLists(QList<QStringList> lists);
-    QStringList GetKeysListOfActiveOrArchived(QJsonDocument jsonDocument, bool isActive=true);
+    QStringList GetKeysListOfActiveOrArchived(QStringList keys, bool isActive=true);
 };
 
 #endif // JSONMANAGER_H

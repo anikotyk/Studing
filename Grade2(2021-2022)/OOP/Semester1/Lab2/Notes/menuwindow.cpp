@@ -6,8 +6,10 @@ MenuWindow::MenuWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MenuWindow)
 {
+    jsonManager = JsonManager();
+    isActiveNotes=true;
     ui->setupUi(this);
-    ShowAllNotes();
+    ShowAllNotes(jsonManager.SortJsonKeysByDate(jsonManager.data.object().keys()));
 }
 
 MenuWindow::~MenuWindow()
@@ -31,16 +33,52 @@ void MenuWindow::openNotes(QString noteName)
 }
 
 #include <QAction>
-void MenuWindow::ShowAllNotes(){
-    JsonManager jsonManager = JsonManager();
+void MenuWindow::ShowAllNotes(QStringList notes){
+
+    notes = jsonManager.SortJsonKeysByDate(notes);
+
+    QLayoutItem *item;
+        while((item = ui->verticalLayout->takeAt(0))) {
+            if (item->widget()) {
+               delete item->widget();
+            }
+            delete item;
+        }
     QJsonObject recordsObject = jsonManager.data.object();
-    QStringList keys = recordsObject.keys();
-    QString a="";
-    foreach(QString note, keys){
+    foreach(QString note, notes){
         QPushButton *btn = new QPushButton();
+        if(recordsObject[note].toObject()["isActive"].toBool()!=isActiveNotes){
+            continue;
+        }
         btn->setText(recordsObject[note].toObject()["ShortText"].toString());
         QObject::connect(btn, &QPushButton::clicked, [this, note](){openNotes(note);});
         ui->verticalLayout->addWidget(btn);
     }
+}
+
+
+void MenuWindow::on_pushButton_3_clicked()
+{
+    QString newTag=ui->taginputfield->text();
+    searchtags.append(newTag);
+    ShowAllNotes(jsonManager.GetJsonKeysByTags(searchtags));
+    ui->taginputfield->clear();
+    QPushButton *btn = new QPushButton();
+    btn->setText(newTag);
+    QObject::connect(btn, &QPushButton::clicked, [btn, this, newTag](){for(int i=0; i<searchtags.size(); i++){if(searchtags[i]==newTag){searchtags.remove(i);}}; ShowAllNotes(jsonManager.GetJsonKeysByTags(searchtags)); delete btn; });
+    ui->currentTagsLayout->addWidget(btn);
+}
+
+
+void MenuWindow::on_archiveButton_clicked()
+{
+    isActiveNotes=!isActiveNotes;
+    if(isActiveNotes){
+        ui->archiveButton->setText("Archive");
+    }else{
+        ui->archiveButton->setText("Active notes");
+    }
+   ShowAllNotes(jsonManager.GetJsonKeysByTags(searchtags));
+
 }
 

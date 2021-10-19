@@ -11,6 +11,8 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QHBoxLayout>
+#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
@@ -27,6 +29,13 @@ public:
     QPushButton *pushButton;
     QWidget *verticalLayoutWidget;
     QVBoxLayout *verticalLayout;
+    QWidget *horizontalLayoutWidget;
+    QHBoxLayout *horizontalLayout;
+    QLineEdit *taginputfield;
+    QPushButton *pushButton_3;
+    QWidget *horizontalLayoutWidget_2;
+    QHBoxLayout *currentTagsLayout;
+    QPushButton *archiveButton;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -34,18 +43,43 @@ public:
     {
         if (MenuWindow->objectName().isEmpty())
             MenuWindow->setObjectName(QString::fromUtf8("MenuWindow"));
-        MenuWindow->resize(800, 600);
+        MenuWindow->resize(800, 621);
         centralwidget = new QWidget(MenuWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         pushButton = new QPushButton(centralwidget);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
-        pushButton->setGeometry(QRect(190, 10, 421, 131));
+        pushButton->setGeometry(QRect(180, 0, 421, 131));
         verticalLayoutWidget = new QWidget(centralwidget);
         verticalLayoutWidget->setObjectName(QString::fromUtf8("verticalLayoutWidget"));
-        verticalLayoutWidget->setGeometry(QRect(40, 180, 721, 351));
+        verticalLayoutWidget->setGeometry(QRect(40, 260, 721, 291));
         verticalLayout = new QVBoxLayout(verticalLayoutWidget);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         verticalLayout->setContentsMargins(0, 0, 0, 0);
+        horizontalLayoutWidget = new QWidget(centralwidget);
+        horizontalLayoutWidget->setObjectName(QString::fromUtf8("horizontalLayoutWidget"));
+        horizontalLayoutWidget->setGeometry(QRect(40, 150, 721, 41));
+        horizontalLayout = new QHBoxLayout(horizontalLayoutWidget);
+        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
+        horizontalLayout->setContentsMargins(0, 0, 0, 0);
+        taginputfield = new QLineEdit(horizontalLayoutWidget);
+        taginputfield->setObjectName(QString::fromUtf8("taginputfield"));
+
+        horizontalLayout->addWidget(taginputfield);
+
+        pushButton_3 = new QPushButton(horizontalLayoutWidget);
+        pushButton_3->setObjectName(QString::fromUtf8("pushButton_3"));
+
+        horizontalLayout->addWidget(pushButton_3);
+
+        horizontalLayoutWidget_2 = new QWidget(centralwidget);
+        horizontalLayoutWidget_2->setObjectName(QString::fromUtf8("horizontalLayoutWidget_2"));
+        horizontalLayoutWidget_2->setGeometry(QRect(40, 190, 721, 61));
+        currentTagsLayout = new QHBoxLayout(horizontalLayoutWidget_2);
+        currentTagsLayout->setObjectName(QString::fromUtf8("currentTagsLayout"));
+        currentTagsLayout->setContentsMargins(0, 0, 0, 0);
+        archiveButton = new QPushButton(centralwidget);
+        archiveButton->setObjectName(QString::fromUtf8("archiveButton"));
+        archiveButton->setGeometry(QRect(20, 20, 111, 91));
         MenuWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MenuWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -64,6 +98,9 @@ public:
     {
         MenuWindow->setWindowTitle(QCoreApplication::translate("MenuWindow", "MainWindow", nullptr));
         pushButton->setText(QCoreApplication::translate("MenuWindow", "+", nullptr));
+        taginputfield->setPlaceholderText(QCoreApplication::translate("MenuWindow", "Enter tag...", nullptr));
+        pushButton_3->setText(QCoreApplication::translate("MenuWindow", "+", nullptr));
+        archiveButton->setText(QCoreApplication::translate("MenuWindow", "Archive", nullptr));
     } // retranslateUi
 
 };

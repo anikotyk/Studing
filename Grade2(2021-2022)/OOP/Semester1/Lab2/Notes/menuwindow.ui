@@ -49,7 +49,7 @@
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
-      <widget class="QLineEdit" name="lineEdit">
+      <widget class="QLineEdit" name="taginputfield">
        <property name="placeholderText">
         <string>Enter tag...</string>
        </property>
@@ -73,7 +73,20 @@
       <height>61</height>
      </rect>
     </property>
-    <layout class="QHBoxLayout" name="horizontalLayout_2"/>
+    <layout class="QHBoxLayout" name="currentTagsLayout"/>
+   </widget>
+   <widget class="QPushButton" name="archiveButton">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>20</y>
+      <width>111</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Archive</string>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">

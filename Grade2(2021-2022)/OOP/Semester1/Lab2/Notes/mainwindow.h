@@ -26,12 +26,14 @@ private slots:
  void closeEvent (QCloseEvent *event);
  void saveFunc();
  void backToMenu();
+ void deleteNote();
 private:
  Ui::MainWindow *ui;
  QTextEdit *textEdit; //указатель на поле ввода текста
  QAction *setActivenesAction; //и "Выйти"
  QAction *setTagsAction; //и "Выйти"
  QAction *backToMenuAction; //и "Выйти"
+ QAction *deleteNoteAction;
  QMenu *fileMenu; //Указатель на меню
 };
 

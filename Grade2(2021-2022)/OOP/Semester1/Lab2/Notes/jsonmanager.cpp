@@ -21,31 +21,39 @@ QJsonDocument JsonManager::ReadJson(QString filepath){
     return jsonDocument;
 }
 
-QStringList JsonManager::SortJsonKeysByDate(QJsonDocument jsonDocument, QStringList keys){
-    QJsonObject jsonObject = jsonDocument.object();
-    int n =jsonObject.size();
+QStringList JsonManager::SortJsonKeysByDate(QStringList keys){
+    QJsonObject jsonObject = data.object();
+    int n =keys.size();
     for(int i=0; i<n-1; i++){
         for(int j=0; j<n-i-1; j++){
-            QDate Date = QDate::fromString(jsonObject[keys[j]].toObject()["Date"].toString(),"dd.MM.yyyy HH:mm:ss");
-            QDate Date2 = QDate::fromString(jsonObject[keys[j+1]].toObject()["Date"].toString(),"dd.MM.yyyy HH:mm:ss");
-            if(Date>Date2){
+            QDateTime Date = QDateTime::fromString(jsonObject[keys[j]].toObject()["Date"].toString(),"dd.MM.yyyy HH:mm:ss");
+            QDateTime Date2 = QDateTime::fromString(jsonObject[keys[j+1]].toObject()["Date"].toString(),"dd.MM.yyyy HH:mm:ss");
+            if(Date<Date2){
                 QString tmp = keys[j];
                 keys[j] = keys[j+1];
                 keys[j+1]=tmp;
             }
         }
     }
+
     return keys;
 }
 
-QStringList JsonManager::GetJsonKeysByTag(QJsonDocument jsonDocument, QString tag){
-    QJsonObject jsonObject = jsonDocument.object();
+QStringList JsonManager::GetJsonKeysByTags(QStringList tags){
+    QJsonObject jsonObject = data.object();
     QStringList keys = jsonObject.keys();
     QStringList res;
     int n =jsonObject.size();
 
     for(int i=0; i<n; i++){
-        if(jsonObject[keys[i]].toObject()["Tags"].toArray().contains(tag)){
+        bool flag=true;
+        foreach(QString tag, tags){
+            if(!jsonObject[keys[i]].toObject()["Tags"].toArray().contains(tag)){
+                flag=false;
+                break;
+            }
+        }
+        if(flag){
             res.append(keys[i]);
         }
     }
@@ -82,9 +90,8 @@ QStringList JsonManager::SubstractKeysLists(QList<QStringList> lists){
     return keys;
 }
 
-QStringList JsonManager::GetKeysListOfActiveOrArchived(QJsonDocument jsonDocument, bool isActive){
-    QJsonObject jsonObject = jsonDocument.object();
-    QStringList keys = jsonObject.keys();
+QStringList JsonManager::GetKeysListOfActiveOrArchived(QStringList keys, bool isActive){
+    QJsonObject jsonObject = data.object();
     QStringList res;
 
     for(int i=0; i<jsonObject.size(); i++){

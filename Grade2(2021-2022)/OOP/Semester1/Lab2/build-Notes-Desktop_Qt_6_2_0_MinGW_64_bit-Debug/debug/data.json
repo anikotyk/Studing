@@ -1,0 +1,34 @@
+{
+    "Note1": {
+        "Date": "19.10.2021 23:30:43",
+        "ShortText": "Katty was so sunny",
+        "Tags": [
+            "Milk",
+            "Sun"
+        ],
+        "isActive": true
+    },
+    "Note2": {
+        "Date": "19.10.2021 23:11:29",
+        "ShortText": "Hello Elen I love yo...",
+        "Tags": [
+            "Milk"
+        ],
+        "isActive": false
+    },
+    "Note3": {
+        "Date": "19.10.2021 23:27:25",
+        "ShortText": "Peter was fineOkAndN...",
+        "Tags": [
+            "Sun"
+        ],
+        "isActive": true
+    },
+    "Note4": {
+        "Date": "19.10.2021 23:29:59",
+        "ShortText": "Hi Lucy I am here, o...",
+        "Tags": [
+        ],
+        "isActive": true
+    }
+}
