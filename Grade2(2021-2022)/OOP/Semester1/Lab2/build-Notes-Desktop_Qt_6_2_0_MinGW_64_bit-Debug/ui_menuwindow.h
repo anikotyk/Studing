@@ -49,6 +49,7 @@ public:
     QVBoxLayout *verticalLayout;
     QGridLayout *gridLayout;
     QSpacerItem *verticalSpacer;
+    QSpacerItem *verticalSpacer_2;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -363,6 +364,10 @@ public:
 
 
         verticalLayout->addLayout(gridLayout);
+
+        verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout->addItem(verticalSpacer_2);
 
         scrollArea_2->setWidget(scrollAreaWidgetContents_3);
         MenuWindow->setCentralWidget(centralwidget);

@@ -66,6 +66,15 @@ void MenuWindow::ShowAllNotes(QStringList notes){
 
         QVBoxLayout *layout = new QVBoxLayout();
         framenote->setLayout(layout);
+        QLabel *datelabel=new QLabel();
+        datelabel->setText(recordsObject[note].toObject()["Date"].toString());
+        datelabel->setStyleSheet(
+                    "QLabel {"
+                    "color:rgba(246, 237, 237, 1);"
+                    "font-family: Proxima Nove;"
+                    "font-size:10px;"
+                    "}"
+                    );
         QLabel *shorttextnote=new QLabel();
         shorttextnote->setText(recordsObject[note].toObject()["ShortText"].toString());
         shorttextnote->setStyleSheet(
@@ -74,6 +83,7 @@ void MenuWindow::ShowAllNotes(QStringList notes){
                     "font-family: Proxima Nove;"
                     "font-size:13px;"
                     "min-height:50px;"
+                    "min-width:200px;"
                     "max-width:200px;"
                     "}"
                     );
@@ -90,9 +100,13 @@ void MenuWindow::ShowAllNotes(QStringList notes){
                                "}"
                     );
         QObject::connect(btnopen, &QPushButton::clicked, [this, note](){openNotes(note);});
+        layout->addWidget(datelabel);
         layout->addWidget(shorttextnote);
         layout->addWidget(btnopen);
-        layout->setAlignment(shorttextnote, Qt::AlignTop);
+        layout->setAlignment(shorttextnote, Qt::AlignVCenter);
+        layout->setAlignment(shorttextnote, Qt::AlignLeft);
+        layout->setAlignment(datelabel, Qt::AlignTop);
+        layout->setAlignment(datelabel, Qt::AlignRight);
         layout->setAlignment(btnopen, Qt::AlignHCenter);
 
         ui->gridLayout->addWidget(framenote, row, column);
@@ -102,6 +116,8 @@ void MenuWindow::ShowAllNotes(QStringList notes){
         }
         column=column%3;
     }
+    QLabel *l=new QLabel();
+    ui->gridLayout->addWidget(l, row, column);
 
 }
 
