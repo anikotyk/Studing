@@ -210,7 +210,8 @@ Makefile: ../Notes/Notes.pro E:/QT/6.2.0/mingw81_64/mkspecs/win32-g++/qmake.conf
 		E:/QT/6.2.0/mingw81_64/lib/Qt6Gui.prl \
 		E:/QT/6.2.0/mingw81_64/lib/Qt6Core.prl \
 		E:/QT/6.2.0/mingw81_64/lib/Qt6EntryPoint.prl \
-		E:/QT/6.2.0/mingw81_64/mkspecs/features/build_pass.prf
+		E:/QT/6.2.0/mingw81_64/mkspecs/features/build_pass.prf \
+		../Notes/resource.qrc
 	$(QMAKE) -o Makefile ..\Notes\Notes.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
 E:/QT/6.2.0/mingw81_64/mkspecs/features/spec_pre.prf:
 E:/QT/6.2.0/mingw81_64/mkspecs/features/device_config.prf:
@@ -353,6 +354,7 @@ E:/QT/6.2.0/mingw81_64/lib/Qt6Gui.prl:
 E:/QT/6.2.0/mingw81_64/lib/Qt6Core.prl:
 E:/QT/6.2.0/mingw81_64/lib/Qt6EntryPoint.prl:
 E:/QT/6.2.0/mingw81_64/mkspecs/features/build_pass.prf:
+../Notes/resource.qrc:
 qmake: FORCE
 	@$(QMAKE) -o Makefile ..\Notes\Notes.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
 

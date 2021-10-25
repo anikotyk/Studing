@@ -19,6 +19,7 @@ private slots:
     void AddTagsToWidget();
     void on_deletebutton_clicked();
     void on_pushButton_clicked();
+    void closeEvent(QCloseEvent *);
 signals:
     void sendTagsList(QJsonArray list);
 private:

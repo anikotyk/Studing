@@ -13,6 +13,7 @@ class MainWindow : public QMainWindow {
 
 public:
     QString NoteName;
+    bool isDeleted;
     QJsonArray JsonObjectTags;
     QJsonObject NoteData;
 public:
@@ -27,6 +28,7 @@ private slots:
  void saveFunc();
  void backToMenu();
  void deleteNote();
+ void deleteAndExit();
 private:
  Ui::MainWindow *ui;
  QTextEdit *textEdit; //указатель на поле ввода текста
@@ -35,6 +37,7 @@ private:
  QAction *backToMenuAction; //и "Выйти"
  QAction *deleteNoteAction;
  QMenu *fileMenu; //Указатель на меню
+
 };
 
 #endif // MAINWINDOW_H

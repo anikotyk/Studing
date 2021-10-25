@@ -14,7 +14,7 @@ MainWindow::MainWindow(QString noteName, QWidget *parent) :
  backToMenuAction = new QAction(tr("&В меню"), this);
  connect(backToMenuAction, SIGNAL(triggered()), this, SLOT(backToMenu()));
  deleteNoteAction = new QAction(tr("&Удалить"), this);
- connect(deleteNoteAction, SIGNAL(triggered()), this, SLOT(deleteNote(); backToMenu()));
+ connect(deleteNoteAction, SIGNAL(triggered()), this, SLOT(deleteAndExit()));
 
  fileMenu = this->menuBar()->addMenu(tr("&Файл"));
  fileMenu->addAction(setActivenesAction);
@@ -30,6 +30,7 @@ MainWindow::MainWindow(QString noteName, QWidget *parent) :
  JsonManager jsonManager;
  NoteData = jsonManager.ReadJson(jsonManager.fileName).object()[NoteName].toObject();
  JsonObjectTags=NoteData["Tags"].toArray();
+ isDeleted=false;
  if(noteName==""){
      NoteData["isActive"]=true;
  }else{
@@ -94,9 +95,9 @@ void MainWindow::setActivenes() {
 
      int stringsize=textEditData.size();
      QString afterstring="";
-     if(stringsize>20){
+     if(stringsize>100){
        afterstring="...";
-       stringsize=20;
+       stringsize=100;
      }
      if(NoteName==""){
          NoteName="Note"+QString::number(jsonManager.notescount+1);
@@ -121,13 +122,17 @@ void MainWindow::setActivenes() {
  void MainWindow::closeEvent (QCloseEvent *event)
  {
      event->ignore();
-     saveFunc();
+     if(!isDeleted){
+        saveFunc();
+     }
      event->accept();
  }
 
  void MainWindow::backToMenu()
  {
-     saveFunc();
+     if(!isDeleted){
+         saveFunc();
+     }
      MenuWindow *w = new class MenuWindow();
      w->show();
 
@@ -135,13 +140,19 @@ void MainWindow::setActivenes() {
  }
 
  void MainWindow::deleteNote(){
+     isDeleted=true;
      JsonManager jsonManager = JsonManager();
      QJsonObject recordsObject = jsonManager.data.object();
 
      QString fileName = QCoreApplication::applicationDirPath()+"/"+NoteName+".txt";
-     QFile file(fileName);
-     file.remove();
+     qDebug()<<fileName;
+     QFile::remove(fileName);
      recordsObject.remove(NoteName);
      jsonManager.data = QJsonDocument(recordsObject);
      jsonManager.WriteJson(jsonManager.fileName, jsonManager.data);
+ }
+
+ void MainWindow::deleteAndExit(){
+     deleteNote();
+     backToMenu();
  }

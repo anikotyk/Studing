@@ -54,7 +54,8 @@ SOURCES       = ..\Notes\jsonmanager.cpp \
 		..\Notes\main.cpp \
 		..\Notes\mainwindow.cpp \
 		..\Notes\menuwindow.cpp \
-		..\Notes\tagslist.cpp release\moc_mainwindow.cpp \
+		..\Notes\tagslist.cpp release\qrc_resource.cpp \
+		release\moc_mainwindow.cpp \
 		release\moc_menuwindow.cpp \
 		release\moc_tagslist.cpp
 OBJECTS       = release/jsonmanager.o \
@@ -62,6 +63,7 @@ OBJECTS       = release/jsonmanager.o \
 		release/mainwindow.o \
 		release/menuwindow.o \
 		release/tagslist.o \
+		release/qrc_resource.o \
 		release/moc_mainwindow.o \
 		release/moc_menuwindow.o \
 		release/moc_tagslist.o
@@ -93,10 +95,10 @@ qmake: FORCE
 qmake_all: FORCE
 
 dist:
-	$(ZIP) Notes.zip $(SOURCES) $(DIST) ..\Notes\Notes.pro E:\QT\6.2.0\mingw81_64\mkspecs\features\spec_pre.prf E:\QT\6.2.0\mingw81_64\mkspecs\features\device_config.prf E:\QT\6.2.0\mingw81_64\mkspecs\common\sanitize.conf E:\QT\6.2.0\mingw81_64\mkspecs\common\gcc-base.conf E:\QT\6.2.0\mingw81_64\mkspecs\common\g++-base.conf E:\QT\6.2.0\mingw81_64\mkspecs\features\win32\windows_vulkan_sdk.prf E:\QT\6.2.0\mingw81_64\mkspecs\common\windows-vulkan.conf E:\QT\6.2.0\mingw81_64\mkspecs\common\g++-win32.conf E:\QT\6.2.0\mingw81_64\mkspecs\common\windows-desktop.conf E:\QT\6.2.0\mingw81_64\mkspecs\qconfig.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_ext_freetype.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_ext_libpng.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_concurrent.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_concurrent_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_core.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_core_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_dbus.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_dbus_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_designer.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_designer_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_designercomponents_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_devicediscovery_support_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_entrypoint_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_fb_support_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_gui.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_gui_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_help.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_help_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_labsanimation.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_labsanimation_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_labsfolderlistmodel.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_labsfolderlistmodel_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_labsqmlmodels.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_labsqmlmodels_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_labssettings.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_labssettings_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_labssharedimage.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_labssharedimage_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_labswavefrontmesh.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_labswavefrontmesh_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_linguist.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_linguist_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_network.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_network_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_opengl.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_opengl_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_openglwidgets.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_openglwidgets_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_packetprotocol_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_printsupport.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_printsupport_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_qml.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_qml_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_qmlcompiler_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_qmlcore.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_qmlcore_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_qmldebug_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_qmldevtools_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_qmldom_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_qmllocalstorage.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_qmllocalstorage_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_qmlmodels.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_qmlmodels_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_qmltest.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_qmltest_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_qmlworkerscript.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_qmlworkerscript_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_qmlxmllistmodel.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_qmlxmllistmodel_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_quick.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_quick_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_quickcontrols2.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_quickcontrols2_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_quickcontrols2impl.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_quickcontrols2impl_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_quickdialogs2.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_quickdialogs2_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_quickdialogs2quickimpl.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_quickdialogs2quickimpl_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_quickdialogs2utils.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_quickdialogs2utils_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_quicklayouts.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_quicklayouts_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_quickparticles_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_quickshapes_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_quicktemplates2.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_quicktemplates2_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_quickwidgets.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_quickwidgets_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_sql.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_sql_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_svg.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_svg_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_svgwidgets.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_svgwidgets_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_testlib.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_testlib_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_tools_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_uiplugin.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_uitools.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_uitools_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_widgets.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_widgets_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_xml.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_xml_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_zlib_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\features\qt_functions.prf E:\QT\6.2.0\mingw81_64\mkspecs\features\qt_config.prf E:\QT\6.2.0\mingw81_64\mkspecs\win32-g++\qmake.conf E:\QT\6.2.0\mingw81_64\mkspecs\features\spec_post.prf .qmake.stash E:\QT\6.2.0\mingw81_64\mkspecs\features\exclusive_builds.prf E:\QT\6.2.0\mingw81_64\mkspecs\features\toolchain.prf E:\QT\6.2.0\mingw81_64\mkspecs\features\default_pre.prf E:\QT\6.2.0\mingw81_64\mkspecs\features\win32\default_pre.prf E:\QT\6.2.0\mingw81_64\mkspecs\features\resolve_config.prf E:\QT\6.2.0\mingw81_64\mkspecs\features\exclusive_builds_post.prf E:\QT\6.2.0\mingw81_64\mkspecs\features\default_post.prf E:\QT\6.2.0\mingw81_64\mkspecs\features\build_pass.prf E:\QT\6.2.0\mingw81_64\mkspecs\features\qml_debug.prf E:\QT\6.2.0\mingw81_64\mkspecs\features\entrypoint.prf E:\QT\6.2.0\mingw81_64\mkspecs\features\precompile_header.prf E:\QT\6.2.0\mingw81_64\mkspecs\features\warn_on.prf E:\QT\6.2.0\mingw81_64\mkspecs\features\qt.prf E:\QT\6.2.0\mingw81_64\mkspecs\features\resources_functions.prf E:\QT\6.2.0\mingw81_64\mkspecs\features\resources.prf E:\QT\6.2.0\mingw81_64\mkspecs\features\moc.prf E:\QT\6.2.0\mingw81_64\mkspecs\features\win32\opengl.prf E:\QT\6.2.0\mingw81_64\mkspecs\features\uic.prf E:\QT\6.2.0\mingw81_64\mkspecs\features\qmake_use.prf E:\QT\6.2.0\mingw81_64\mkspecs\features\file_copies.prf E:\QT\6.2.0\mingw81_64\mkspecs\features\win32\windows.prf E:\QT\6.2.0\mingw81_64\mkspecs\features\testcase_targets.prf E:\QT\6.2.0\mingw81_64\mkspecs\features\exceptions.prf E:\QT\6.2.0\mingw81_64\mkspecs\features\yacc.prf E:\QT\6.2.0\mingw81_64\mkspecs\features\lex.prf ..\Notes\Notes.pro E:\QT\6.2.0\mingw81_64\lib\Qt6Widgets.prl E:\QT\6.2.0\mingw81_64\lib\Qt6Gui.prl E:\QT\6.2.0\mingw81_64\lib\Qt6Core.prl E:\QT\6.2.0\mingw81_64\lib\Qt6EntryPoint.prl    E:\QT\6.2.0\mingw81_64\mkspecs\features\data\dummy.cpp ..\Notes\jsonmanager.h ..\Notes\mainwindow.h ..\Notes\menuwindow.h ..\Notes\tagslist.h  ..\Notes\jsonmanager.cpp ..\Notes\main.cpp ..\Notes\mainwindow.cpp ..\Notes\menuwindow.cpp ..\Notes\tagslist.cpp ..\Notes\mainwindow.ui ..\Notes\menuwindow.ui ..\Notes\tagslist.ui    
+	$(ZIP) Notes.zip $(SOURCES) $(DIST) ..\Notes\Notes.pro E:\QT\6.2.0\mingw81_64\mkspecs\features\spec_pre.prf E:\QT\6.2.0\mingw81_64\mkspecs\features\device_config.prf E:\QT\6.2.0\mingw81_64\mkspecs\common\sanitize.conf E:\QT\6.2.0\mingw81_64\mkspecs\common\gcc-base.conf E:\QT\6.2.0\mingw81_64\mkspecs\common\g++-base.conf E:\QT\6.2.0\mingw81_64\mkspecs\features\win32\windows_vulkan_sdk.prf E:\QT\6.2.0\mingw81_64\mkspecs\common\windows-vulkan.conf E:\QT\6.2.0\mingw81_64\mkspecs\common\g++-win32.conf E:\QT\6.2.0\mingw81_64\mkspecs\common\windows-desktop.conf E:\QT\6.2.0\mingw81_64\mkspecs\qconfig.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_ext_freetype.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_ext_libpng.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_concurrent.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_concurrent_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_core.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_core_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_dbus.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_dbus_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_designer.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_designer_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_designercomponents_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_devicediscovery_support_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_entrypoint_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_fb_support_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_gui.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_gui_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_help.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_help_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_labsanimation.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_labsanimation_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_labsfolderlistmodel.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_labsfolderlistmodel_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_labsqmlmodels.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_labsqmlmodels_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_labssettings.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_labssettings_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_labssharedimage.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_labssharedimage_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_labswavefrontmesh.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_labswavefrontmesh_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_linguist.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_linguist_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_network.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_network_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_opengl.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_opengl_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_openglwidgets.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_openglwidgets_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_packetprotocol_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_printsupport.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_printsupport_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_qml.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_qml_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_qmlcompiler_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_qmlcore.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_qmlcore_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_qmldebug_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_qmldevtools_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_qmldom_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_qmllocalstorage.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_qmllocalstorage_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_qmlmodels.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_qmlmodels_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_qmltest.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_qmltest_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_qmlworkerscript.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_qmlworkerscript_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_qmlxmllistmodel.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_qmlxmllistmodel_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_quick.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_quick_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_quickcontrols2.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_quickcontrols2_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_quickcontrols2impl.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_quickcontrols2impl_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_quickdialogs2.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_quickdialogs2_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_quickdialogs2quickimpl.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_quickdialogs2quickimpl_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_quickdialogs2utils.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_quickdialogs2utils_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_quicklayouts.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_quicklayouts_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_quickparticles_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_quickshapes_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_quicktemplates2.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_quicktemplates2_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_quickwidgets.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_quickwidgets_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_sql.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_sql_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_svg.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_svg_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_svgwidgets.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_svgwidgets_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_testlib.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_testlib_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_tools_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_uiplugin.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_uitools.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_uitools_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_widgets.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_widgets_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_xml.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_xml_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\modules\qt_lib_zlib_private.pri E:\QT\6.2.0\mingw81_64\mkspecs\features\qt_functions.prf E:\QT\6.2.0\mingw81_64\mkspecs\features\qt_config.prf E:\QT\6.2.0\mingw81_64\mkspecs\win32-g++\qmake.conf E:\QT\6.2.0\mingw81_64\mkspecs\features\spec_post.prf .qmake.stash E:\QT\6.2.0\mingw81_64\mkspecs\features\exclusive_builds.prf E:\QT\6.2.0\mingw81_64\mkspecs\features\toolchain.prf E:\QT\6.2.0\mingw81_64\mkspecs\features\default_pre.prf E:\QT\6.2.0\mingw81_64\mkspecs\features\win32\default_pre.prf E:\QT\6.2.0\mingw81_64\mkspecs\features\resolve_config.prf E:\QT\6.2.0\mingw81_64\mkspecs\features\exclusive_builds_post.prf E:\QT\6.2.0\mingw81_64\mkspecs\features\default_post.prf E:\QT\6.2.0\mingw81_64\mkspecs\features\build_pass.prf E:\QT\6.2.0\mingw81_64\mkspecs\features\qml_debug.prf E:\QT\6.2.0\mingw81_64\mkspecs\features\entrypoint.prf E:\QT\6.2.0\mingw81_64\mkspecs\features\precompile_header.prf E:\QT\6.2.0\mingw81_64\mkspecs\features\warn_on.prf E:\QT\6.2.0\mingw81_64\mkspecs\features\qt.prf E:\QT\6.2.0\mingw81_64\mkspecs\features\resources_functions.prf E:\QT\6.2.0\mingw81_64\mkspecs\features\resources.prf E:\QT\6.2.0\mingw81_64\mkspecs\features\moc.prf E:\QT\6.2.0\mingw81_64\mkspecs\features\win32\opengl.prf E:\QT\6.2.0\mingw81_64\mkspecs\features\uic.prf E:\QT\6.2.0\mingw81_64\mkspecs\features\qmake_use.prf E:\QT\6.2.0\mingw81_64\mkspecs\features\file_copies.prf E:\QT\6.2.0\mingw81_64\mkspecs\features\win32\windows.prf E:\QT\6.2.0\mingw81_64\mkspecs\features\testcase_targets.prf E:\QT\6.2.0\mingw81_64\mkspecs\features\exceptions.prf E:\QT\6.2.0\mingw81_64\mkspecs\features\yacc.prf E:\QT\6.2.0\mingw81_64\mkspecs\features\lex.prf ..\Notes\Notes.pro ..\Notes\resource.qrc E:\QT\6.2.0\mingw81_64\lib\Qt6Widgets.prl E:\QT\6.2.0\mingw81_64\lib\Qt6Gui.prl E:\QT\6.2.0\mingw81_64\lib\Qt6Core.prl E:\QT\6.2.0\mingw81_64\lib\Qt6EntryPoint.prl   ..\Notes\resource.qrc E:\QT\6.2.0\mingw81_64\mkspecs\features\data\dummy.cpp ..\Notes\jsonmanager.h ..\Notes\mainwindow.h ..\Notes\menuwindow.h ..\Notes\tagslist.h  ..\Notes\jsonmanager.cpp ..\Notes\main.cpp ..\Notes\mainwindow.cpp ..\Notes\menuwindow.cpp ..\Notes\tagslist.cpp ..\Notes\mainwindow.ui ..\Notes\menuwindow.ui ..\Notes\tagslist.ui    
 
 clean: compiler_clean 
-	-$(DEL_FILE) release\jsonmanager.o release\main.o release\mainwindow.o release\menuwindow.o release\tagslist.o release\moc_mainwindow.o release\moc_menuwindow.o release\moc_tagslist.o
+	-$(DEL_FILE) release\jsonmanager.o release\main.o release\mainwindow.o release\menuwindow.o release\tagslist.o release\qrc_resource.o release\moc_mainwindow.o release\moc_menuwindow.o release\moc_tagslist.o
 
 distclean: clean 
 	-$(DEL_FILE) .qmake.stash
@@ -113,8 +115,15 @@ benchmark: first
 
 compiler_no_pch_compiler_make_all:
 compiler_no_pch_compiler_clean:
-compiler_rcc_make_all:
+compiler_rcc_make_all: release/qrc_resource.cpp
 compiler_rcc_clean:
+	-$(DEL_FILE) release\qrc_resource.cpp
+release/qrc_resource.cpp: ../Notes/resource.qrc \
+		E:/QT/6.2.0/mingw81_64/bin/rcc.exe \
+		../Notes/searchicon.png \
+		../Notes/close.png
+	E:\QT\6.2.0\mingw81_64\bin\rcc.exe -name resource ..\Notes\resource.qrc -o release\qrc_resource.cpp
+
 compiler_moc_predefs_make_all: release/moc_predefs.h
 compiler_moc_predefs_clean:
 	-$(DEL_FILE) release\moc_predefs.h
@@ -603,6 +612,18 @@ release/moc_mainwindow.cpp: ../Notes/mainwindow.h \
 		E:/QT/6.2.0/mingw81_64/include/QtWidgets/qwidgetaction.h \
 		E:/QT/6.2.0/mingw81_64/include/QtWidgets/qwizard.h \
 		E:/QT/6.2.0/mingw81_64/include/QtWidgets/qtwidgetsversion.h \
+		../Notes/tagslist.h \
+		E:/QT/6.2.0/mingw81_64/include/QtWidgets/QDialog \
+		E:/QT/6.2.0/mingw81_64/include/QtCore/QJsonArray \
+		../Notes/menuwindow.h \
+		../Notes/mainwindow.h \
+		E:/QT/6.2.0/mingw81_64/include/QtWidgets/QPushButton \
+		../Notes/jsonmanager.h \
+		E:/QT/6.2.0/mingw81_64/include/QtCore/QString \
+		E:/QT/6.2.0/mingw81_64/include/QtCore/QJsonDocument \
+		E:/QT/6.2.0/mingw81_64/include/QtCore/QFile \
+		E:/QT/6.2.0/mingw81_64/include/QtCore/QJsonObject \
+		E:/QT/6.2.0/mingw81_64/include/QtCore/QCoreApplication \
 		release/moc_predefs.h \
 		E:/QT/6.2.0/mingw81_64/bin/moc.exe
 	E:\QT\6.2.0\mingw81_64\bin\moc.exe $(DEFINES) --include "F:/KNUStuding/Year2/OOP/Git/Studing/Grade2(2021-2022)/OOP/Semester1/Lab2/build-Notes-Desktop_Qt_6_2_0_MinGW_64_bit-Debug/release/moc_predefs.h" -IE:/QT/6.2.0/mingw81_64/mkspecs/win32-g++ -I"F:/KNUStuding/Year2/OOP/Git/Studing/Grade2(2021-2022)/OOP/Semester1/Lab2/Notes" -IE:/QT/6.2.0/mingw81_64/include -IE:/QT/6.2.0/mingw81_64/include/QtWidgets -IE:/QT/6.2.0/mingw81_64/include/QtGui -IE:/QT/6.2.0/mingw81_64/include/QtCore -I. -IE:/QT/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++ -IE:/QT/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32 -IE:/QT/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward -IE:/QT/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include -IE:/QT/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed -IE:/QT/Tools/mingw810_64/x86_64-w64-mingw32/include ..\Notes\mainwindow.h -o release\moc_mainwindow.cpp
@@ -1088,14 +1109,23 @@ release/moc_menuwindow.cpp: ../Notes/menuwindow.h \
 		E:/QT/6.2.0/mingw81_64/include/QtWidgets/qwizard.h \
 		E:/QT/6.2.0/mingw81_64/include/QtWidgets/qtwidgetsversion.h \
 		../Notes/tagslist.h \
-		E:/QT/6.2.0/mingw81_64/include/QtWidgets/QWidget \
+		E:/QT/6.2.0/mingw81_64/include/QtWidgets/QDialog \
+		E:/QT/6.2.0/mingw81_64/include/QtCore/QJsonArray \
+		../Notes/menuwindow.h \
+		E:/QT/6.2.0/mingw81_64/include/QtWidgets/QPushButton \
+		../Notes/jsonmanager.h \
+		E:/QT/6.2.0/mingw81_64/include/QtCore/QString \
+		E:/QT/6.2.0/mingw81_64/include/QtCore/QJsonDocument \
+		E:/QT/6.2.0/mingw81_64/include/QtCore/QFile \
+		E:/QT/6.2.0/mingw81_64/include/QtCore/QJsonObject \
+		E:/QT/6.2.0/mingw81_64/include/QtCore/QCoreApplication \
 		release/moc_predefs.h \
 		E:/QT/6.2.0/mingw81_64/bin/moc.exe
 	E:\QT\6.2.0\mingw81_64\bin\moc.exe $(DEFINES) --include "F:/KNUStuding/Year2/OOP/Git/Studing/Grade2(2021-2022)/OOP/Semester1/Lab2/build-Notes-Desktop_Qt_6_2_0_MinGW_64_bit-Debug/release/moc_predefs.h" -IE:/QT/6.2.0/mingw81_64/mkspecs/win32-g++ -I"F:/KNUStuding/Year2/OOP/Git/Studing/Grade2(2021-2022)/OOP/Semester1/Lab2/Notes" -IE:/QT/6.2.0/mingw81_64/include -IE:/QT/6.2.0/mingw81_64/include/QtWidgets -IE:/QT/6.2.0/mingw81_64/include/QtGui -IE:/QT/6.2.0/mingw81_64/include/QtCore -I. -IE:/QT/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++ -IE:/QT/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32 -IE:/QT/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward -IE:/QT/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include -IE:/QT/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed -IE:/QT/Tools/mingw810_64/x86_64-w64-mingw32/include ..\Notes\menuwindow.h -o release\moc_menuwindow.cpp
 
 release/moc_tagslist.cpp: ../Notes/tagslist.h \
-		E:/QT/6.2.0/mingw81_64/include/QtWidgets/QWidget \
-		E:/QT/6.2.0/mingw81_64/include/QtWidgets/qwidget.h \
+		E:/QT/6.2.0/mingw81_64/include/QtWidgets/QDialog \
+		E:/QT/6.2.0/mingw81_64/include/QtWidgets/qdialog.h \
 		E:/QT/6.2.0/mingw81_64/include/QtWidgets/qtwidgetsglobal.h \
 		E:/QT/6.2.0/mingw81_64/include/QtGui/qtguiglobal.h \
 		E:/QT/6.2.0/mingw81_64/include/QtCore/qglobal.h \
@@ -1120,6 +1150,7 @@ release/moc_tagslist.cpp: ../Notes/tagslist.h \
 		E:/QT/6.2.0/mingw81_64/include/QtCore/qversiontagging.h \
 		E:/QT/6.2.0/mingw81_64/include/QtGui/qtgui-config.h \
 		E:/QT/6.2.0/mingw81_64/include/QtWidgets/qtwidgets-config.h \
+		E:/QT/6.2.0/mingw81_64/include/QtWidgets/qwidget.h \
 		E:/QT/6.2.0/mingw81_64/include/QtGui/qwindowdefs.h \
 		E:/QT/6.2.0/mingw81_64/include/QtCore/qobjectdefs.h \
 		E:/QT/6.2.0/mingw81_64/include/QtCore/qnamespace.h \
@@ -1222,6 +1253,16 @@ release/moc_tagslist.cpp: ../Notes/tagslist.h \
 		E:/QT/6.2.0/mingw81_64/include/QtGui/QTransform \
 		E:/QT/6.2.0/mingw81_64/include/QtCore/qnativeinterface.h \
 		E:/QT/6.2.0/mingw81_64/include/QtCore/qloggingcategory.h \
+		E:/QT/6.2.0/mingw81_64/include/QtCore/QJsonArray \
+		E:/QT/6.2.0/mingw81_64/include/QtCore/qjsonarray.h \
+		E:/QT/6.2.0/mingw81_64/include/QtCore/qjsonvalue.h \
+		E:/QT/6.2.0/mingw81_64/include/QtCore/qcborvalue.h \
+		E:/QT/6.2.0/mingw81_64/include/QtCore/qdatetime.h \
+		E:/QT/6.2.0/mingw81_64/include/QtCore/qcalendar.h \
+		E:/QT/6.2.0/mingw81_64/include/QtCore/qlocale.h \
+		E:/QT/6.2.0/mingw81_64/include/QtCore/qcborcommon.h \
+		E:/QT/6.2.0/mingw81_64/include/QtCore/qregularexpression.h \
+		E:/QT/6.2.0/mingw81_64/include/QtCore/quuid.h \
 		release/moc_predefs.h \
 		E:/QT/6.2.0/mingw81_64/bin/moc.exe
 	E:\QT\6.2.0\mingw81_64\bin\moc.exe $(DEFINES) --include "F:/KNUStuding/Year2/OOP/Git/Studing/Grade2(2021-2022)/OOP/Semester1/Lab2/build-Notes-Desktop_Qt_6_2_0_MinGW_64_bit-Debug/release/moc_predefs.h" -IE:/QT/6.2.0/mingw81_64/mkspecs/win32-g++ -I"F:/KNUStuding/Year2/OOP/Git/Studing/Grade2(2021-2022)/OOP/Semester1/Lab2/Notes" -IE:/QT/6.2.0/mingw81_64/include -IE:/QT/6.2.0/mingw81_64/include/QtWidgets -IE:/QT/6.2.0/mingw81_64/include/QtGui -IE:/QT/6.2.0/mingw81_64/include/QtCore -I. -IE:/QT/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++ -IE:/QT/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32 -IE:/QT/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward -IE:/QT/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include -IE:/QT/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed -IE:/QT/Tools/mingw810_64/x86_64-w64-mingw32/include ..\Notes\tagslist.h -o release\moc_tagslist.cpp
@@ -1251,7 +1292,7 @@ compiler_yacc_impl_make_all:
 compiler_yacc_impl_clean:
 compiler_lex_make_all:
 compiler_lex_clean:
-compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_uic_clean 
+compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_header_clean compiler_uic_clean 
 
 
 
@@ -1858,7 +1899,15 @@ release/main.o: ../Notes/main.cpp ../Notes/menuwindow.h \
 		E:/QT/6.2.0/mingw81_64/include/QtWidgets/qwizard.h \
 		E:/QT/6.2.0/mingw81_64/include/QtWidgets/qtwidgetsversion.h \
 		../Notes/tagslist.h \
-		E:/QT/6.2.0/mingw81_64/include/QtWidgets/QWidget \
+		E:/QT/6.2.0/mingw81_64/include/QtWidgets/QDialog \
+		E:/QT/6.2.0/mingw81_64/include/QtCore/QJsonArray \
+		E:/QT/6.2.0/mingw81_64/include/QtWidgets/QPushButton \
+		../Notes/jsonmanager.h \
+		E:/QT/6.2.0/mingw81_64/include/QtCore/QString \
+		E:/QT/6.2.0/mingw81_64/include/QtCore/QJsonDocument \
+		E:/QT/6.2.0/mingw81_64/include/QtCore/QFile \
+		E:/QT/6.2.0/mingw81_64/include/QtCore/QJsonObject \
+		E:/QT/6.2.0/mingw81_64/include/QtCore/QCoreApplication \
 		E:/QT/6.2.0/mingw81_64/include/QtWidgets/QApplication
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\main.o ..\Notes\main.cpp
 
@@ -2341,18 +2390,22 @@ release/mainwindow.o: ../Notes/mainwindow.cpp ../Notes/mainwindow.h \
 		E:/QT/6.2.0/mingw81_64/include/QtWidgets/qwidgetaction.h \
 		E:/QT/6.2.0/mingw81_64/include/QtWidgets/qwizard.h \
 		E:/QT/6.2.0/mingw81_64/include/QtWidgets/qtwidgetsversion.h \
-		ui_mainwindow.h \
-		E:/QT/6.2.0/mingw81_64/include/QtWidgets/QApplication \
-		E:/QT/6.2.0/mingw81_64/include/QtWidgets/QMenuBar \
-		E:/QT/6.2.0/mingw81_64/include/QtWidgets/QStatusBar \
-		E:/QT/6.2.0/mingw81_64/include/QtWidgets/QWidget \
+		../Notes/tagslist.h \
+		E:/QT/6.2.0/mingw81_64/include/QtWidgets/QDialog \
+		E:/QT/6.2.0/mingw81_64/include/QtCore/QJsonArray \
+		../Notes/menuwindow.h \
+		E:/QT/6.2.0/mingw81_64/include/QtWidgets/QPushButton \
 		../Notes/jsonmanager.h \
 		E:/QT/6.2.0/mingw81_64/include/QtCore/QString \
 		E:/QT/6.2.0/mingw81_64/include/QtCore/QJsonDocument \
 		E:/QT/6.2.0/mingw81_64/include/QtCore/QFile \
-		E:/QT/6.2.0/mingw81_64/include/QtCore/QJsonArray \
 		E:/QT/6.2.0/mingw81_64/include/QtCore/QJsonObject \
-		E:/QT/6.2.0/mingw81_64/include/QtCore/QCoreApplication
+		E:/QT/6.2.0/mingw81_64/include/QtCore/QCoreApplication \
+		ui_mainwindow.h \
+		E:/QT/6.2.0/mingw81_64/include/QtWidgets/QApplication \
+		E:/QT/6.2.0/mingw81_64/include/QtWidgets/QMenuBar \
+		E:/QT/6.2.0/mingw81_64/include/QtWidgets/QStatusBar \
+		E:/QT/6.2.0/mingw81_64/include/QtWidgets/QWidget
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\mainwindow.o ..\Notes\mainwindow.cpp
 
 release/menuwindow.o: ../Notes/menuwindow.cpp ../Notes/menuwindow.h \
@@ -2836,18 +2889,31 @@ release/menuwindow.o: ../Notes/menuwindow.cpp ../Notes/menuwindow.h \
 		E:/QT/6.2.0/mingw81_64/include/QtWidgets/qwizard.h \
 		E:/QT/6.2.0/mingw81_64/include/QtWidgets/qtwidgetsversion.h \
 		../Notes/tagslist.h \
-		E:/QT/6.2.0/mingw81_64/include/QtWidgets/QWidget \
+		E:/QT/6.2.0/mingw81_64/include/QtWidgets/QDialog \
+		E:/QT/6.2.0/mingw81_64/include/QtCore/QJsonArray \
+		E:/QT/6.2.0/mingw81_64/include/QtWidgets/QPushButton \
+		../Notes/jsonmanager.h \
+		E:/QT/6.2.0/mingw81_64/include/QtCore/QString \
+		E:/QT/6.2.0/mingw81_64/include/QtCore/QJsonDocument \
+		E:/QT/6.2.0/mingw81_64/include/QtCore/QFile \
+		E:/QT/6.2.0/mingw81_64/include/QtCore/QJsonObject \
+		E:/QT/6.2.0/mingw81_64/include/QtCore/QCoreApplication \
 		ui_menuwindow.h \
 		E:/QT/6.2.0/mingw81_64/include/QtWidgets/QApplication \
+		E:/QT/6.2.0/mingw81_64/include/QtWidgets/QFrame \
+		E:/QT/6.2.0/mingw81_64/include/QtWidgets/QGridLayout \
+		E:/QT/6.2.0/mingw81_64/include/QtWidgets/QHBoxLayout \
+		E:/QT/6.2.0/mingw81_64/include/QtWidgets/QLabel \
+		E:/QT/6.2.0/mingw81_64/include/QtWidgets/QLineEdit \
 		E:/QT/6.2.0/mingw81_64/include/QtWidgets/QMenuBar \
-		E:/QT/6.2.0/mingw81_64/include/QtWidgets/QPushButton \
+		E:/QT/6.2.0/mingw81_64/include/QtWidgets/QSpacerItem \
 		E:/QT/6.2.0/mingw81_64/include/QtWidgets/QStatusBar \
-		E:/QT/6.2.0/mingw81_64/include/QtWidgets/QVBoxLayout
+		E:/QT/6.2.0/mingw81_64/include/QtWidgets/QWidget
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\menuwindow.o ..\Notes\menuwindow.cpp
 
 release/tagslist.o: ../Notes/tagslist.cpp ../Notes/tagslist.h \
-		E:/QT/6.2.0/mingw81_64/include/QtWidgets/QWidget \
-		E:/QT/6.2.0/mingw81_64/include/QtWidgets/qwidget.h \
+		E:/QT/6.2.0/mingw81_64/include/QtWidgets/QDialog \
+		E:/QT/6.2.0/mingw81_64/include/QtWidgets/qdialog.h \
 		E:/QT/6.2.0/mingw81_64/include/QtWidgets/qtwidgetsglobal.h \
 		E:/QT/6.2.0/mingw81_64/include/QtGui/qtguiglobal.h \
 		E:/QT/6.2.0/mingw81_64/include/QtCore/qglobal.h \
@@ -2872,6 +2938,7 @@ release/tagslist.o: ../Notes/tagslist.cpp ../Notes/tagslist.h \
 		E:/QT/6.2.0/mingw81_64/include/QtCore/qversiontagging.h \
 		E:/QT/6.2.0/mingw81_64/include/QtGui/qtgui-config.h \
 		E:/QT/6.2.0/mingw81_64/include/QtWidgets/qtwidgets-config.h \
+		E:/QT/6.2.0/mingw81_64/include/QtWidgets/qwidget.h \
 		E:/QT/6.2.0/mingw81_64/include/QtGui/qwindowdefs.h \
 		E:/QT/6.2.0/mingw81_64/include/QtCore/qobjectdefs.h \
 		E:/QT/6.2.0/mingw81_64/include/QtCore/qnamespace.h \
@@ -2974,8 +3041,77 @@ release/tagslist.o: ../Notes/tagslist.cpp ../Notes/tagslist.h \
 		E:/QT/6.2.0/mingw81_64/include/QtGui/QTransform \
 		E:/QT/6.2.0/mingw81_64/include/QtCore/qnativeinterface.h \
 		E:/QT/6.2.0/mingw81_64/include/QtCore/qloggingcategory.h \
-		ui_tagslist.h
+		E:/QT/6.2.0/mingw81_64/include/QtCore/QJsonArray \
+		E:/QT/6.2.0/mingw81_64/include/QtCore/qjsonarray.h \
+		E:/QT/6.2.0/mingw81_64/include/QtCore/qjsonvalue.h \
+		E:/QT/6.2.0/mingw81_64/include/QtCore/qcborvalue.h \
+		E:/QT/6.2.0/mingw81_64/include/QtCore/qdatetime.h \
+		E:/QT/6.2.0/mingw81_64/include/QtCore/qcalendar.h \
+		E:/QT/6.2.0/mingw81_64/include/QtCore/qlocale.h \
+		E:/QT/6.2.0/mingw81_64/include/QtCore/qcborcommon.h \
+		E:/QT/6.2.0/mingw81_64/include/QtCore/qregularexpression.h \
+		E:/QT/6.2.0/mingw81_64/include/QtCore/quuid.h \
+		ui_tagslist.h \
+		E:/QT/6.2.0/mingw81_64/include/QtCore/QVariant \
+		E:/QT/6.2.0/mingw81_64/include/QtWidgets/QApplication \
+		E:/QT/6.2.0/mingw81_64/include/QtWidgets/qapplication.h \
+		E:/QT/6.2.0/mingw81_64/include/QtCore/qcoreapplication.h \
+		E:/QT/6.2.0/mingw81_64/include/QtCore/qeventloop.h \
+		E:/QT/6.2.0/mingw81_64/include/QtCore/qfuture.h \
+		E:/QT/6.2.0/mingw81_64/include/QtCore/qfutureinterface.h \
+		E:/QT/6.2.0/mingw81_64/include/QtCore/qmutex.h \
+		E:/QT/6.2.0/mingw81_64/include/QtCore/qresultstore.h \
+		E:/QT/6.2.0/mingw81_64/include/QtCore/qfuture_impl.h \
+		E:/QT/6.2.0/mingw81_64/include/QtCore/qthreadpool.h \
+		E:/QT/6.2.0/mingw81_64/include/QtCore/qthread.h \
+		E:/QT/6.2.0/mingw81_64/include/QtCore/qdeadlinetimer.h \
+		E:/QT/6.2.0/mingw81_64/include/QtCore/qelapsedtimer.h \
+		E:/QT/6.2.0/mingw81_64/include/QtCore/qrunnable.h \
+		E:/QT/6.2.0/mingw81_64/include/QtCore/qexception.h \
+		E:/QT/6.2.0/mingw81_64/include/QtCore/qapplicationpermission.h \
+		E:/QT/6.2.0/mingw81_64/include/QtCore/qcoreapplication_platform.h \
+		E:/QT/6.2.0/mingw81_64/include/QtGui/qguiapplication.h \
+		E:/QT/6.2.0/mingw81_64/include/QtGui/qinputmethod.h \
+		E:/QT/6.2.0/mingw81_64/include/QtGui/qguiapplication_platform.h \
+		E:/QT/6.2.0/mingw81_64/include/QtWidgets/QHBoxLayout \
+		E:/QT/6.2.0/mingw81_64/include/QtWidgets/qboxlayout.h \
+		E:/QT/6.2.0/mingw81_64/include/QtWidgets/qlayout.h \
+		E:/QT/6.2.0/mingw81_64/include/QtWidgets/qlayoutitem.h \
+		E:/QT/6.2.0/mingw81_64/include/QtWidgets/qgridlayout.h \
+		E:/QT/6.2.0/mingw81_64/include/QtWidgets/QLineEdit \
+		E:/QT/6.2.0/mingw81_64/include/QtWidgets/qlineedit.h \
+		E:/QT/6.2.0/mingw81_64/include/QtWidgets/qframe.h \
+		E:/QT/6.2.0/mingw81_64/include/QtGui/qtextcursor.h \
+		E:/QT/6.2.0/mingw81_64/include/QtGui/qtextformat.h \
+		E:/QT/6.2.0/mingw81_64/include/QtGui/qpen.h \
+		E:/QT/6.2.0/mingw81_64/include/QtGui/qtextoption.h \
+		E:/QT/6.2.0/mingw81_64/include/QtWidgets/QListWidget \
+		E:/QT/6.2.0/mingw81_64/include/QtWidgets/qlistwidget.h \
+		E:/QT/6.2.0/mingw81_64/include/QtWidgets/qlistview.h \
+		E:/QT/6.2.0/mingw81_64/include/QtWidgets/qabstractitemview.h \
+		E:/QT/6.2.0/mingw81_64/include/QtWidgets/qabstractscrollarea.h \
+		E:/QT/6.2.0/mingw81_64/include/QtCore/qabstractitemmodel.h \
+		E:/QT/6.2.0/mingw81_64/include/QtCore/qitemselectionmodel.h \
+		E:/QT/6.2.0/mingw81_64/include/QtWidgets/qabstractitemdelegate.h \
+		E:/QT/6.2.0/mingw81_64/include/QtWidgets/qstyleoption.h \
+		E:/QT/6.2.0/mingw81_64/include/QtWidgets/qabstractspinbox.h \
+		E:/QT/6.2.0/mingw81_64/include/QtGui/qvalidator.h \
+		E:/QT/6.2.0/mingw81_64/include/QtGui/qicon.h \
+		E:/QT/6.2.0/mingw81_64/include/QtWidgets/qslider.h \
+		E:/QT/6.2.0/mingw81_64/include/QtWidgets/qabstractslider.h \
+		E:/QT/6.2.0/mingw81_64/include/QtWidgets/qstyle.h \
+		E:/QT/6.2.0/mingw81_64/include/QtWidgets/qtabbar.h \
+		E:/QT/6.2.0/mingw81_64/include/QtWidgets/qtabwidget.h \
+		E:/QT/6.2.0/mingw81_64/include/QtWidgets/qrubberband.h \
+		E:/QT/6.2.0/mingw81_64/include/QtWidgets/QPushButton \
+		E:/QT/6.2.0/mingw81_64/include/QtWidgets/qpushbutton.h \
+		E:/QT/6.2.0/mingw81_64/include/QtWidgets/qabstractbutton.h \
+		E:/QT/6.2.0/mingw81_64/include/QtWidgets/QVBoxLayout \
+		E:/QT/6.2.0/mingw81_64/include/QtWidgets/QWidget
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\tagslist.o ..\Notes\tagslist.cpp
+
+release/qrc_resource.o: release/qrc_resource.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\qrc_resource.o release\qrc_resource.cpp
 
 release/moc_mainwindow.o: release/moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\moc_mainwindow.o release\moc_mainwindow.cpp
