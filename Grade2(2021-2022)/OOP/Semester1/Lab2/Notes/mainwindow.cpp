@@ -6,17 +6,17 @@
 MainWindow::MainWindow(QString noteName, QWidget *parent) :
     QMainWindow(parent),ui(new Ui::MainWindow) {
  ui->setupUi(this);
- //После этой строчки - наши действия!
- setActivenesAction = new QAction(tr("&Архив"), this);
+
+ setActivenesAction = new QAction(tr("&Archive"), this);
  connect(setActivenesAction, SIGNAL(triggered()), this, SLOT(setActivenes()));
- setTagsAction = new QAction(tr("&Теги"), this);
+ setTagsAction = new QAction(tr("&Tags"), this);
  connect(setTagsAction, SIGNAL(triggered()), this, SLOT(setTags()));
- backToMenuAction = new QAction(tr("&В меню"), this);
+ backToMenuAction = new QAction(tr("&Menu"), this);
  connect(backToMenuAction, SIGNAL(triggered()), this, SLOT(backToMenu()));
- deleteNoteAction = new QAction(tr("&Удалить"), this);
+ deleteNoteAction = new QAction(tr("&Delete"), this);
  connect(deleteNoteAction, SIGNAL(triggered()), this, SLOT(deleteAndExit()));
 
- fileMenu = this->menuBar()->addMenu(tr("&Файл"));
+ fileMenu = this->menuBar()->addMenu(tr("&File"));
  fileMenu->addAction(setActivenesAction);
  fileMenu->addAction(setTagsAction);
  fileMenu->addSeparator();
@@ -25,7 +25,7 @@ MainWindow::MainWindow(QString noteName, QWidget *parent) :
  fileMenu->addAction(deleteNoteAction);
  textEdit = new QTextEdit();
  setCentralWidget(textEdit);
- setWindowTitle(tr("Блокнотик"));
+ setWindowTitle(tr("Notes"));
  NoteName = noteName;
  JsonManager jsonManager;
  NoteData = jsonManager.ReadJson(jsonManager.fileName).object()[NoteName].toObject();
@@ -55,12 +55,12 @@ void MainWindow::open() {
 void MainWindow::setActivenes() {
      QString question;
      if(NoteData["isActive"].toBool()){
-         question="Добавить запись в архив?";
+         question="Add note to archive?";
      }else{
-         question="Убрать запись из архива?";
+         question="Remove note from archive?";
      }
 
-  QMessageBox::StandardButton reply = QMessageBox::question(this, "Архив", question, QMessageBox::Yes| QMessageBox::No );
+  QMessageBox::StandardButton reply = QMessageBox::question(this, "Archive", question, QMessageBox::Yes| QMessageBox::No );
   if(reply==QMessageBox::Yes){
     NoteData["isActive"]=!NoteData["isActive"].toBool();
   }
@@ -110,7 +110,7 @@ void MainWindow::setActivenes() {
      QString fileName = QCoreApplication::applicationDirPath()+"/"+NoteName+".txt";
      QFile file(fileName);
      if (!file.open(QIODevice::WriteOnly)) {
-      QMessageBox msgBox; msgBox.setText("Не могу записать файл"); msgBox.exec();
+      QMessageBox msgBox; msgBox.setText("Can't write file"); msgBox.exec();
      }
      else {
       QTextStream stream(&file);

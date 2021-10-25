@@ -35,3 +35,8 @@ DISTFILES +=
 
 RESOURCES += \
     resource.qrc
+
+win32 {
+        RC_FILE += file.rc
+        OTHER_FILES += file.rc
+}

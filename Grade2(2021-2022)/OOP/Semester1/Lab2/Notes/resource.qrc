@@ -2,5 +2,7 @@
     <qresource prefix="/img">
         <file>close.png</file>
         <file>searchicon.png</file>
+        <file>mainicon.png</file>
+        <file>mainicon.ico</file>
     </qresource>
 </RCC>

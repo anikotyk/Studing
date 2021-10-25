@@ -19,7 +19,7 @@ void TagsList::on_addbutton_clicked()
 {
     QLineEdit *tagdata =  ui->taginput;
     qDebug()<<tagdata->text();
-    if(!tagslist.contains(tagdata->text())){
+    if(tagdata->text()!="" && !tagslist.contains(tagdata->text())){
         tagslist.append(tagdata->text());
         AddTagsToWidget();
     }
@@ -38,6 +38,9 @@ void TagsList::AddTagsToWidget(){
 
 void TagsList::on_deletebutton_clicked()
 {
+    if(ui->tagListWidget->currentItem()==nullptr){
+        return;
+    }
     QString str =ui->tagListWidget->currentItem()->text();
     for(int i=0; i<tagslist.size(); i++){
         if(tagslist[i].toString()==str){

@@ -1,0 +1,81 @@
+{
+    "Note1": {
+        "Date": "25.10.2021 14:41:29",
+        "ShortText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore ...",
+        "Tags": [
+        ],
+        "isActive": true
+    },
+    "Note10": {
+        "Date": "25.10.2021 15:17:56",
+        "ShortText": "Mattis ullamcorper velit sed ullamcorper morbi tincidunt. Nunc sed velit dignissim sodales ut eu sem...",
+        "Tags": [
+            "School",
+            "Work"
+        ],
+        "isActive": true
+    },
+    "Note2": {
+        "Date": "25.10.2021 14:53:53",
+        "ShortText": "Id donec ultrices tincidunt arcu non sodales neque. Elementum eu facilisis sed odio morbi quis commo...",
+        "Tags": [
+            "September"
+        ],
+        "isActive": true
+    },
+    "Note3": {
+        "Date": "25.10.2021 14:44:03",
+        "ShortText": "Eget duis at tellus at. Commodo quis imperdiet massa tincidunt nunc pulvinar sapien et ligula. Ac ut...",
+        "Tags": [
+        ],
+        "isActive": false
+    },
+    "Note4": {
+        "Date": "25.10.2021 14:45:23",
+        "ShortText": "At consectetur lorem donec massa sapien faucibus. Neque ornare aenean euismod elementum nisi quis el...",
+        "Tags": [
+            "School",
+            "Work",
+            "September"
+        ],
+        "isActive": true
+    },
+    "Note5": {
+        "Date": "25.10.2021 14:42:22",
+        "ShortText": "Enim sed faucibus turpis in eu mi. Lobortis elementum nibh tellus molestie nunc. Sed tempus urna et ...",
+        "Tags": [
+        ],
+        "isActive": true
+    },
+    "Note6": {
+        "Date": "25.10.2021 14:42:44",
+        "ShortText": "Magna fermentum iaculis eu non diam phasellus vestibulum. Sapien pellentesque habitant morbi tristiq...",
+        "Tags": [
+        ],
+        "isActive": true
+    },
+    "Note7": {
+        "Date": "25.10.2021 14:42:52",
+        "ShortText": "Morbi tincidunt augue interdum velit euismod in pellentesque massa. Vestibulum mattis ullamcorper ve...",
+        "Tags": [
+        ],
+        "isActive": true
+    },
+    "Note8": {
+        "Date": "25.10.2021 14:46:09",
+        "ShortText": "Aliquet sagittis id consectetur purus ut faucibus pulvinar. Eget dolor morbi non arcu risus quis var...",
+        "Tags": [
+            "School",
+            "September"
+        ],
+        "isActive": false
+    },
+    "Note9": {
+        "Date": "25.10.2021 15:18:08",
+        "ShortText": "Vulputate mi sit amet mauris. Ipsum a arcu cursus vitae congue mauris rhoncus. Feugiat nibh sed pulv...",
+        "Tags": [
+            "School"
+        ],
+        "isActive": true
+    }
+}

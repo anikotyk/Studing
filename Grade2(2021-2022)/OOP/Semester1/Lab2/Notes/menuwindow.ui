@@ -391,6 +391,16 @@ QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {
 background-color: rgba(79, 115, 207, 1);
 color: rgba(255, 255, 255, 1);
 border: none;
+ }
+:hover{
+background-color: rgba(79, 115, 180, 1);
+color: rgba(255, 255, 255, 1);
+border: none;
+ }
+:pressed{
+background-color: rgba(79, 115, 207, 0.7);
+color: rgba(255, 255, 255, 1);
+border: none;
  }</string>
     </property>
     <property name="text">
@@ -415,6 +425,16 @@ border: none;
     <property name="styleSheet">
      <string notr="true">:active{
 background-color: rgba(79, 115, 207, 1);
+color: rgba(255, 255, 255, 1);
+border: none;
+ }
+:hover{
+background-color: rgba(79, 115, 180, 1);
+color: rgba(255, 255, 255, 1);
+border: none;
+ }
+:pressed{
+background-color: rgba(79, 115, 207, 0.7);
 color: rgba(255, 255, 255, 1);
 border: none;
  }</string>
@@ -468,6 +488,16 @@ border: none;
 border: none;
 background-color: rgba(79, 115, 207, 1);
 color: rgba(255, 255, 255, 1);
+ }
+:hover{
+background-color: rgba(79, 115, 180, 1);
+color: rgba(255, 255, 255, 1);
+border: none;
+ }
+:pressed{
+background-color: rgba(79, 115, 207, 0.7);
+color: rgba(255, 255, 255, 1);
+border: none;
  }</string>
      </property>
      <property name="text">

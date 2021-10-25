@@ -98,6 +98,16 @@ void MenuWindow::ShowAllNotes(QStringList notes){
                                "font-size:13px;"
                                "padding:5px 10px;"
                                "}"
+                               "QPushButton::hover{"
+                               "background-color: rgba(79, 115, 180, 1);"
+                               "color: rgba(255, 255, 255, 1);"
+                               "border: none;"
+                                "}"
+                               "QPushButton::pressed{"
+                               "background-color: rgba(79, 115, 207, 0.7);"
+                               "color: rgba(255, 255, 255, 1);"
+                               "border: none;"
+                                "}"
                     );
         QObject::connect(btnopen, &QPushButton::clicked, [this, note](){openNotes(note);});
         layout->addWidget(datelabel);
@@ -146,6 +156,16 @@ void MenuWindow::on_pushButton_3_clicked()
                        "font-size:15px;"
                        "padding:5px 20px;"
                        "}"
+                       "QPushButton::hover{"
+                       "background-color: rgba(79, 115, 180, 1);"
+                       "color: rgba(255, 255, 255, 1);"
+                       "border: none;"
+                        "}"
+                       "QPushButton::pressed{"
+                       "background-color: rgba(79, 115, 207, 0.7);"
+                       "color: rgba(255, 255, 255, 1);"
+                       "border: none;"
+                        "}"
                        );
     btn->setSizePolicy(QSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed));
     QObject::connect(btn, &QPushButton::clicked, [btn, this, newTag](){for(int i=0; i<searchtags.size(); i++){if(searchtags[i]==newTag){searchtags.remove(i);}}; ShowAllNotes(jsonManager.GetJsonKeysByTags(searchtags)); delete btn; });
