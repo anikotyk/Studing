@@ -31,14 +31,15 @@
    <string>Notes</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">
-	background-color: rgba(34, 30, 30, 1);
+   <string notr="true">background-color: rgba(34, 30, 30, 1);
+	
 
 </string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="styleSheet">
-    <string notr="true">QScrollBar:vertical {
+    <string notr="true">
+QScrollBar:vertical {
 	border: none;
     background: rgb(45, 45, 68);
     width: 14px;

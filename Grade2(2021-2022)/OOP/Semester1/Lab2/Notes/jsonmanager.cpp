@@ -4,6 +4,7 @@ JsonManager::JsonManager()
 {
     fileName = QCoreApplication::applicationDirPath()+"/data.json";
     data = ReadJson(fileName);
+
     notescount = data.object().size();
 }
 
@@ -60,48 +61,6 @@ QStringList JsonManager::GetJsonKeysByTags(QStringList tags){
     return res;
 }
 
-QStringList JsonManager::AddKeysLists(QList<QStringList> lists){
-
-    QStringList keys;
-    foreach(QStringList list, lists){
-        foreach(QString str, list){
-            keys.append(str);
-        }
-    }
-    return keys;
-}
-
-QStringList JsonManager::SubstractKeysLists(QList<QStringList> lists){
-    QStringList keys;
-
-    foreach(QString str, lists[0]){
-        bool flag=true;
-        foreach(QStringList list, lists){
-            if(!list.contains(str)){
-                flag=false;
-                break;
-            }
-        }
-        if(flag){
-            keys.append(str);
-        }
-    }
-
-    return keys;
-}
-
-QStringList JsonManager::GetKeysListOfActiveOrArchived(QStringList keys, bool isActive){
-    QJsonObject jsonObject = data.object();
-    QStringList res;
-
-    for(int i=0; i<jsonObject.size(); i++){
-       if(jsonObject[keys[i]].toObject()["isActive"].toBool()==isActive){
-           res.append(keys[i]);
-       }
-    }
-
-    return res;
-}
 
 void JsonManager::WriteJson(QString filepath, QJsonDocument data){
     if (filepath != "") {
@@ -115,10 +74,10 @@ void JsonManager::WriteJson(QString filepath, QJsonDocument data){
     }
 }
 
-QJsonObject JsonManager::CreateJsonObject(QString shorttext, QJsonArray jsonObjectTags, bool isActive){
+QJsonObject JsonManager::CreateJsonObject(QString shorttext, QJsonArray jsonObjectTags, bool isActive, QString date){
     QJsonObject jsonObject;
     jsonObject.insert("ShortText", shorttext);
-    jsonObject.insert("Date", QDateTime::currentDateTime().toString("dd.MM.yyyy HH:mm:ss"));
+    jsonObject.insert("Date",date );
     jsonObject.insert("isActive", isActive);
     jsonObject.insert("Tags", jsonObjectTags);
     return jsonObject;

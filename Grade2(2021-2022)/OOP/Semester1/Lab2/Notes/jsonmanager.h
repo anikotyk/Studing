@@ -11,20 +11,17 @@
 
 class JsonManager
 {
-public:
+private:
     int notescount;
+public:
     QString fileName;
     QJsonDocument data;
-public:
     JsonManager();
     QJsonDocument ReadJson(QString filepath);
     void WriteJson(QString filepath, QJsonDocument data);
-    QJsonObject CreateJsonObject(QString shorttext, QJsonArray jsonObjectTags, bool isActive);
+    QJsonObject CreateJsonObject(QString shorttext, QJsonArray jsonObjectTags, bool isActive, QString date);
     QStringList SortJsonKeysByDate(QStringList keys);
     QStringList GetJsonKeysByTags(QStringList tags);
-    QStringList AddKeysLists(QList<QStringList> lists);
-    QStringList SubstractKeysLists(QList<QStringList> lists);
-    QStringList GetKeysListOfActiveOrArchived(QStringList keys, bool isActive=true);
 };
 
 #endif // JSONMANAGER_H

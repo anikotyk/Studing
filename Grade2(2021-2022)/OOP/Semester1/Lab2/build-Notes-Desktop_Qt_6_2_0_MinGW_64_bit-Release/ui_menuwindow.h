@@ -63,13 +63,14 @@ public:
         QFont font;
         font.setPointSize(8);
         MenuWindow->setFont(font);
-        MenuWindow->setStyleSheet(QString::fromUtf8("\n"
-"	background-color: rgba(34, 30, 30, 1);\n"
+        MenuWindow->setStyleSheet(QString::fromUtf8("background-color: rgba(34, 30, 30, 1);\n"
+"	\n"
 "\n"
 ""));
         centralwidget = new QWidget(MenuWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
-        centralwidget->setStyleSheet(QString::fromUtf8("QScrollBar:vertical {\n"
+        centralwidget->setStyleSheet(QString::fromUtf8("\n"
+"QScrollBar:vertical {\n"
 "	border: none;\n"
 "    background: rgb(45, 45, 68);\n"
 "    width: 14px;\n"
@@ -107,8 +108,8 @@ public:
 "	background-color: rgba(79, 115, 207, 0.7);\n"
 "}\n"
 "\n"
-"/* BTN BOTTOM - SCR"
-                        "OLLBAR */\n"
+"/* BTN BOTTOM "
+                        "- SCROLLBAR */\n"
 "QScrollBar::add-line:vertical {\n"
 "	border: none;\n"
 "	background-color: rgb(59, 59, 90);\n"
@@ -146,8 +147,8 @@ public:
 "QScrollBar::handle:horizontal {	\n"
 "	background-color: rgb(80, 80, 122);\n"
 "	min-width: 30px;\n"
-"	border-radius: 7px;"
-                        "\n"
+"	border-radius:"
+                        " 7px;\n"
 "}\n"
 "QScrollBar::handle:horizontal:hover{	\n"
 "	background-color: rgba(79, 115, 207, 1);\n"
@@ -183,8 +184,8 @@ public:
 "	subcontrol-position: right;\n"
 "	subcontrol-origin: margin;\n"
 "}\n"
-"QScrollBar::add-line:horizontal:hove"
-                        "r {	\n"
+"QScrollBar::add-line:horizontal"
+                        ":hover {	\n"
 "	background-color: rgba(79, 115, 207, 1);\n"
 "}\n"
 "QScrollBar::add-line:horizontal:pressed {	\n"

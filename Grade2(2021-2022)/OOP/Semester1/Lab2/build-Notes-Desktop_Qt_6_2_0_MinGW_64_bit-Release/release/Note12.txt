@@ -1,3 +1,5 @@
+fdlkmfklsmdflskdmflskmdf
+
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "jsonmanager.h"
@@ -31,17 +33,16 @@ MainWindow::MainWindow(QString noteName, QWidget *parent) :
  NoteData = jsonManager.ReadJson(jsonManager.fileName).object()[NoteName].toObject();
  JsonObjectTags=NoteData["Tags"].toArray();
  isDeleted=false;
- menu=parent;
  if(noteName==""){
      NoteData["isActive"]=true;
  }else{
      open();
  }
-
 }
 
 MainWindow::~MainWindow() { delete ui; }
 
+//Ниже - наши методы класса
 void MainWindow::open() {
  QString fileName =QCoreApplication::applicationDirPath()+"/"+NoteName+".txt";
  QFile file(fileName);
@@ -82,7 +83,6 @@ void MainWindow::setActivenes() {
 
  void MainWindow::saveFunc(){
 
-
      QString textEditData = textEdit->toPlainText();
      if(textEditData==""){
          if(NoteName!=""){
@@ -91,32 +91,26 @@ void MainWindow::setActivenes() {
          return;
      }
 
-     bool flagChangeData=true;
      JsonManager jsonManager = JsonManager();
      QJsonObject recordsObject = jsonManager.data.object();
 
 
-     if(NoteName==""){
-         int lastnumber=0;
-         for(int i=0; i<jsonManager.data.object().size(); i++){
-             qDebug()<<(jsonManager.data.object().keys()[i]).mid(4);
-             int number = (jsonManager.data.object().keys()[i]).mid(4).toInt();
-             if(number>lastnumber){
-                 lastnumber=number;
-             }
-         }
-         NoteName="Note"+QString::number(lastnumber+1);
+     int stringsize=textEditData.size();
+     QString afterstring="";
+     if(stringsize>100){
+       afterstring="...";
+       stringsize=100;
      }
+     if(NoteName==""){
+         NoteName="Note"+QString::number(jsonManager.notescount+1);
+     }
+
+     recordsObject.insert(NoteName, jsonManager.CreateJsonObject(textEditData.mid(0,stringsize)+afterstring, JsonObjectTags, NoteData["isActive"].toBool()));
+     jsonManager.data = QJsonDocument(recordsObject);
+     jsonManager.WriteJson(jsonManager.fileName, jsonManager.data);
 
      QString fileName = QCoreApplication::applicationDirPath()+"/"+NoteName+".txt";
      QFile file(fileName);
-     if (file.open(QIODevice::ReadOnly)) {
-         QTextStream in(&file);
-         if(in.readAll()!=textEditData){
-             flagChangeData=false;
-         }
-         file.close();
-     }
      if (!file.open(QIODevice::WriteOnly)) {
       QMessageBox msgBox; msgBox.setText("Can't write file"); msgBox.exec();
      }
@@ -126,37 +120,14 @@ void MainWindow::setActivenes() {
       stream.flush();
       file.close();
      }
-
-     if(JsonObjectTags!=JsonObjectTagsCopy){
-         flagChangeData=true;
-     }
-
-     int stringsize=textEditData.size();
-     QString afterstring="";
-     if(stringsize>100){
-       afterstring="...";
-       stringsize=100;
-     }
-     QString date;
-     if(flagChangeData){
-         date= QDateTime::currentDateTime().toString("dd.MM.yyyy HH:mm:ss");
-     }else{
-         date = NoteData["Date"].toString();
-     }
-
-     recordsObject.insert(NoteName, jsonManager.CreateJsonObject(textEditData.mid(0,stringsize)+afterstring, JsonObjectTags, NoteData["isActive"].toBool(), date));
-     jsonManager.data = QJsonDocument(recordsObject);
-     jsonManager.WriteJson(jsonManager.fileName, jsonManager.data);
-
-
  }
  void MainWindow::closeEvent (QCloseEvent *event)
  {
      event->ignore();
      if(!isDeleted){
-             saveFunc();
-          }
-          event->accept();
+        saveFunc();
+     }
+     event->accept();
  }
 
  void MainWindow::backToMenu()
@@ -166,9 +137,7 @@ void MainWindow::setActivenes() {
      }
      MenuWindow *w = new class MenuWindow();
      w->show();
-     //menu->show();
-     //emit updateView();
-     //menu->ShowAllNotes(menu->jsonManager.GetJsonKeysByTags(menu->searchtags));
+
      this->close();
  }
 

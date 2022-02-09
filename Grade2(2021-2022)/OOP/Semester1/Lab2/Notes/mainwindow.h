@@ -12,15 +12,17 @@ class MainWindow : public QMainWindow {
  Q_OBJECT
 
 public:
+    QWidget *menu;
     QString NoteName;
     bool isDeleted;
     QJsonArray JsonObjectTags;
+    QJsonArray JsonObjectTagsCopy;
     QJsonObject NoteData;
 public:
  explicit MainWindow(QString noteName="", QWidget *parent = 0);
  ~MainWindow();
 private slots:
- void open(); //метод для открытия файла
+ void open();
  void setActivenes();
  void setTags();
  void setTagsList(QJsonArray list);
@@ -29,14 +31,16 @@ private slots:
  void backToMenu();
  void deleteNote();
  void deleteAndExit();
+signals:
+    void updateView();
 private:
  Ui::MainWindow *ui;
- QTextEdit *textEdit; //указатель на поле ввода текста
- QAction *setActivenesAction; //и "Выйти"
- QAction *setTagsAction; //и "Выйти"
- QAction *backToMenuAction; //и "Выйти"
+ QTextEdit *textEdit;
+ QAction *setActivenesAction;
+ QAction *setTagsAction;
+ QAction *backToMenuAction;
  QAction *deleteNoteAction;
- QMenu *fileMenu; //Указатель на меню
+ QMenu *fileMenu;
 
 };
 

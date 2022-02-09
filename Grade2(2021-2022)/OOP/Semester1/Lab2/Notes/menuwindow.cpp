@@ -9,8 +9,8 @@ MenuWindow::MenuWindow(QWidget *parent) :
     jsonManager = JsonManager();
     isActiveNotes=true;
     ui->setupUi(this);
-    ShowAllNotes(jsonManager.SortJsonKeysByDate(jsonManager.data.object().keys()));
-}
+    ShowAllNotes(jsonManager.data.object().keys());
+    }
 
 MenuWindow::~MenuWindow()
 {
@@ -27,6 +27,11 @@ void MenuWindow::on_pushButton_clicked()
 
 void MenuWindow::openNotes(QString noteName)
 {
+    /*MainWindow *w = new class MainWindow(noteName, this);
+    w->show();
+    this->setVisible(false);
+    connect(w, SIGNAL(updateView()), this, SLOT(ShowAllNotes(jsonManager.GetJsonKeysByTags(searchtags))));
+*/
     MainWindow *w = new class MainWindow(noteName);
     w->show();
     this->close();
@@ -34,7 +39,6 @@ void MenuWindow::openNotes(QString noteName)
 
 #include <QAction>
 void MenuWindow::ShowAllNotes(QStringList notes){
-
     notes = jsonManager.SortJsonKeysByDate(notes);
     QLayoutItem *item;
         while((item = ui->gridLayout->takeAt(0))) {
@@ -48,8 +52,10 @@ void MenuWindow::ShowAllNotes(QStringList notes){
     QJsonObject recordsObject = jsonManager.data.object();
 
 
+
+
     foreach(QString note, notes){
-      QPushButton *btn = new QPushButton();
+
         if(recordsObject[note].toObject()["isActive"].toBool()!=isActiveNotes){
             continue;
         }
