@@ -17,8 +17,8 @@ MainWindow::MainWindow(QString noteName, QWidget *parent) :
  connect(deleteNoteAction, SIGNAL(triggered()), this, SLOT(deleteAndExit()));
 
  fileMenu = this->menuBar()->addMenu(tr("&File"));
- fileMenu->addAction(setActivenesAction);
- fileMenu->addAction(setTagsAction);
+ //fileMenu->addAction(setActivenesAction);
+ //fileMenu->addAction(setTagsAction);
  fileMenu->addSeparator();
  fileMenu->addAction(backToMenuAction);
  fileMenu->addSeparator();
@@ -68,11 +68,11 @@ void MainWindow::setActivenes() {
  }
 
  void MainWindow::setTags() {
-     TagsList *tagslist = new class TagsList(JsonObjectTags);
+     //TagsList *tagslist = new class TagsList(JsonObjectTags);
 
-     tagslist->setModal(true);
-     tagslist->show();
-     connect(tagslist, SIGNAL(sendTagsList(QJsonArray)), this, SLOT(setTagsList(QJsonArray)));
+     //tagslist->setModal(true);
+    // tagslist->show();
+     //connect(tagslist, SIGNAL(sendTagsList(QJsonArray)), this, SLOT(setTagsList(QJsonArray)));
  }
 
  void MainWindow::setTagsList(QJsonArray list)

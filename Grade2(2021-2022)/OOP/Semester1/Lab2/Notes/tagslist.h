@@ -12,7 +12,7 @@ class TagsList : public QDialog
     Q_OBJECT
 
 public:  
-    explicit TagsList(QJsonArray tagsliststart = QJsonArray(), QWidget *parent = nullptr);
+    explicit TagsList(QJsonArray tagsliststart = QJsonArray(), QString noteName="", QWidget *parent = nullptr);
     ~TagsList();
 private slots:
     void on_addbutton_clicked();
@@ -21,10 +21,11 @@ private slots:
     void on_pushButton_clicked();
     void closeEvent(QCloseEvent *);
 signals:
-    void sendTagsList(QJsonArray list);
+    void sendTagsList(QJsonArray list, QString NoteName);
 private:
     Ui::TagsList *ui;
     QJsonArray tagslist;
+    QString NoteName;
 };
 
 #endif // TAGSLIST_H

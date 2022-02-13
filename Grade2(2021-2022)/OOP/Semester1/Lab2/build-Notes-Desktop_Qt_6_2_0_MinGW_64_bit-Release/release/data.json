@@ -38,7 +38,7 @@
         "isActive": true
     },
     "Note14": {
-        "Date": "13.02.2022 16:46:54",
+        "Date": "13.02.2022 23:34:44",
         "ShortText": "zs",
         "Tags": [
             "School"
@@ -104,8 +104,9 @@
         "Date": "13.02.2022 16:22:13",
         "ShortText": "Vulputate mi sit amet mauris. Ipsum a arcu cursus vitae congue mauris rhoncus. Feugiat nibh sed pulv...",
         "Tags": [
-            "School"
+            "School",
+            "Work"
         ],
-        "isActive": true
+        "isActive": false
     }
 }

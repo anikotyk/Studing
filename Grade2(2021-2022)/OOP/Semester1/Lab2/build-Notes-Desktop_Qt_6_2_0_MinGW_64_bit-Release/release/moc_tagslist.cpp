@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_TagsList_t {
-    const uint offsetsAndSize[20];
-    char stringdata0[135];
+    const uint offsetsAndSize[22];
+    char stringdata0[144];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(offsetof(qt_meta_stringdata_TagsList_t, stringdata0) + ofs), len 
@@ -33,15 +33,16 @@ QT_MOC_LITERAL(0, 8), // "TagsList"
 QT_MOC_LITERAL(9, 12), // "sendTagsList"
 QT_MOC_LITERAL(22, 0), // ""
 QT_MOC_LITERAL(23, 4), // "list"
-QT_MOC_LITERAL(28, 20), // "on_addbutton_clicked"
-QT_MOC_LITERAL(49, 15), // "AddTagsToWidget"
-QT_MOC_LITERAL(65, 23), // "on_deletebutton_clicked"
-QT_MOC_LITERAL(89, 21), // "on_pushButton_clicked"
-QT_MOC_LITERAL(111, 10), // "closeEvent"
-QT_MOC_LITERAL(122, 12) // "QCloseEvent*"
+QT_MOC_LITERAL(28, 8), // "NoteName"
+QT_MOC_LITERAL(37, 20), // "on_addbutton_clicked"
+QT_MOC_LITERAL(58, 15), // "AddTagsToWidget"
+QT_MOC_LITERAL(74, 23), // "on_deletebutton_clicked"
+QT_MOC_LITERAL(98, 21), // "on_pushButton_clicked"
+QT_MOC_LITERAL(120, 10), // "closeEvent"
+QT_MOC_LITERAL(131, 12) // "QCloseEvent*"
 
     },
-    "TagsList\0sendTagsList\0\0list\0"
+    "TagsList\0sendTagsList\0\0list\0NoteName\0"
     "on_addbutton_clicked\0AddTagsToWidget\0"
     "on_deletebutton_clicked\0on_pushButton_clicked\0"
     "closeEvent\0QCloseEvent*"
@@ -62,24 +63,24 @@ static const uint qt_meta_data_TagsList[] = {
        1,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    1,   50,    2, 0x06,    1 /* Public */,
+       1,    2,   50,    2, 0x06,    1 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       4,    0,   53,    2, 0x08,    3 /* Private */,
-       5,    0,   54,    2, 0x08,    4 /* Private */,
-       6,    0,   55,    2, 0x08,    5 /* Private */,
-       7,    0,   56,    2, 0x08,    6 /* Private */,
-       8,    1,   57,    2, 0x08,    7 /* Private */,
+       5,    0,   55,    2, 0x08,    4 /* Private */,
+       6,    0,   56,    2, 0x08,    5 /* Private */,
+       7,    0,   57,    2, 0x08,    6 /* Private */,
+       8,    0,   58,    2, 0x08,    7 /* Private */,
+       9,    1,   59,    2, 0x08,    8 /* Private */,
 
  // signals: parameters
-    QMetaType::Void, QMetaType::QJsonArray,    3,
+    QMetaType::Void, QMetaType::QJsonArray, QMetaType::QString,    3,    4,
 
  // slots: parameters
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, 0x80000000 | 9,    2,
+    QMetaType::Void, 0x80000000 | 10,    2,
 
        0        // eod
 };
@@ -90,7 +91,7 @@ void TagsList::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
         auto *_t = static_cast<TagsList *>(_o);
         (void)_t;
         switch (_id) {
-        case 0: _t->sendTagsList((*reinterpret_cast< QJsonArray(*)>(_a[1]))); break;
+        case 0: _t->sendTagsList((*reinterpret_cast< QJsonArray(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2]))); break;
         case 1: _t->on_addbutton_clicked(); break;
         case 2: _t->AddTagsToWidget(); break;
         case 3: _t->on_deletebutton_clicked(); break;
@@ -101,7 +102,7 @@ void TagsList::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
     } else if (_c == QMetaObject::IndexOfMethod) {
         int *result = reinterpret_cast<int *>(_a[0]);
         {
-            using _t = void (TagsList::*)(QJsonArray );
+            using _t = void (TagsList::*)(QJsonArray , QString );
             if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&TagsList::sendTagsList)) {
                 *result = 0;
                 return;
@@ -117,7 +118,7 @@ const QMetaObject TagsList::staticMetaObject = { {
     qt_static_metacall,
     nullptr,
 qt_incomplete_metaTypeArray<qt_meta_stringdata_TagsList_t
-, QtPrivate::TypeAndForceComplete<TagsList, std::true_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QJsonArray, std::false_type>
+, QtPrivate::TypeAndForceComplete<TagsList, std::true_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QJsonArray, std::false_type>, QtPrivate::TypeAndForceComplete<QString, std::false_type>
 , QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QCloseEvent *, std::false_type>
 
 
@@ -157,9 +158,9 @@ int TagsList::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 }
 
 // SIGNAL 0
-void TagsList::sendTagsList(QJsonArray _t1)
+void TagsList::sendTagsList(QJsonArray _t1, QString _t2)
 {
-    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t2))) };
     QMetaObject::activate(this, &staticMetaObject, 0, _a);
 }
 QT_WARNING_POP

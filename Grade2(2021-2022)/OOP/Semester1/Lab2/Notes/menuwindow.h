@@ -30,6 +30,10 @@ public slots:
 private slots:
     void on_pushButton_3_clicked();
     void on_archiveButton_clicked();
+    void archive(QString note);
+    void showTagsWindow(QString note);
+    void setTagsList(QJsonArray list, QString note);
+
 };
 
 #endif // MENUWINDOW_H

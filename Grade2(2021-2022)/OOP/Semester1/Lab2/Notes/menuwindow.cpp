@@ -116,13 +116,90 @@ void MenuWindow::ShowAllNotes(QStringList notes){
                                 "}"
                     );
         QObject::connect(btnopen, &QPushButton::clicked, [this, note](){openNotes(note);});
-        layout->addWidget(datelabel);
+
+        QPushButton *btnarchive =new QPushButton();
+        btnarchive->setSizePolicy(QSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed));
+        if(isActiveNotes){
+            btnarchive->setText("Archive");
+        }else{
+            btnarchive->setText("Unarchive");
+        }
+
+        btnarchive->setStyleSheet("QPushButton {background-color: rgba(41, 41, 41, 1);"
+                               "border: none;"
+                               "color: rgba(255, 255, 255, 1);"
+                               "font-family: Proxima Nove;"
+                               "font-size:13px;"
+                               "padding:3px 10px;"
+                               "}"
+                               "QPushButton::hover{"
+                               "background-color: rgba(20,20,20, 1);"
+                               "color: rgba(255, 255, 255, 1);"
+                               "border: none;"
+                                "}"
+                               "QPushButton::pressed{"
+                               "background-color: rgba(70,70,70, 1);"
+                               "color: rgba(255, 255, 255, 1);"
+                               "border: none;"
+
+                                "}"
+                    );
+        QObject::connect(btnarchive, &QPushButton::clicked, [this, note](){archive(note);});
+
+        QPushButton *btntags =new QPushButton();
+        btntags->setSizePolicy(QSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed));
+        btntags->setText("Tags");
+        btntags->setStyleSheet("QPushButton {background-color: rgba(41, 41, 41, 1);"
+                               "border: none;"
+                               "color: rgba(255, 255, 255, 1);"
+                               "font-family: Proxima Nove;"
+                               "font-size:13px;"
+                               "padding:3px 10px;"
+                               "}"
+                               "QPushButton::hover{"
+                               "background-color: rgba(20,20,20, 1);"
+                               "color: rgba(255, 255, 255, 1);"
+                               "border: none;"
+                                "}"
+                               "QPushButton::pressed{"
+                               "background-color: rgba(70, 70, 70, 1);"
+                               "color: rgba(255, 255, 255, 1);"
+                               "border: none;"
+                                "}"
+                    );
+        QObject::connect(btntags, &QPushButton::clicked, [this, note](){showTagsWindow(note);});
+
+
+        QWidget *horizontalGroupBox = new QWidget();
+        horizontalGroupBox->setStyleSheet("QWidget {background-color: rgba(104, 93, 93, 1);"
+                                 "}");
+        QHBoxLayout *layout2 = new QHBoxLayout;
+        //horizontalGroupBox->setFlat(true);
+
+
+                layout2->addWidget(btnarchive);
+                layout2->addWidget(btntags);
+                layout2->setAlignment(btntags, Qt::AlignTop);
+                        layout2->setAlignment(btntags, Qt::AlignRight);
+                        layout2->setAlignment(btnarchive, Qt::AlignTop);
+                        layout2->setAlignment(btnarchive, Qt::AlignLeft);
+
+            horizontalGroupBox->setLayout(layout2);
+
+        //layout->addWidget(btnarchive);
+            layout->addWidget(horizontalGroupBox);
+       layout->addWidget(datelabel);
+
         layout->addWidget(shorttextnote);
         layout->addWidget(btnopen);
+
         layout->setAlignment(shorttextnote, Qt::AlignVCenter);
         layout->setAlignment(shorttextnote, Qt::AlignLeft);
         layout->setAlignment(datelabel, Qt::AlignTop);
         layout->setAlignment(datelabel, Qt::AlignRight);
+        //layout->setAlignment(btnarchive, Qt::AlignTop);
+        //layout->setAlignment(btnarchive, Qt::AlignLeft);
+
         layout->setAlignment(btnopen, Qt::AlignHCenter);
 
         ui->gridLayout->addWidget(framenote, row, column);
@@ -137,6 +214,38 @@ void MenuWindow::ShowAllNotes(QStringList notes){
 
 }
 
+void MenuWindow::archive(QString note){
+    QJsonObject noteData = jsonManager.data.object()[note].toObject();
+    noteData["isActive"]=!noteData["isActive"].toBool();
+    QJsonObject recordsObject = jsonManager.data.object();
+
+    recordsObject.insert(note, jsonManager.CreateJsonObject(noteData["ShortText"].toString(), noteData["Tags"].toArray(), noteData["isActive"].toBool(), noteData["Date"].toString()));
+    jsonManager.data = QJsonDocument(recordsObject);
+    jsonManager.WriteJson(jsonManager.fileName, jsonManager.data);
+
+    ShowAllNotes(jsonManager.GetJsonKeysByTags(searchtags));
+}
+
+void MenuWindow::showTagsWindow(QString note){
+    TagsList *tagslist = new class TagsList(jsonManager.data.object()[note].toObject()["Tags"].toArray(), note);
+
+    tagslist->setModal(true);
+    tagslist->show();
+    connect(tagslist, SIGNAL(sendTagsList(QJsonArray, QString)), this, SLOT(setTagsList(QJsonArray, QString)));
+}
+
+void MenuWindow::setTagsList(QJsonArray list, QString note)
+{
+    QJsonObject noteData = jsonManager.data.object()[note].toObject();
+    noteData["Tags"]=list;
+    QJsonObject recordsObject = jsonManager.data.object();
+
+    recordsObject.insert(note, jsonManager.CreateJsonObject(noteData["ShortText"].toString(), noteData["Tags"].toArray(), noteData["isActive"].toBool(), noteData["Date"].toString()));
+    jsonManager.data = QJsonDocument(recordsObject);
+    jsonManager.WriteJson(jsonManager.fileName, jsonManager.data);
+
+    ShowAllNotes(jsonManager.GetJsonKeysByTags(searchtags));
+}
 
 void MenuWindow::on_pushButton_3_clicked()
 {

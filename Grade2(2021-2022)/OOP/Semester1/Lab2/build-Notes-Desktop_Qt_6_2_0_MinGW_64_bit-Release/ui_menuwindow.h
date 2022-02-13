@@ -218,33 +218,27 @@ public:
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
         palette.setBrush(QPalette::Active, QPalette::PlaceholderText, brush2);
 #endif
-        QBrush brush3(QColor(0, 0, 0, 255));
-        brush3.setStyle(Qt::SolidPattern);
-        palette.setBrush(QPalette::Inactive, QPalette::WindowText, brush3);
-        QBrush brush4(QColor(34, 30, 30, 255));
-        brush4.setStyle(Qt::SolidPattern);
-        palette.setBrush(QPalette::Inactive, QPalette::Button, brush4);
-        palette.setBrush(QPalette::Inactive, QPalette::Text, brush3);
-        palette.setBrush(QPalette::Inactive, QPalette::ButtonText, brush3);
-        palette.setBrush(QPalette::Inactive, QPalette::Base, brush4);
-        palette.setBrush(QPalette::Inactive, QPalette::Window, brush4);
-        QBrush brush5(QColor(0, 0, 0, 128));
-        brush5.setStyle(Qt::NoBrush);
+        palette.setBrush(QPalette::Inactive, QPalette::WindowText, brush);
+        palette.setBrush(QPalette::Inactive, QPalette::Button, brush1);
+        palette.setBrush(QPalette::Inactive, QPalette::Text, brush);
+        palette.setBrush(QPalette::Inactive, QPalette::ButtonText, brush);
+        palette.setBrush(QPalette::Inactive, QPalette::Base, brush1);
+        palette.setBrush(QPalette::Inactive, QPalette::Window, brush1);
+        QBrush brush3(QColor(255, 255, 255, 128));
+        brush3.setStyle(Qt::NoBrush);
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette.setBrush(QPalette::Inactive, QPalette::PlaceholderText, brush5);
+        palette.setBrush(QPalette::Inactive, QPalette::PlaceholderText, brush3);
 #endif
-        QBrush brush6(QColor(120, 120, 120, 255));
-        brush6.setStyle(Qt::SolidPattern);
-        palette.setBrush(QPalette::Disabled, QPalette::WindowText, brush6);
-        palette.setBrush(QPalette::Disabled, QPalette::Button, brush4);
-        palette.setBrush(QPalette::Disabled, QPalette::Text, brush6);
-        palette.setBrush(QPalette::Disabled, QPalette::ButtonText, brush6);
-        palette.setBrush(QPalette::Disabled, QPalette::Base, brush4);
-        palette.setBrush(QPalette::Disabled, QPalette::Window, brush4);
-        QBrush brush7(QColor(0, 0, 0, 128));
-        brush7.setStyle(Qt::NoBrush);
+        palette.setBrush(QPalette::Disabled, QPalette::WindowText, brush);
+        palette.setBrush(QPalette::Disabled, QPalette::Button, brush1);
+        palette.setBrush(QPalette::Disabled, QPalette::Text, brush);
+        palette.setBrush(QPalette::Disabled, QPalette::ButtonText, brush);
+        palette.setBrush(QPalette::Disabled, QPalette::Base, brush1);
+        palette.setBrush(QPalette::Disabled, QPalette::Window, brush1);
+        QBrush brush4(QColor(255, 255, 255, 128));
+        brush4.setStyle(Qt::NoBrush);
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette.setBrush(QPalette::Disabled, QPalette::PlaceholderText, brush7);
+        palette.setBrush(QPalette::Disabled, QPalette::PlaceholderText, brush4);
 #endif
         pushButton->setPalette(palette);
         QFont font1;
@@ -255,7 +249,7 @@ public:
         font1.setStrikeOut(false);
         pushButton->setFont(font1);
         pushButton->setLayoutDirection(Qt::LeftToRight);
-        pushButton->setStyleSheet(QString::fromUtf8(":active{\n"
+        pushButton->setStyleSheet(QString::fromUtf8("QPushButton{\n"
 "background-color: rgba(79, 115, 207, 1);\n"
 "color: rgba(255, 255, 255, 1);\n"
 "border: none;\n"
@@ -277,7 +271,7 @@ public:
         font2.setFamilies({QString::fromUtf8("Proxima Nova")});
         font2.setPointSize(15);
         archiveButton->setFont(font2);
-        archiveButton->setStyleSheet(QString::fromUtf8(":active{\n"
+        archiveButton->setStyleSheet(QString::fromUtf8("QPushButton{\n"
 "background-color: rgba(79, 115, 207, 1);\n"
 "color: rgba(255, 255, 255, 1);\n"
 "border: none;\n"
@@ -308,7 +302,7 @@ public:
         sizePolicy.setHeightForWidth(pushButton_3->sizePolicy().hasHeightForWidth());
         pushButton_3->setSizePolicy(sizePolicy);
         pushButton_3->setFont(font2);
-        pushButton_3->setStyleSheet(QString::fromUtf8(":active{\n"
+        pushButton_3->setStyleSheet(QString::fromUtf8("QPushButton{\n"
 "border: none;\n"
 "background-color: rgba(79, 115, 207, 1);\n"
 "color: rgba(255, 255, 255, 1);\n"

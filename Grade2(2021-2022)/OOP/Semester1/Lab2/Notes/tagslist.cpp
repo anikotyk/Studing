@@ -1,11 +1,12 @@
 #include "tagslist.h"
 #include "ui_tagslist.h"
 
-TagsList::TagsList(QJsonArray tagsliststart, QWidget *parent) :
+TagsList::TagsList(QJsonArray tagsliststart, QString noteName, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::TagsList)
 {
     ui->setupUi(this);
+    NoteName=noteName;
     tagslist=tagsliststart;
     AddTagsToWidget();
 }
@@ -53,13 +54,13 @@ void TagsList::on_deletebutton_clicked()
 
 void TagsList::closeEvent(QCloseEvent *)
 {
-    emit sendTagsList(tagslist);
+    emit sendTagsList(tagslist, NoteName);
     qDebug()<<"Added new tags";
     this->close();
 }
 
 void TagsList::on_pushButton_clicked()
 {
-    emit sendTagsList(tagslist);
+    emit sendTagsList(tagslist, NoteName);
     this->close();
 }
