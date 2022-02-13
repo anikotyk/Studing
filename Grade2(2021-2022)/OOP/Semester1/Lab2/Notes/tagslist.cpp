@@ -18,9 +18,9 @@ TagsList::~TagsList()
 void TagsList::on_addbutton_clicked()
 {
     QLineEdit *tagdata =  ui->taginput;
-    qDebug()<<tagdata->text();
-    if(tagdata->text()!="" && !tagslist.contains(tagdata->text())){
-        tagslist.append(tagdata->text());
+    qDebug()<<tagdata->text().simplified();
+    if(tagdata->text().simplified()!="" && !tagslist.contains(tagdata->text().simplified())){
+        tagslist.append(tagdata->text().simplified());
         AddTagsToWidget();
     }
     tagdata->clear();
@@ -31,8 +31,8 @@ void TagsList::AddTagsToWidget(){
     qDebug()<<"Now the list is\n";
     foreach(QJsonValue tag, tagslist){
       //  QListWidgetItem *it = new QListWidgetItem(tag);
-        qDebug()<<tag.toString()<<"\n";
-        ui->tagListWidget->addItem(tag.toString());
+        qDebug()<<tag.toString().simplified()<<"\n";
+        ui->tagListWidget->addItem(tag.toString().simplified());
     }
 }
 

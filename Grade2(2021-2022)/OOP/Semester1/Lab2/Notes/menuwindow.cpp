@@ -141,7 +141,9 @@ void MenuWindow::ShowAllNotes(QStringList notes){
 void MenuWindow::on_pushButton_3_clicked()
 {
     QString newTag=ui->taginputfield->text();
+    newTag = newTag.simplified();
     if(newTag=="" || searchtags.contains(newTag)){
+        ui->taginputfield->clear();
         return;
     }
     searchtags.append(newTag);

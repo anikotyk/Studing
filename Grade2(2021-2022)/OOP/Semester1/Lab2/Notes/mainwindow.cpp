@@ -84,6 +84,7 @@ void MainWindow::setActivenes() {
 
 
      QString textEditData = textEdit->toPlainText();
+     textEditData=textEditData.simplified();
      if(textEditData==""){
          if(NoteName!=""){
             deleteNote();
