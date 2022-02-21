@@ -8,6 +8,6 @@
 - Покращен інтерфейс программи для більш зрозумілого управління тегами та архівацією нотаток
 
 UML:
-- Для створення UseCase діаграми використано https://online.visual-paradigm.com/
+- Для створення UseCase та Activity діаграм використано https://online.visual-paradigm.com/
 - Для автоматичного сторення Class діаграми із коду використано Software Ideas Modeler
 - ClassDiagram2 та UseCaseDiagram2 це діаграми зроблені після покращення программи.
