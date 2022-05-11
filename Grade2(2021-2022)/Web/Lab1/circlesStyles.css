@@ -1,0 +1,89 @@
+.circle1{
+	border-radius: 50%;
+	width: 200px;
+	height: 200px;
+	background-color: rgba(250, 133, 150, 0.5);
+	position: absolute;
+	top:-50px;
+	right:3px;
+}
+
+.circle2{
+	border-radius: 50%;
+	width: 100px;
+	height: 100px;
+	background-color: rgba(221, 131, 49, 0.5);
+	position: absolute;
+	bottom:0px;
+	right:0px;
+}
+
+.circle3{
+	border-radius: 50%;
+	width: 200px;
+	height: 200px;
+	background-color: rgba(130, 188, 199, 0.5);
+	position: absolute;
+	bottom:-20px;
+	left:0px;
+}
+
+.circle4{
+	border-radius: 50%;
+	width: 150px;
+	height: 150px;
+	background-color:rgba(130, 188, 199, 0.5);
+	position: absolute;
+	top:30px;
+	right:180px;
+}
+
+.circle5{
+	border-radius: 50%;
+	width: 100px;
+	height: 100px;
+	background-color: rgba(221, 131, 49, 0.5);
+	position: absolute;
+	top:20px;
+	left:180px;
+}
+
+.circle6{
+	border-radius: 50%;
+	width: 180px;
+	height: 180px;
+	background-color: rgba(250, 133, 150, 0.5);
+	position: absolute;
+	top:15px;
+	left:260px;
+}
+
+.circle7{
+	border-radius: 50%;
+	width: 180px;
+	height: 180px;
+	background-color: rgba(99, 32, 13, 0.5);
+	position: absolute;
+	top:-30px;
+	left:550px;
+}
+
+.circle8{
+	border-radius: 50%;
+	width: 150px;
+	height: 150px;
+	background-color: rgba(221, 131, 49, 0.5);
+	position: absolute;
+	bottom:-30px;
+	right:370px;
+}
+
+.circle9{
+	border-radius: 50%;
+	width: 140px;
+	height: 140px;
+	background-color: rgba(221, 131, 49, 0.5);
+	position: absolute;
+	bottom:10px;
+	left:435px;
+}

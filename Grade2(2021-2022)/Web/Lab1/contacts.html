@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <link href="circlesStyles.css" rel="stylesheet" type="text/css">
+
+  </head>
+  <body>
+    <header>
+      <!--  Пункт 2: Шапка, меню и подвал сайта должны тянуться на всю ширину сайта. При этом содержимое шапки, меню и подвала должно помещаться в область шириной в 980px + отступы по 10px с каждой стороны. При уменьшении или увеличении ширины окна браузера верстка не должна ехать. -->
+      <!-- Клас divContent обмежує ширину контенту блоків header footer і menu та центрує його -->
+      <div class="divContent flex-container">
+        <!-- Пункт5: Изменение размеров и/или удаление одного из блоков области header не должно влиять на другой блок -->
+        <!--Блоки у header позіціонуються за допомгою flex і тому не залежать один від одного-->
+        <div class="companyHeader flex-container">
+          <!-- Пункт 7: Логотип в области header должен быть выполнен в виде картинки (возможен внешний div). Для картинки обязательно наличие width, height и alt. -->
+          <img class="companyImage" alt="Логотип компанії" src="https://static.vecteezy.com/system/resources/thumbnails/000/218/533/small_2x/donuts-illustration.jpg">
+          <div class=" flex-container-start2">
+            <h2>Пончик клуб</h2>
+            <p>Найкращі солодощі Дніпра</p>
+          </div>
+        </div>
+        <div class="phoneNumber">
+          +38 (096) 827-08-04<br>
+          +38 (068) 511-50-50
+        </div>
+      </div>
+    </header>
+    <div class="menu">
+      <div class="divContent flex-container flex-container-center ">
+        <!-- Пункт 6: Основное навигационное меню (область menu) и меню в области footer должны быть сверстаны в виде стилизованных списков. При этом меню в области menu должно быть выравнено по центру, редактирование\удаление\добавление пунктов не должно влиять на выравнивание. -->
+        <ul>
+          <li class="menuItem"> <a href="index.html">Головна</a> </li>
+          <li class="menuItem"> <a href="">Каталог</a> </li>
+          <li class="menuItem"> <a href="delivery.html">Доставка і оплата</a> </li>
+          <li class="menuItem"> <a href="">Прайс-ліст</a> </li>
+          <li class="menuItem noBorder"> <a href="contacts.html">Контакти</a> </li>
+        </ul>
+      </div>
+    </div>
+    <div class="slider">
+      <!-- Пункт 3: Слайдер должен тянуться на всю ширину экрана, при этом изображение внутри блока должно быть по центру. Изображение должны скрываться, если его ширина больше окна браузера (не должно растягивать верстку) и должно быть по центру, если его ширина меньше окна браузера. -->
+      <!-- Клас circlesParent обмежує ширину контенту блоку slider та центрує його -->
+      <div class="circlesParent">
+        <div class="circle1"></div>
+        <div class="circle2"></div>
+        <div class="circle3"></div>
+        <div class="circle4"></div>
+        <div class="circle5"></div>
+        <div class="circle6"></div>
+        <div class="circle7"></div>
+        <div class="circle8"></div>
+        <div class="circle9"></div>
+      </div>
+    </div>
+    <div class="contacts">
+      <div class="divContent flex-container flex-container-center flex-container-wrap">
+        <div class="contactsItem">
+          <center>
+          <h2>Дніпро</h2>
+          <p>вул. Глінки, 2а ТРЦ Мост Сити<br><i>+38 (096) 827-08-04</i></p>
+          </center>
+        </div>
+        <div class="contactsItem">
+          <center>
+          <h2>Дніпро</h2>
+          <p>вул. Нижнедніпровська 17, ТРЦ Караван<br><i>+38 (068) 511-50-50</i></p>
+          </center>
+        </div>
+        <div class="contactsItem">
+          <center>
+          <h2>Дніпро</h2>
+          <p>вул. Володимира Мономаха, 2 <br><i>+38 (097) 278-28-83</i></p>
+          </center>
+        </div>
+        <div class="contactsItem">
+          <center>
+          <h2>Дніпро</h2>
+          <p>Зірковий бульвар, 1а, 2 поверх<br><i>+38 (068) 511-50-50</i></p>
+          </center>
+        </div>
+        <div class="contactsItem">
+          <center>
+          <h2>Дніпро</h2>
+          <p>просп. Богдана Хмельницкого, 118<br><i>+38 (096) 827-08-04</i></p>
+          </center>
+        </div>
+        <div class="contactsItem">
+          <center>
+          <h2>Дніпро</h2>
+          <p>вул. Калінова, 9а<br><i>+38 (068) 511-50-50</i></p>
+          </center>
+        </div>
+        <div class="contactsItem">
+          <center>
+          <h2>Дніпро</h2>
+          <p>вул. Каштанова 13, ТЦ "Metro Cash&Carry"<br><i>+38 (096) 827-08-04</i></p>
+          </center>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="divContent flex-container flex-container-start paddingDiv">
+        <div>
+        <p>© 2022 - 2023 "Пончик клуб"<br>ponchikclub@gmail.com</p>
+        </div>
+        <!-- Пункт 6: Основное навигационное меню (область menu) и меню в области footer должны быть сверстаны в виде стилизованных списков. При этом меню в области menu должно быть выравнено по центру, редактирование\удаление\добавление пунктов не должно влиять на выравнивание. -->
+        <ul>
+          <li><a href="index.html" class="underlinedHref">Головна</a></li>
+          <li><a href="" class="underlinedHref">Каталог</a></li>
+          <li><a href="delivery.html" class="underlinedHref">Доставка і оплата</a></li>
+          <li><a href="" class="underlinedHref">Прайс-ліст</a></li>
+          <li><a href="contacts.html" class="underlinedHref">Контакти</a></li>
+        </ul>
+        <div>
+          <div class="flex-container flex-container-start">
+          <img class="imageFooter" src="https://cdn-icons-png.flaticon.com/512/3496/3496508.png">
+          <div>
+          <p>  <a href="" class="underlinedHref">Розробка сайта</a> - <br> компанія "Пончик клуб"</p>
+          </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <link href="circlesStyles.css" rel="stylesheet" type="text/css">
+    <link href="styleDelivery.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <header>
+      <!--  Пункт 2: Шапка, меню и подвал сайта должны тянуться на всю ширину сайта. При этом содержимое шапки, меню и подвала должно помещаться в область шириной в 980px + отступы по 10px с каждой стороны. При уменьшении или увеличении ширины окна браузера верстка не должна ехать. -->
+      <!-- Клас divContent обмежує ширину контенту блоків header footer і menu та центрує його -->
+      <div class="divContent flex-container">
+        <!-- Пункт5: Изменение размеров и/или удаление одного из блоков области header не должно влиять на другой блок -->
+        <!--Блоки у header позіціонуються за допомгою flex і тому не залежать один від одного-->
+        <div class="companyHeader flex-container">
+          <!-- Пункт 7: Логотип в области header должен быть выполнен в виде картинки (возможен внешний div). Для картинки обязательно наличие width, height и alt. -->
+          <img class="companyImage" alt="Логотип компанії" src="https://static.vecteezy.com/system/resources/thumbnails/000/218/533/small_2x/donuts-illustration.jpg">
+          <div class=" flex-container-start2">
+            <h2>Пончик клуб</h2>
+            <p>Найкращі солодощі Дніпра</p>
+          </div>
+        </div>
+        <div class="phoneNumber">
+          +38 (096) 827-08-04<br>
+          +38 (068) 511-50-50
+        </div>
+      </div>
+    </header>
+    <div class="menu">
+      <div class="divContent flex-container flex-container-center ">
+        <!-- Пункт 6: Основное навигационное меню (область menu) и меню в области footer должны быть сверстаны в виде стилизованных списков. При этом меню в области menu должно быть выравнено по центру, редактирование\удаление\добавление пунктов не должно влиять на выравнивание. -->
+        <ul>
+          <li class="menuItem"> <a href="index.html">Головна</a> </li>
+          <li class="menuItem"> <a href="">Каталог</a> </li>
+          <li class="menuItem"> <a href="delivery.html">Доставка і оплата</a> </li>
+          <li class="menuItem"> <a href="">Прайс-ліст</a> </li>
+          <li class="menuItem noBorder"> <a href="contacts.html">Контакти</a> </li>
+        </ul>
+      </div>
+    </div>
+    <div class="slider">
+      <!-- Пункт 3: Слайдер должен тянуться на всю ширину экрана, при этом изображение внутри блока должно быть по центру. Изображение должны скрываться, если его ширина больше окна браузера (не должно растягивать верстку) и должно быть по центру, если его ширина меньше окна браузера. -->
+      <!-- Клас circlesParent обмежує ширину контенту блоку slider та центрує його -->
+      <div class="circlesParent">
+        <div class="circle1"></div>
+        <div class="circle2"></div>
+        <div class="circle3"></div>
+        <div class="circle4"></div>
+        <div class="circle5"></div>
+        <div class="circle6"></div>
+        <div class="circle7"></div>
+        <div class="circle8"></div>
+        <div class="circle9"></div>
+      </div>
+    </div>
+    <div class="content">
+      <div class="divContent flex-container flex-container-center">
+      <div class="map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d169325.04108555455!2d34.85993050678457!3d48.46221308520676!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40dbe303fd08468f%3A0xa1cf3d5f2c11aba!2z0JTQvdC10L_RgCwg0JTQvdC10L_RgNC-0L_QtdGC0YDQvtCy0YHQutCw0Y8g0L7QsdC70LDRgdGC0YwsINCj0LrRgNCw0LjQvdCwLCA0OTAwMA!5e0!3m2!1sru!2s!4v1651922074639!5m2!1sru!2s" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <div class="contentAboutDelivery">
+        <h1>Доставка і оплата</h1>
+        <p>
+          <br>Доставка здійснюється в межах міста з 11:00 до 19:00. Мінімальне замовлення – 150 грн.
+          <br>Вартість доставки: При замовленні від 150 грн. до 350 грн. – 80 грн. Замовлено понад 350 грн. - безкоштовно.<br>
+          <br>Порадувати своїх колег, привітати начальника з ювілеєм або просто організувати смачне та ситне перекушування в офіс вкрай просто – достатньо замовити пончики по телефону або оформити доставку на сайті Пончик Клуб, і ми привеземо їх теплими за адресою!<br>
+          <br>Ви можете вибрати один із запропонованих наборів, до яких входять кілька видів пончиків, або ж скласти набір самостійно – для цього потрібно внести примітку на замовлення, і співробітники компанії обов'язково виконають все точно.<br>
+        </p>
+      </div>
+
+    </div>
+    </div>
+
+    <footer>
+      <div class="divContent flex-container flex-container-start paddingDiv">
+        <div>
+        <p>© 2022 - 2023 "Пончик клуб"<br>ponchikclub@gmail.com</p>
+        </div>
+        <!-- Пункт 6: Основное навигационное меню (область menu) и меню в области footer должны быть сверстаны в виде стилизованных списков. При этом меню в области menu должно быть выравнено по центру, редактирование\удаление\добавление пунктов не должно влиять на выравнивание. -->
+        <ul>
+          <li><a href="index.html" class="underlinedHref">Головна</a></li>
+          <li><a href="" class="underlinedHref">Каталог</a></li>
+          <li><a href="delivery.html" class="underlinedHref">Доставка і оплата</a></li>
+          <li><a href="" class="underlinedHref">Прайс-ліст</a></li>
+          <li><a href="contacts.html" class="underlinedHref">Контакти</a></li>
+        </ul>
+        <div>
+          <div class="flex-container flex-container-start">
+          <img class="imageFooter" src="https://cdn-icons-png.flaticon.com/512/3496/3496508.png">
+          <div>
+          <p>  <a href="" class="underlinedHref">Розробка сайта</a> - <br> компанія "Пончик клуб"</p>
+          </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
