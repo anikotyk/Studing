@@ -1,0 +1,2 @@
+﻿Код виконання цього проекту знаходиться за посиланням:
+https://github.com/anikotyk/Unity/tree/main/NightSchoolOnline/Assets/Scripts
