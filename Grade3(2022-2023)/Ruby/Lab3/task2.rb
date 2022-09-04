@@ -1,9 +1,21 @@
-x = 3
-P = true
+x = 1.0
+y = 0
 
-e = Math.exp(1)
+if x > -4 && x <= 0
+  y = ((x - 2).abs / (x**2 * Math.cos(x)))**(1.0/7)
+elsif x > 0 && x <= 12
+  y = 1.0 / ((Math.tan(x + 1 / Math.exp(x)) / Math.sin(x)**2) ** 2.0 / 7)
+elsif x < -4 || x > 12
+  y = 1 / (1 + x / (1 + x / (1 + x)))
+end
 
-part1 = Math.log(x, e) / Math.log(1/3, e) > Math.log(0.7, e) / Math.log(1/3, e)
-part2 = Math.sqrt(x) > x*x
-answer = (part1 && part2 && !P)
-puts "Answer: " + answer.to_s
+case x
+when -4..0
+  y = ((x - 2).abs / (x**2 * Math.cos(x)))**(1.0/7)
+when 0..12
+  y = 1.0 / ((Math.tan(x + 1.0 / Math.exp(x)) / Math.sin(x)**2) ** 2.0 / 7)
+else
+  y = 1.0 / (1 + x / (1 + x / (1 + x)))
+end
+
+puts "Answer: #{y}"
