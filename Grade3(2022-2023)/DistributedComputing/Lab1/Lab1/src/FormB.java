@@ -22,7 +22,7 @@ public class FormB {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(semaphore>0){
-                    JOptionPane.showMessageDialog(null, "Occupied by thread 2");
+                    JOptionPane.showMessageDialog(null, "Occupied by thread");
                     return;
                 }
 
@@ -55,7 +55,7 @@ public class FormB {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(semaphore>0){
-                    JOptionPane.showMessageDialog(null, "Occupied by thread 1");
+                    JOptionPane.showMessageDialog(null, "Occupied by thread");
                     return;
                 }
 
