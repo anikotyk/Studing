@@ -54,8 +54,11 @@ public class FormA {
 
                 });
 
+
+				th1.setDaemon(true);
                 th1.start();
                 th1.setPriority(1);
+				th2.setDaemon(true);
                 th2.start();
                 th2.setPriority(1);
 
