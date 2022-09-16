@@ -9,12 +9,13 @@ func main() {
 	var monks []Monk
 	var countMonks = 100
 
-	for i := 0; i < countMonks/2; i++ {
-		monks = append(monks, CreateMonk("Monastery1"))
-	}
+	for i := 0; i < countMonks; i++ {
+		if i%2 == 0 {
+			monks = append(monks, CreateMonk("Monastery1"))
+		} else {
+			monks = append(monks, CreateMonk("Monastery2"))
+		}
 
-	for i := 0; i < countMonks/2; i++ {
-		monks = append(monks, CreateMonk("Monastery2"))
 	}
 
 	var ch = make(chan Monk, 1)
@@ -30,7 +31,8 @@ type Monk struct {
 
 func CreateMonk(monasteryName string) Monk {
 	var monk Monk
-	monk.energy = rand.Intn(10-1) + 1
+
+	monk.energy = rand.Intn(100-1) + 1
 	monk.monastery = monasteryName
 	return monk
 }
