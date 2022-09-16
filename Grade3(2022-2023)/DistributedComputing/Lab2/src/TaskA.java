@@ -66,9 +66,6 @@ class Bee implements Runnable {
             if(y>=mainA.size){
                 x = mainA.getTargetXCoordForBee();
                 y = 0;
-                if(x==-1){
-                    break;
-                }
             }
 
             if(x!=-1){
