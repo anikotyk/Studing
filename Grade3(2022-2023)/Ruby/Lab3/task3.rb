@@ -6,7 +6,7 @@ puts "2) #{res}"
 
 res = 0
 n = 5
-for i in 0...5
+for i in 0...n
   res += 2
   res = Math.sqrt(res)
 end
