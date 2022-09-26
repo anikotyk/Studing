@@ -1,3 +1,20 @@
+require 'minitest/autorun'
+
+class MatrixTransposeTest < Minitest::Test
+  def test_ask_returns_an_answer
+    matrix = [[1,2,3], [4, 5, 6], [7, 8, 9]]
+    result =  MatrixTranspose(matrix)
+    realResult = [[1,4,7], [2, 5, 8], [3, 6, 9]]
+    assert result==realResult
+
+    matrix = [[1,2], [4, 5]]
+    result =  MatrixTranspose(matrix)
+    realResult = [[1,4], [2, 5]]
+    assert result==realResult
+  end
+end
+
+
 def CreateMatrix(n)
   matrix = []
   for i in 0...n
@@ -22,7 +39,33 @@ def MatrixTranspose(matrix)
       matrix[i][j] = tmp
     end
   end
+  return matrix
 end
 
-n = 8
-matrix = CreateMatrix(n)
+
+def PrintMatrix(matrix)
+  for i in 0...matrix.length
+    for j in 0...matrix.length
+      print matrix[i][j].to_s+" "
+    end
+    puts ""
+  end
+end
+
+def GetUserData()
+  print "Enter matrix size: "
+  n = gets.chomp.to_i
+
+  matrix = CreateMatrix(n)
+  puts "Matrix is "
+  PrintMatrix(matrix)
+
+  matrix = MatrixTranspose(matrix)
+  puts ""
+  PrintMatrix(matrix)
+
+  print "Press Enter to exit "
+  gets
+end
+
+#GetUserData()
