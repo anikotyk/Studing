@@ -53,8 +53,7 @@ def PrintMatrix(matrix)
 end
 
 def GetUserData()
-  print "Enter matrix size: "
-  n = gets.chomp.to_i
+  n = 8
 
   matrix = CreateMatrix(n)
   puts "Matrix is "
