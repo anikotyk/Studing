@@ -5,7 +5,7 @@ import java.util.concurrent.TimeUnit;
 
 public class TaskB {
     static int countIterations = 3;
-    static int maxCountClients = 3;
+    static int maxCountClients = 10;
 
     public static void main(String args[]){
         MainB mainB = new MainB();
@@ -14,7 +14,7 @@ public class TaskB {
         Random rand = new Random();
 
         for(int i = 0; i < countIterations; i++){
-            int countClients = rand.nextInt((maxCountClients - 1) + 1) + 1;;
+            int countClients = rand.nextInt((maxCountClients - 2) + 1) + 1;;
             for(int j = 0; j < countClients; j++){
                 new Client(mainB);
             }
@@ -43,7 +43,7 @@ class MainB{
             }
         }
         else if(this.currentClient==null){
-            notify();
+            notifyAll();
         }
         else if(this.currentClient!=null){
             System.out.println("Made haircut");
