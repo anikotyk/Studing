@@ -20,16 +20,13 @@ def trp(a, b, n, func)
   return res
 end
 
-def f1(x)
-  return Math.sqrt(Math.exp(x) - 1)
-end
+F1 = lambda { |x|
+    Math.sqrt(Math.exp(x) - 1)
+}
 
-def f2(x)
-  return Math.exp(x) * Math.sin(x)
-end
-
-F1 = -> (x) {Math.sqrt(Math.exp(x) - 1)}
-F2 = -> (x) {Math.exp(x) * Math.sin(x)}
+F2 = lambda { |x|
+    Math.exp(x) * Math.sin(x)
+}
 
 n1 = 10
 a1 = 0.2
