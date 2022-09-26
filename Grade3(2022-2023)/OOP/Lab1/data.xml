@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<Toys>
+    <dall>
+        <name>dklsa</name>
+        <size>small</size>
+        <ageGroup>toddlers</ageGroup>
+        <haircut>shortHair</haircut>
+        <price>100.0</price>
+    </dall>
+    <ball>
+        <name>sdskmds</name>
+        <size>small</size>
+        <ageGroup>preschoolers</ageGroup>
+        <color>green</color>
+        <price>200.0</price>
+    </ball>
+    <car>
+        <name>kmkm</name>
+        <size>big</size>
+        <ageGroup>teenagers</ageGroup>
+        <brand>tesla</brand>
+        <price>199.0</price>
+    </car>
+</Toys>

@@ -1,39 +1,38 @@
-import java.io.Serializable;
-import java.util.Scanner;
-
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
-abstract public class Toy implements Serializable {
-    public String name;
-    public Type type;
-    public Size size;
-    public AgeGroup ageGroup;
-    public float price;
+import java.util.Scanner;
 
-    public Toy() { }
+public class Dall extends Toy{
+    public Type type = Type.dall;
+    public Haircut haircut;
 
-    public Toy(String name, Type type, Size size, AgeGroup ageGroup, float price) {
+    public Dall() { }
+
+    public Dall(String name, Type type, Size size, AgeGroup ageGroup, Haircut haircut, float price) {
         this.name = name;
-        this.type = type;
+        this.type = Type.dall;
         this.size = size;
         this.ageGroup = ageGroup;
+        this.haircut = haircut;
         this.price = price;
     }
 
-    public Toy(Element element) {
+    public Dall(Element element) {
         this.name = element.getElementsByTagName("name").item(0).getTextContent();
-        this.type = Type.valueOf(element.getTagName());
+        this.type = Type.dall;
         this.size = Size.valueOf(element.getElementsByTagName("size").item(0).getTextContent());
         this.ageGroup = AgeGroup.valueOf(element.getElementsByTagName("ageGroup").item(0).getTextContent());
+        this.haircut = Haircut.valueOf(element.getElementsByTagName("haircut").item(0).getTextContent());
         this.price = Float.parseFloat(element.getElementsByTagName("price").item(0).getTextContent());
     }
 
     @Override
     public String toString() {
-        return this.name + ": " + this.type + ", " +this.size + ", " +this.ageGroup + ", " +this.price + " uah";
+        return this.name + ": " + this.type + ", " +this.size + ", " +this.ageGroup + ", "+this.haircut + ", "  +this.price + " uah";
     }
 
+    @Override
     public Element CreateXMLObject(Document doc){
         try{
             Element toy = doc.createElement(String.valueOf(this.type));
@@ -50,6 +49,11 @@ abstract public class Toy implements Serializable {
             ageGroup.appendChild(doc.createTextNode(String.valueOf(this.ageGroup)));
             toy.appendChild(ageGroup);
 
+            Element haircut =  doc.createElement("haircut");
+            haircut.appendChild(doc.createTextNode(String.valueOf(this.haircut)));
+            toy.appendChild(haircut);
+
+
             Element price =  doc.createElement("price");
             price.appendChild(doc.createTextNode(String.valueOf(this.price)));
             toy.appendChild(price);
@@ -61,30 +65,14 @@ abstract public class Toy implements Serializable {
 
         return null;
     }
-
+    @Override
     public void InputToy(){
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter toy`s name: ");
+        System.out.println("Enter dall`s name: ");
         this.name = scanner.nextLine();
 
         while(true){
-            System.out.println("Enter toy`s type, 1 - dall, 2 - ball, 3 - car: ");
-            String input = scanner.nextLine().trim();
-
-            if(input.equals("1")){
-                this.type = Type.dall;
-                break;
-            }else if(input.equals("2")){
-                this.type = Type.ball;
-                break;
-            }else if(input.equals("3")){
-                this.type = Type.car;
-                break;
-            }
-        }
-
-        while(true){
-            System.out.println("Enter toy`s size, 1 - small, 2 - medium, 3 - big: ");
+            System.out.println("Enter dall`s size, 1 - small, 2 - medium, 3 - big: ");
             String input = scanner.nextLine().trim();
 
             if(input.equals("1")){
@@ -100,7 +88,7 @@ abstract public class Toy implements Serializable {
         }
 
         while(true){
-            System.out.println("Enter toy`s age group, 1 - toddlers, 2 - preschoolers, 3 - teenagers: ");
+            System.out.println("Enter dall`s age group, 1 - toddlers, 2 - preschoolers, 3 - teenagers: ");
             String input = scanner.nextLine().trim();
 
             if(input.equals("1")){
@@ -116,7 +104,23 @@ abstract public class Toy implements Serializable {
         }
 
         while(true){
-            System.out.println("Enter toy`s price: ");
+            System.out.println("Enter dall`s haircut, 1 - shortHair, 2 - mediumHair, 3 - longHair: ");
+            String input = scanner.nextLine().trim();
+
+            if(input.equals("1")){
+                this.haircut = Haircut.shortHair;
+                break;
+            }else if(input.equals("2")){
+                this.haircut =  Haircut.mediumHair;
+                break;
+            }else if(input.equals("3")){
+                this.haircut =  Haircut.longHair;
+                break;
+            }
+        }
+
+        while(true){
+            System.out.println("Enter dall`s price: ");
             String input = scanner.nextLine().trim();
 
             if(Lab1.isCanBeParsedToFloat(input)){
@@ -129,19 +133,8 @@ abstract public class Toy implements Serializable {
     }
 }
 
-enum Size {
-    small,
-    medium,
-    big
-}
-
-enum Type {
-    dall,
-    ball,
-    car
-}
-enum AgeGroup {
-    toddlers,
-    preschoolers,
-    teenagers
+enum Haircut {
+    shortHair,
+    mediumHair,
+    longHair
 }

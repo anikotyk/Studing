@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Lab1 {
     public static void main(String[] args) {
         FileController fileController = new FileController();
-        ArrayList<Toy> toys =  fileController.Read();
+        ArrayList<Toy> toys = fileController.ReadXML();
 
         String input = "";
         Scanner scanner = new Scanner(System.in);
@@ -15,10 +15,25 @@ public class Lab1 {
             if(input.equals("0")){
                 break;
             }else if(input.equals("1")){
-                Toy toy = new Toy();
+                Toy toy;
+                while(true){
+                    System.out.println("Enter toy`s type, 1 - dall, 2 - ball, 3 - car: ");
+                    input = scanner.nextLine().trim();
+
+                    if(input.equals("1")){
+                        toy = new Dall();
+                        break;
+                    }else if(input.equals("2")){
+                        toy = new Ball();
+                        break;
+                    }else if(input.equals("3")){
+                        toy = new Car();
+                        break;
+                    }
+                }
                 toy.InputToy();
                 toys.add(toy);
-                fileController.Write(toys);
+                fileController.WriteXML(toys);
             }else if(input.equals("2")){
                 ToysRoom room = new ToysRoom();
                 room.InputRoom(toys);
@@ -38,17 +53,18 @@ public class Lab1 {
         }
     }
 
-    public static boolean isNumeric(String string) {
-        int intValue;
+    public static boolean isCanBeParsedToFloat(String string) {
+        float floatValue;
 
         if(string == null || string.equals("")) {
             return false;
         }
 
         try {
-            intValue = Integer.parseInt(string);
+            floatValue = Float.parseFloat(string);
             return true;
         } catch (NumberFormatException e) {
+
         }
         return false;
     }

@@ -21,7 +21,7 @@ public class ToysRoom {
             System.out.println("Enter toy`s price: ");
             input = scanner.nextLine();
             input = input.trim();
-            if(Lab1.isNumeric(input)){
+            if(Lab1.isCanBeParsedToFloat(input)){
                 amount = Float.parseFloat(input);
                 if(amount>=0){
                     break;
