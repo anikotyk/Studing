@@ -1,0 +1,54 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:simpleType name="years">
+    <xs:restriction base="xs:integer">
+      <xs:minInclusive value="0"/>
+	  <xs:maxInclusive value="100"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:element name="Dance">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" name="DanceGroup">
+          <xs:complexType>
+            <xs:sequence>
+			  <xs:element name="Type">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Type1"/>
+						<xs:enumeration value="Type2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			  </xs:element>
+			  
+              <xs:element type="xs:string" name="Scene"/>
+              <xs:element type="xs:string" name="NumberOfDancers"/>
+              <xs:element type="xs:string" name="Music"/>
+              <xs:element name="Dancers">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element maxOccurs="unbounded" name="Dancer">
+						<xs:complexType>
+							<xs:sequence>
+							<xs:element name="Name" type="xs:string"/>
+							<xs:element name="Age" type = "years"/>
+							<xs:element name="ExperienceYears" type = "years"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+			  
+              <xs:element type="xs:integer" name="Number"/>
+            </xs:sequence>
+			
+			<xs:attribute name="id" type="xs:long"/>
+			
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

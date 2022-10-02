@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<Dance>
+    <DanceGroup id="0">
+        <Type>Type1</Type>
+        <Scene>Scene1</Scene>
+        <NumberOfDancers>NumberOfDancers1</NumberOfDancers>
+        <Music>Music1</Music>
+        <Dancers>
+            <Dancer>
+                <Name>name</Name>
+                <Age>0</Age>
+                <ExperienceYears>0</ExperienceYears>
+            </Dancer>
+            <Dancer>
+                <Name>name</Name>
+                <Age>0</Age>
+                <ExperienceYears>0</ExperienceYears>
+            </Dancer>
+        </Dancers>
+        <Number>2</Number>
+    </DanceGroup>
+    <DanceGroup id="1">
+        <Type>Type1</Type>
+        <Scene>Scene1</Scene>
+        <NumberOfDancers>NumberOfDancers1</NumberOfDancers>
+        <Music>Music1</Music>
+        <Dancers>
+            <Dancer>
+                <Name>name</Name>
+                <Age>0</Age>
+                <ExperienceYears>0</ExperienceYears>
+            </Dancer>
+            <Dancer>
+                <Name>name</Name>
+                <Age>0</Age>
+                <ExperienceYears>0</ExperienceYears>
+            </Dancer>
+        </Dancers>
+        <Number>1</Number>
+    </DanceGroup>
+</Dance>

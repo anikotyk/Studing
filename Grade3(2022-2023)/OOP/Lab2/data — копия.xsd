@@ -1,0 +1,34 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Dance">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="DanceGroup">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="xs:string" name="Type"/>
+              <xs:element type="xs:string" name="Scene"/>
+              <xs:element type="xs:string" name="NumberOfDancers"/>
+              <xs:element type="xs:string" name="Music"/>
+              <xs:element name="Dancers">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Dancer">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element type="xs:string" name="Name"/>
+                          <xs:element type="xs:byte" name="Age"/>
+                          <xs:element type="xs:byte" name="ExperienceYears"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element type="xs:byte" name="Number"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
