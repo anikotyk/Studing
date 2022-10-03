@@ -20,10 +20,10 @@ public class DanceGroup {
     }
 
     public DanceGroup(){
-        this.type = Type.Type1;
-        this.scene = Scene.Scene1;
-        this.numberOfDancers = NumberOfDancers.NumberOfDancers1;
-        this.music = Music.Music1;
+        this.type = Type.Ballet;
+        this.scene = Scene.Auditorium;
+        this.numberOfDancers = NumberOfDancers.Mass;
+        this.music = Music.Phonogram;
         this.dancers = new ArrayList<Dancer>();
         this.number = 0;
     }
@@ -38,10 +38,26 @@ public class DanceGroup {
         return "Type: "+this.type + "\nScene: "+this.scene + "\nNumber of dancers: "+
                 this.numberOfDancers + "\nMusic: "+this.music + "\nDancers: "+ dancersString + "\nNumber: "+this.number;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+
+        if (!(obj instanceof DanceGroup)) {
+            return false;
+        }
+
+        DanceGroup danceGroupObj = (DanceGroup) obj;
+
+        return this.type.equals(danceGroupObj.type) && this.scene.equals(danceGroupObj.scene) &&
+                this.numberOfDancers.equals(danceGroupObj.numberOfDancers) && this.music.equals(danceGroupObj.music) &&
+                this.dancers.equals(danceGroupObj.dancers) && (this.number == danceGroupObj.number);
+    }
     public Element CreateXMLObject(Document doc){
         try{
             Element danceGroup = (Element) doc.createElement("DanceGroup");
-
 
             Element type = doc.createElement("Type");
             type.appendChild(doc.createTextNode(String.valueOf(this.type)));
@@ -79,67 +95,25 @@ public class DanceGroup {
 }
 
 enum Type{
-    Type1,
-    Type2
+    Ballet,
+    Folk,
+    Pop,
+    East
 }
 
 enum Scene{
-    Scene1,
-    Scene2
+    Auditorium,
+    Street,
+    Television
 }
 
 enum NumberOfDancers{
-    NumberOfDancers1,
-    NumberOfDancers2
+    Mass,
+    Solo,
+    Pair
 }
 
 enum Music{
-    Music1,
-    Music2
-}
-
-class Dancer{
-    public String name;
-    public int age;
-    public int experienceYears;
-
-    public Dancer(String name, int age, int experienceYears){
-        this.name = name;
-        this.age = age;
-        this.experienceYears = experienceYears;
-    }
-
-    public Dancer(){
-        this.name = "name";
-        this.age = 0;
-        this.experienceYears = 0;
-    }
-
-    @Override
-    public String toString(){
-        return this.name + " "+ age +" years, "+experienceYears+" experience years";
-    }
-    public Element CreateXMLObject(Document doc){
-        try{
-            Element dancer = (Element) doc.createElement("Dancer");
-
-            Element name = doc.createElement("Name");
-            name.appendChild(doc.createTextNode(String.valueOf(this.name)));
-            dancer.appendChild(name);
-
-            Element age = doc.createElement("Age");
-            age.appendChild(doc.createTextNode(String.valueOf(this.age)));
-            dancer.appendChild(age);
-
-            Element experienceYears = doc.createElement("ExperienceYears");
-            experienceYears.appendChild(doc.createTextNode(String.valueOf(this.experienceYears)));
-            dancer.appendChild(experienceYears);
-
-            return dancer;
-        }catch (Exception e){
-            System.out.println("Error creating xml object: "+e);
-        }
-
-        return null;
-    }
+    Phonogram,
+    Live
 }

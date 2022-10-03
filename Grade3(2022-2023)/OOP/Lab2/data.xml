@@ -1,39 +1,49 @@
 <?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
 <Dance>
     <DanceGroup id="0">
-        <Type>Type1</Type>
-        <Scene>Scene1</Scene>
-        <NumberOfDancers>NumberOfDancers1</NumberOfDancers>
-        <Music>Music1</Music>
+        <Type>Folk</Type>
+        <Scene>Street</Scene>
+        <NumberOfDancers>Pair</NumberOfDancers>
+        <Music>Phonogram</Music>
         <Dancers>
             <Dancer>
-                <Name>name</Name>
-                <Age>0</Age>
-                <ExperienceYears>0</ExperienceYears>
+                <Name>John</Name>
+                <Age>20</Age>
+                <ExperienceYears>5</ExperienceYears>
             </Dancer>
             <Dancer>
-                <Name>name</Name>
-                <Age>0</Age>
-                <ExperienceYears>0</ExperienceYears>
+                <Name>Sarah</Name>
+                <Age>30</Age>
+                <ExperienceYears>10</ExperienceYears>
             </Dancer>
         </Dancers>
         <Number>2</Number>
     </DanceGroup>
     <DanceGroup id="1">
-        <Type>Type1</Type>
-        <Scene>Scene1</Scene>
-        <NumberOfDancers>NumberOfDancers1</NumberOfDancers>
-        <Music>Music1</Music>
+        <Type>Pop</Type>
+        <Scene>Television</Scene>
+        <NumberOfDancers>Mass</NumberOfDancers>
+        <Music>Live</Music>
         <Dancers>
             <Dancer>
-                <Name>name</Name>
-                <Age>0</Age>
-                <ExperienceYears>0</ExperienceYears>
+                <Name>Robert</Name>
+                <Age>40</Age>
+                <ExperienceYears>25</ExperienceYears>
             </Dancer>
             <Dancer>
-                <Name>name</Name>
-                <Age>0</Age>
-                <ExperienceYears>0</ExperienceYears>
+                <Name>Lili</Name>
+                <Age>14</Age>
+                <ExperienceYears>10</ExperienceYears>
+            </Dancer>
+            <Dancer>
+                <Name>Bob</Name>
+                <Age>27</Age>
+                <ExperienceYears>9</ExperienceYears>
+            </Dancer>
+            <Dancer>
+                <Name>Mike</Name>
+                <Age>17</Age>
+                <ExperienceYears>2</ExperienceYears>
             </Dancer>
         </Dancers>
         <Number>1</Number>

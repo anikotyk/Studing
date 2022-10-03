@@ -1,4 +1,3 @@
-import jdk.internal.org.xml.sax.SAXException;
 import org.xml.sax.Attributes;
 import org.xml.sax.helpers.DefaultHandler;
 
@@ -42,6 +41,9 @@ public class DanceGroupHandler extends DefaultHandler {
                 elementValue = new StringBuilder();
                 break;
             case "Dancers":
+                latestDanceGroup().dancers = new ArrayList<Dancer>();
+                break;
+            case "Dancer":
                 latestDanceGroup().dancers.add(new Dancer());
                 break;
         }
