@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4f59c6db-e3cb-4470-bbfc-922b58cf78a2" name="Changes" comment="" />
+    <list default="true" id="c266b8f9-8828-415c-a963-da574d641b87" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,23 +13,23 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2HYOy3wZv9MGthH85hc7suIT8Jc" />
+  <component name="ProjectId" id="2HYLZyt5FmxaF8fFtMYRvJ0O2nf" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Study/GitHub/Studing/Grade3(2022-2023)/OOP/Problems/Problem8"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Study/GitHub/Studing/Grade3(2022-2023)/OOP/Problems/Problem8&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="Problem10" />
+      <module name="Problem8" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -43,11 +43,11 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="4f59c6db-e3cb-4470-bbfc-922b58cf78a2" name="Changes" comment="" />
-      <created>1668458801257</created>
+      <changelist id="c266b8f9-8828-415c-a963-da574d641b87" name="Changes" comment="" />
+      <created>1668457129418</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1668458801257</updated>
+      <updated>1668457129418</updated>
     </task>
     <servers />
   </component>
