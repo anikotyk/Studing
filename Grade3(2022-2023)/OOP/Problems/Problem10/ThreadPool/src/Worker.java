@@ -9,7 +9,7 @@ public class Worker extends Thread {
 
     @Override
     public void run() {
-        Task task;
+        Runnable task;
 
         while (true) {
             synchronized (queue) {
@@ -20,7 +20,7 @@ public class Worker extends Thread {
                         System.out.println("Error waiting queue: " + e.getMessage());
                     }
                 }
-                task = (Task) queue.poll();
+                task = (Runnable) queue.poll();
             }
 
             try {
