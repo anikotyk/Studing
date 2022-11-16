@@ -1,9 +1,12 @@
-Schedulingfsd Type: Preemptive
+Scheduling Type: Preemptive
 Scheduling Name: Earliest deadline first
 Simulation Run Time: 5000
 Mean: 1100
 Standard Deviation: 510
 Process #	CPU Time	IO Blocking	CPU Completed	CPU Blocked
-0		812 (ms)	100 (ms)	4158 (ms)	0 times
-1		812 (ms)	500 (ms)	812 (ms)	1 times
-2		812 (ms)	30 (ms)		30 (ms)		0 times
+0		1270 (ms)	25 (ms)		1270 (ms)	26 times
+ (ms)		25
+ (ms)		0
+1		1270 (ms)	30 (ms)		1270 (ms)	638 times
+ (ms)		45
+ (ms)		0
