@@ -1,19 +1,18 @@
 public class sProcess {
   public int cputime;
-  public int timebeforeblocking;
   public int cpudone;
-  public int timebeforeblockingdone;
-  public int blockingtime;
-  public int blockingtimedone;
-  public int numblocked;
+  public int period;
+  public int deadline;
+  public int processingtime;
+  public int processingtimedone;
 
-  public sProcess (int cputime, int ioblocking, int cpudone, int ionext, int numblocked, int blockingtime, int blockingtimedone) {
+
+  public sProcess (int cputime, int cpudone, int period, int deadline, int processingtime, int processingtimedone) {
     this.cputime = cputime;
-    this.timebeforeblocking = ioblocking;
     this.cpudone = cpudone;
-    this.timebeforeblockingdone = ionext;
-    this.numblocked = numblocked;
-    this.blockingtime = blockingtime;
-    this.blockingtimedone = blockingtimedone;
+    this.period = period;
+    this.deadline = deadline;
+    this.processingtime = processingtime;
+    this.processingtimedone = processingtimedone;
   } 	
 }

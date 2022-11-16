@@ -22,17 +22,19 @@ public class SchedulingAlgorithm {
     result.schedulingName = "Earliest deadline first";
     try {
       PrintStream out = new PrintStream(new FileOutputStream(resultsFile));
-      out.println(size);
       currentProcess = NextProcess(processVector);
       sProcess process = (sProcess) processVector.elementAt(currentProcess);
-      out.println("Process: " + currentProcess + " registered... "+GetProcessInfo(process));
+      out.println("Process: " + currentProcess + " registered... "+GetProcessInfo(process, comptime));
+
       while (comptime < runtime) {
-        isNeedToCheckForProcessSwitch = NextStep(processVector, currentProcess);
+        comptime++;
+
+        isNeedToCheckForProcessSwitch = NextStep(processVector, currentProcess, comptime);
 
         if(currentProcess != -1){
           if (process.cpudone == process.cputime) {
             completed++;
-            out.println("Process: " + currentProcess + " completed... "  +GetProcessInfo(process));
+            out.println("Process: " + currentProcess + " completed... "  +GetProcessInfo(process, comptime));
 
             if (completed == size) {
               result.compuTime = comptime;
@@ -40,17 +42,8 @@ public class SchedulingAlgorithm {
               out.close();
               return result;
             }
-          }else if (process.timebeforeblocking == process.timebeforeblockingdone) {
-            process.numblocked++;
-            out.println("Process: " + currentProcess + " I/O blocked... " + GetProcessInfo(process));
-          }
-        }
-
-        if(currentProcess == -1){
-          currentProcess = NextProcess(processVector);
-          if (currentProcess > 0) {
-            process = (sProcess) processVector.elementAt(currentProcess);
-            out.println("Process: " + currentProcess + " registered... "+GetProcessInfo(process));
+          }else if (process.processingtimedone == process.processingtime) {
+            out.println("Process: " + currentProcess + " is unable... " + GetProcessInfo(process, comptime));
           }
         }
 
@@ -63,16 +56,14 @@ public class SchedulingAlgorithm {
               out.println("No available process");
             }else if(previousProcess == -1){
               process = (sProcess) processVector.elementAt(currentProcess);
-              out.println("Process: " + currentProcess + " registered... "+GetProcessInfo(process));
+              out.println("Process: " + currentProcess + " registered... "+GetProcessInfo(process, comptime));
             }else{
-              out.println("Switched from process: " + previousProcess + " " + GetProcessInfo(process));
+              out.println("Switched from process: " + previousProcess + " " + GetProcessInfo(process, comptime));
               process = (sProcess) processVector.elementAt(currentProcess);
-              out.println("Switched to process: " + currentProcess + " " + GetProcessInfo(process));
+              out.println("Switched to process: " + currentProcess + " " + GetProcessInfo(process, comptime));
             }
           }
         }
-
-        comptime++;
       }
       out.println("Comp time equals to run time !");
       out.close();
@@ -83,15 +74,14 @@ public class SchedulingAlgorithm {
 
   private static int NextProcess(Vector processVector){
     int nextProcessIndex = -1;
-    int deadlineTimeDistance = -1;
+    int deadline = -1;
 
     for (int i = 0; i < processVector.size(); i++){
       sProcess process = (sProcess) processVector.elementAt(i);
-      if(process.cpudone < process.cputime && process.timebeforeblocking != process.timebeforeblockingdone){ //process isn`t complete or blocked
-        int deadlineTimeDistanceCurrent = (process.timebeforeblocking - process.timebeforeblockingdone) + process.blockingtime;
-        if(deadlineTimeDistanceCurrent < deadlineTimeDistance || nextProcessIndex < 0){
+      if(process.cpudone < process.cputime && process.processingtimedone != process.processingtime){ //process isn`t complete or unable
+        if(process.deadline < deadline || nextProcessIndex < 0){
           nextProcessIndex = i;
-          deadlineTimeDistance = deadlineTimeDistanceCurrent;
+          deadline = process.deadline;
         }
       }
     }
@@ -99,7 +89,7 @@ public class SchedulingAlgorithm {
     return nextProcessIndex;
   }
 
-  private static boolean NextStep(Vector processVector, int currentProcess){
+  private static boolean NextStep(Vector processVector, int currentProcess, int comptime){
 
     boolean isNeedToCheckForProcessSwitch = false;
 
@@ -107,34 +97,26 @@ public class SchedulingAlgorithm {
       sProcess process = (sProcess) processVector.elementAt(i);
 
       if(i == currentProcess){
-        //If it is current process increase time before blocking done
-        process.timebeforeblockingdone++;
         process.cpudone++;
-        if(process.timebeforeblockingdone == process.timebeforeblocking){
-          //Current process is locked
-          isNeedToCheckForProcessSwitch = true;
-        }
+        process.processingtimedone++;
+
         if (process.cpudone == process.cputime){
-          //Current process is complete
+          isNeedToCheckForProcessSwitch = true;
+        }else if(process.processingtimedone == process.processingtime){
           isNeedToCheckForProcessSwitch = true;
         }
       }
-      else if(process.timebeforeblocking == process.timebeforeblockingdone){
-        //If process now is blocking increase blocking time done
-        process.blockingtimedone++;
-        if(process.blockingtimedone == process.blockingtime){
-          //Unlock process
-          process.timebeforeblockingdone = 0;
-          process.blockingtimedone = 0;
-          isNeedToCheckForProcessSwitch = true;
-        }
+      else if(process.deadline == comptime){
+        process.processingtimedone = 0;
+        process.deadline += process.period;
+        isNeedToCheckForProcessSwitch = true;
       }
     }
 
     return isNeedToCheckForProcessSwitch;
   }
 
-  private static String GetProcessInfo(sProcess process){
-   return ("( cpu time: " + process.cpudone + "/"  + process.cputime +" time before blocking: "+ process.timebeforeblockingdone + "/" + process.timebeforeblocking + " time after blocking: "+process.blockingtimedone +"/"+ process.blockingtime + ")");
+  private static String GetProcessInfo(sProcess process, int comptime){
+   return ("( cpu time: " + process.cpudone + "/"  + process.cputime +" processing time: "+ process.processingtimedone + "/" + process.processingtime + " period time: " + process.period + " deadline: "+comptime+"/"+process.deadline+")");
   }
 }

@@ -26,8 +26,8 @@ public class Scheduling {
     String line;
     String tmp;
     int cputime = 0;
-    int ioblocking = 0;
-    int blockingtime = 0;
+    int processingtime = 0;
+    int period = 0;
     double X = 0.0;
 
     try {   
@@ -52,15 +52,15 @@ public class Scheduling {
         if (line.startsWith("process")) {
           StringTokenizer st = new StringTokenizer(line);
           st.nextToken();
-          ioblocking = Common.s2i(st.nextToken());
-          blockingtime = Common.s2i(st.nextToken());
+          period = Common.s2i(st.nextToken());
+          processingtime = Common.s2i(st.nextToken());
           X = Common.R1();
           while (X == -1.0) {
             X = Common.R1();
           }
           X = X * standardDev;
           cputime = (int) X + meanDev;
-          processVector.addElement(new sProcess(cputime, ioblocking, 0, 0, 0, blockingtime, 0));
+          processVector.addElement(new sProcess(cputime, 0, period, period, processingtime, 0));
         }
         if (line.startsWith("runtime")) {
           StringTokenizer st = new StringTokenizer(line);
@@ -70,20 +70,6 @@ public class Scheduling {
       }
       in.close();
     } catch (IOException e) { /* Handle exceptions */ }
-  }
-
-  private static void debug() {
-    int i = 0;
-
-    System.out.println("processnum " + processnum);
-    System.out.println("meandevm " + meanDev);
-    System.out.println("standdev " + standardDev);
-    int size = processVector.size();
-    for (i = 0; i < size; i++) {
-      sProcess process = (sProcess) processVector.elementAt(i);
-      System.out.println("process " + i + " " + process.cputime + " " + process.timebeforeblocking + " " + process.cpudone + " " + process.numblocked +" "+process.blockingtime+" "+process.blockingtimedone);
-    }
-    System.out.println("runtime " + runtime);
   }
 
   public static void main(String[] args) {
@@ -105,17 +91,8 @@ public class Scheduling {
     System.out.println("Working...");
     Init(args[0]);
     if (processVector.size() < processnum) {
-      i = 0;
-      while (processVector.size() < processnum) {       
-          double X = Common.R1();
-          while (X == -1.0) {
-            X = Common.R1();
-          }
-          X = X * standardDev;
-        int cputime = (int) X + meanDev;
-        processVector.addElement(new sProcess(cputime,i*100,0,0,0, i*10, 0));
-        i++;
-      }
+      System.out.println("Error. Processes count isn't correct");
+      return;
     }
     result = SchedulingAlgorithm.Run(runtime, processVector, result);    
     try {
@@ -126,22 +103,23 @@ public class Scheduling {
       out.println("Simulation Run Time: " + result.compuTime);
       out.println("Mean: " + meanDev);
       out.println("Standard Deviation: " + standardDev);
-      out.println("Process #\tCPU Time\tIO Blocking\tCPU Completed\tCPU Blocked");
+      out.println("Process #\tCPU Time\tCPU Completed\tPeriod\tDeadline\tProcessing time\tProcessing time completed");
       for (i = 0; i < processVector.size(); i++) {
         sProcess process = (sProcess) processVector.elementAt(i);
         out.print(Integer.toString(i));
         if (i < 100) { out.print("\t\t"); } else { out.print("\t"); }
         out.print(Integer.toString(process.cputime));
         if (process.cputime < 100) { out.print(" (ms)\t\t"); } else { out.print(" (ms)\t"); }
-        out.print(Integer.toString(process.timebeforeblocking));
-        if (process.timebeforeblocking < 100) { out.print(" (ms)\t\t"); } else { out.print(" (ms)\t"); }
         out.print(Integer.toString(process.cpudone));
         if (process.cpudone < 100) { out.print(" (ms)\t\t"); } else { out.print(" (ms)\t"); }
-        out.println(process.numblocked + " times");
-        if (process.blockingtime < 100) { out.print(" (ms)\t\t"); } else { out.print(" (ms)\t"); }
-        out.println(Integer.toString(process.blockingtime));
-        if (process.blockingtimedone < 100) { out.print(" (ms)\t\t"); } else { out.print(" (ms)\t"); }
-        out.println(Integer.toString(process.blockingtimedone));
+        out.print(Integer.toString(process.period));
+        if (process.period < 100) { out.print(" (ms)\t\t"); } else { out.print(" (ms)\t"); }
+        out.print(Integer.toString(process.deadline));
+        if (process.deadline < 100) { out.print(" (ms)\t\t"); } else { out.print(" (ms)\t"); }
+        out.print(Integer.toString(process.processingtime));
+        if (process.processingtime < 100) { out.print(" (ms)\t\t"); } else { out.print(" (ms)\t"); }
+        out.print(Integer.toString(process.processingtimedone));
+        if (process.processingtimedone < 100) { out.print(" (ms)\t\t"); } else { out.print(" (ms)\t"); }
       }
       out.close();
     } catch (IOException e) { /* Handle exceptions */ }
