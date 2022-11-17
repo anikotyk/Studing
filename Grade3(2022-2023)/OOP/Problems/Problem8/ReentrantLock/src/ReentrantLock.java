@@ -27,7 +27,7 @@ public class ReentrantLock {
     public synchronized void unlock() {
         if(lockCount == 0){
             System.out.println("Error, can't unlock, locked count is 0");
-        }else{
+        }else if(currentThreadId == Thread.currentThread().getId()){
             lockCount--;
 
             if(lockCount == 0){

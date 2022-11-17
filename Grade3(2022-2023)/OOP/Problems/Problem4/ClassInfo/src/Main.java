@@ -43,7 +43,6 @@ public class Main {
         }
 
         System.out.println("Methods: ");
-
         Method[] methods = classInfo.getMethods();
         for (Method method : methods) {
             System.out.println(method);

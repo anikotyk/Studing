@@ -3,7 +3,6 @@ import java.util.ArrayList;
 public class Phaser {
     int phase;
     int registeredCount;
-
     int arrivedCount;
 
     ArrayList<Long> registeredIds;
