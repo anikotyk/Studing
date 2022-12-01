@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<Autosalon>
+    <CarProducer id="0">
+        <Name>producer1</Name>
+        <Marks>
+            <Mark>
+                <Name>mark1</Name>
+            </Mark>
+            <Mark>
+                <Name>mark2</Name>
+            </Mark>
+            <Mark>
+                <Name>mark3</Name>
+            </Mark>
+        </Marks>
+    </CarProducer>
+    <CarProducer id="1">
+        <Name>producer2</Name>
+        <Marks>
+            <Mark>
+                <Name>mark4</Name>
+            </Mark>
+            <Mark>
+                <Name>mark5</Name>
+            </Mark>
+        </Marks>
+    </CarProducer>
+</Autosalon>
