@@ -2,7 +2,9 @@ package com.example.battleship;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Point;
 import android.os.Bundle;
+import android.view.Display;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,8 +51,8 @@ public class GameActivity extends Activity {
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
-            playerField = ( ArrayList<ArrayList<FieldCell>>) extras.get("playerField");
-            computerField = ( ArrayList<ArrayList<FieldCell>>) extras.get("computerField");
+            playerField = ( ArrayList<ArrayList<FieldCell>>) extras.get("computerField");
+            computerField = ( ArrayList<ArrayList<FieldCell>>) extras.get("playerField");
         }else{
             GoToMenu();
             return;
@@ -70,7 +72,13 @@ public class GameActivity extends Activity {
 
     private void CreateField(LinearLayout layout, BattleField battleField, boolean isToSetOnClick){
         int size = fieldSettings.fieldSize;
-        int cellSize = fieldSettings.fieldSizeOnScreen / size;
+        Display display = getWindowManager().getDefaultDisplay();
+        Point displaySize = new Point();
+        display.getSize(displaySize);
+        int width = displaySize.x;
+        width *= fieldSettings.fieldSizeOnScreen;
+
+        int cellSize = width / size;
 
         for(int i = 0; i < size; i++){
             LinearLayout horizontalLayout = new LinearLayout(this);
@@ -141,7 +149,8 @@ public class GameActivity extends Activity {
         }else{
             turnText.setText("Computer win!");
         }
-        menuButton.getRootView().setVisibility(View.VISIBLE);
+
+        menuButton.setVisibility(View.VISIBLE);
     }
 
     private void GoToMenu() {

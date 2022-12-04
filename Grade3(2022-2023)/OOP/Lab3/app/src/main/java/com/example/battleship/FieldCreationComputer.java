@@ -1,36 +1,45 @@
 package com.example.battleship;
 
-import java.util.ArrayList;
+import java.util.Random;
 
-public class FieldCreationComputer {
-    private FieldCreationActivity activity;
-    private FieldSettings fieldSettings;
-    private ArrayList<ArrayList<FieldCell>> field;
-
+public class FieldCreationComputer extends FieldCreation{
     public FieldCreationComputer(FieldCreationActivity activity, FieldSettings fieldSettings){
-        this.activity = activity;
-        this.fieldSettings = fieldSettings;
-
-        CreateField();
-        FillField();
+        super(activity,fieldSettings );
+        this.isShowChanges = false;
     }
 
-    private void CreateField(){
-        this.field = new ArrayList<ArrayList<FieldCell>>();
+    public void FillField(){
+        while(chosenCellsCount < fieldSettings.maxChosenCellsCount){
+            PasteShip();
+        }
+    }
 
-        for(int i = 0; i < this.fieldSettings.fieldSize; i++){
-            field.add(new ArrayList<FieldCell>());
-            for(int j = 0; j < this.fieldSettings.fieldSize; j++){
-                field.get(i).add(new FieldCell(i, j));
+    private void PasteShip(){
+        int x = randInt(0, fieldSettings.fieldSize-1);
+        int y = randInt(0, fieldSettings.fieldSize-1);
+        FieldCell cell = field.get(x).get(y);
+
+        if(!cell.IsAveliable()){
+            return;
+        }
+
+        if(cell.GetType() == FieldCell.CellType.Empty){
+            int rotation = randInt(0, 3);
+
+            TryPositionShip(x, y, currentShipSize);
+
+            Ship ship = cell.GetShip();
+            if(ship!=null){
+                for(int i = 0; i < rotation; i++){
+                     RotateShip(ship);
+                }
             }
         }
     }
 
-    private void FillField(){
-
-    }
-
-    public ArrayList<ArrayList<FieldCell>> GetField(){
-        return field;
+    private int randInt(int min, int max) {
+        Random rand = new Random();
+        int randomNum = rand.nextInt((max - min) + 1) + min;
+        return randomNum;
     }
 }

@@ -7,9 +7,4 @@ public class BattleFieldPlayer extends  BattleField {
         super(mainActivity, fieldSettings, field);
         isPlayer = true;
     }
-
-    @Override
-    protected void ActionOnWin(){
-        mainActivity.Win(true);
-    }
 }

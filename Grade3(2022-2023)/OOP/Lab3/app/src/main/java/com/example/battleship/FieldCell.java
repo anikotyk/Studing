@@ -10,6 +10,8 @@ public class FieldCell implements Serializable {
     public int x;
     public int y;
 
+    private Ship ship;
+
     public FieldCell(int x, int y){
         this.cellType = CellType.Empty;
         this.isHidden = true;
@@ -18,7 +20,7 @@ public class FieldCell implements Serializable {
         this.y = y;
     }
 
-    public boolean GetState(){
+    public boolean IsHidden(){
         return isHidden;
     }
 
@@ -42,8 +44,20 @@ public class FieldCell implements Serializable {
         }
     }
 
+    public void SetShip(Ship ship){
+        this.ship = ship;
+    }
+
+    public Ship GetShip(){
+        return ship;
+    }
+
     public boolean IsAveliable(){
         return this.aveliableLock <= 0;
+    }
+
+    public void CellIsShown(){
+        this.isHidden = false;
     }
 
     enum CellType {Ship, Empty}

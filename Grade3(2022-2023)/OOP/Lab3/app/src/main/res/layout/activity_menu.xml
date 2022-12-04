@@ -4,29 +4,48 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#C6DDEA"
     tools:context=".MenuActivity">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="254dp"
-        android:layout_height="72dp"
-        android:text="BattleShip"
-        android:textAlignment="center"
-        android:textSize="48sp"
-        app:layout_constraintBottom_toTopOf="@+id/startButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.407" />
-
-    <Button
-        android:id="@+id/startButton"
-        android:layout_width="175dp"
-        android:layout_height="80dp"
-        android:layout_marginBottom="176dp"
-        android:text="Start"
-        android:textSize="34sp"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center|center_horizontal|center_vertical"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="BATTLESHIP"
+            android:textAlignment="center"
+            android:textColor="#160093"
+            android:textSize="60sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginBottom="50dp"
+            android:cropToPadding="false"
+            app:srcCompat="@drawable/ship" />
+
+        <Button
+            android:id="@+id/startButton"
+            style="@style/Widget.AppCompat.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="0dp"
+            android:text="Start"
+            android:textSize="34sp" />
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

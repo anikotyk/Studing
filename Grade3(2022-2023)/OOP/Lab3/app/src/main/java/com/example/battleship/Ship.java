@@ -1,24 +1,37 @@
 package com.example.battleship;
 
-import java.util.ArrayList;
+import java.io.Serializable;
 
-public class Ship {
-    public ArrayList<FieldCell> cells;
+public class Ship implements Serializable {
+    public int xStart;
+    public int yStart;
 
-    public void Ship(ArrayList<FieldCell> cells){
-        this.cells = cells;
+    public int size;
+
+    public int xDirection;
+    public int yDirection;
+
+    public Ship(int xStart, int yStart, int xDirection, int yDirection, int size){
+        this.xStart = xStart;
+        this.yStart = yStart;
+        this.size = size;
+        this.xDirection = xDirection;
+        this.yDirection = yDirection;
     }
 
-    public void Ship(){
-        this.cells = new ArrayList<FieldCell>();
-    }
-
-    private void GetState(){
-        for (int i = 0; i < cells.size(); i++){
-            if(cells.get(i).GetState()){
-
-            }
+    public void Rotate(){
+        if(xDirection == -1 && yDirection==0){
+            xDirection = 0;
+            yDirection = 1;
+        }else if(xDirection == 0 && yDirection==1){
+            xDirection = 1;
+            yDirection = 0;
+        }else if(xDirection == 1 && yDirection==0){
+            xDirection = 0;
+            yDirection = -1;
+        }else{
+            xDirection = -1;
+            yDirection = 0;
         }
     }
-
 }

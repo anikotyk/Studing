@@ -5,6 +5,7 @@
     android:id="@+id/layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#C6DDEA"
     tools:context=".GameActivity">
 
     <LinearLayout
@@ -24,10 +25,13 @@
             android:id="@+id/turnText"
             android:layout_width="match_parent"
             android:layout_height="46dp"
-            android:fontFamily="casual"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="monospace"
             android:text="YOUR Turn!"
             android:textAlignment="center"
+            android:textColor="#0031AE"
             android:textSize="34sp"
+            android:textStyle="bold"
             android:typeface="normal" />
 
         <LinearLayout
@@ -46,12 +50,10 @@
                 android:textSize="20sp" />
 
             <LinearLayout
-                android:id="@+id/playerFieldLayout"
+                android:id="@+id/computerFieldLayout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
-
-            </LinearLayout>
+                android:orientation="vertical"></LinearLayout>
 
         </LinearLayout>
 
@@ -70,10 +72,12 @@
                 android:textSize="20sp" />
 
             <LinearLayout
-                android:id="@+id/computerFieldLayout"
+                android:id="@+id/playerFieldLayout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"></LinearLayout>
+                android:orientation="vertical">
+
+            </LinearLayout>
 
         </LinearLayout>
 
@@ -81,6 +85,7 @@
             android:id="@+id/menuButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:text="Menu"
             tools:visibility="visible" />
 

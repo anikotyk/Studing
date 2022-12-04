@@ -3,17 +3,20 @@ package com.example.battleship;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Point;
 import android.os.Bundle;
+import android.view.Display;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 public class FieldCreationActivity extends AppCompatActivity {
     private FieldSettings fieldSettings;
-    private FieldCreation playerField;
+    private FieldCreationPlayer playerField;
     private FieldCreationComputer computerField;
     private Button startBtn;
     private LinearLayout layout;
@@ -27,7 +30,9 @@ public class FieldCreationActivity extends AppCompatActivity {
 
     private void Init(){
         fieldSettings = new FieldSettings();
-        playerField = new FieldCreation(this, fieldSettings);
+        layout =  (LinearLayout) findViewById(R.id.fieldLayout);
+
+        playerField = new FieldCreationPlayer(this, fieldSettings);
         computerField = new FieldCreationComputer(this, fieldSettings);
 
         startBtn = (Button) findViewById(R.id.buttonStart);
@@ -39,13 +44,28 @@ public class FieldCreationActivity extends AppCompatActivity {
         });
         startBtn.setVisibility(View.INVISIBLE);
 
-        layout =  (LinearLayout) findViewById(R.id.fieldLayout);
+        Button deleteBtn = (Button) findViewById(R.id.deleteBtn);
+        deleteBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                OnDeleteButtonClick();
+            }
+        });
 
         CreateField();
+
+        computerField.FillField();
     }
 
     private void CreateField(){
-        int cellSize = fieldSettings.fieldCreationSizeOnScreen / fieldSettings.fieldSize;
+        Display display = getWindowManager().getDefaultDisplay();
+        Point size = new Point();
+        display.getSize(size);
+        int width = size.x;
+        width *= fieldSettings.fieldCreationSizeOnScreen;
+
+        int cellSize = width / fieldSettings.fieldSize;
+
         for (int i = 0; i < fieldSettings.fieldSize; i++){
             LinearLayout horizontalLayout = new LinearLayout(this);
             horizontalLayout.setOrientation(LinearLayout.HORIZONTAL);
@@ -87,6 +107,10 @@ public class FieldCreationActivity extends AppCompatActivity {
         }
     }
 
+    private void OnDeleteButtonClick(){
+        playerField.DeletionMode();
+    }
+
     public void OnFieldCreated(){
         startBtn.setVisibility(View.VISIBLE);
     }
@@ -100,5 +124,14 @@ public class FieldCreationActivity extends AppCompatActivity {
         switchActivityIntent.putExtra("playerField", playerField.GetField());
         switchActivityIntent.putExtra("computerField", computerField.GetField());
         startActivity(switchActivityIntent);
+    }
+
+    public void ChangeDeletionState(boolean isDeletionMode){
+        TextView deletionStateText = (TextView)findViewById(R.id.deletionState);
+        if(isDeletionMode){
+            deletionStateText.setText("Deletion mode");
+        }else{
+            deletionStateText.setText("Creation mode");
+        }
     }
 }
