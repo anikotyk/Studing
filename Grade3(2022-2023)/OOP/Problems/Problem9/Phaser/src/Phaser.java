@@ -19,22 +19,22 @@ public class Phaser {
     }
 
     public synchronized void register(){
-        if(!registeredIds.contains(Thread.currentThread().getId())){
-            registeredIds.add(Thread.currentThread().getId());
+        if(!registeredIds.contains(Thread.currentThread().threadId())){
+            registeredIds.add(Thread.currentThread().threadId());
             registeredCount++;
         }
     }
 
     public synchronized void arriveAndDeregister(){
-        if(registeredIds.contains(Thread.currentThread().getId())){
-            registeredIds.remove(Thread.currentThread().getId());
+        if(registeredIds.contains(Thread.currentThread().threadId())){
+            registeredIds.remove(Thread.currentThread().threadId());
             registeredCount--;
             CheckForNextStep();
         }
     }
 
     public synchronized void arriveAndAwaitAdvance() {
-        if(registeredIds.contains(Thread.currentThread().getId())){
+        if(registeredIds.contains(Thread.currentThread().threadId())){
             arrivedCount++;
             boolean res = CheckForNextStep();
             if(!res){

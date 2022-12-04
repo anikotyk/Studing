@@ -22,4 +22,13 @@ public class ThreadPool {
             linkedBlockingQueue.notify();
         }
     }
+
+    public void CloseTaskQueue(){
+        for (int i = 0; i < threadsCount; i++) {
+            workers[i].StopWaitingTasks();
+            synchronized (linkedBlockingQueue) {
+                linkedBlockingQueue.notifyAll();
+            }
+        }
+    }
 }

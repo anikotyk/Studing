@@ -6,8 +6,10 @@ public class Main {
         ThreadPool threadPool = new ThreadPool(threadsCount);
 
         for (int i = 0; i < tasksCount; i++) {
-            Task task = new Task(i, 2000);
+            Task task = new Task(i, 1000);
             threadPool.ExecuteTask(task);
         }
+
+        threadPool.CloseTaskQueue();
     }
 }
