@@ -1,7 +1,7 @@
 Scheduling Type: Preemptive
 Scheduling Name: Earliest deadline first
-Simulation Run Time: 2032
+Simulation Run Time: 1136
 Mean: 1100
 Standard Deviation: 510
 Process #	CPU Time	CPU Completed	Period	Deadline	Processing time	Processing time completed
-0		907 (ms)	907 (ms)	50 (ms)		2050 (ms)	25 (ms)		0 (ms)		1		907 (ms)	907 (ms)	80 (ms)		2080 (ms)	35 (ms)		32 (ms)		
+0		506 (ms)	506 (ms)	50 (ms)		1150 (ms)	25 (ms)		0 (ms)		1		506 (ms)	506 (ms)	80 (ms)		1200 (ms)	35 (ms)		16 (ms)		
