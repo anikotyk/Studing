@@ -5,7 +5,6 @@ import java.io.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 import org.apache.log4j.Logger;
-import org.apache.log4j.PropertyConfigurator;
 
 @WebServlet(name = "numberResource", value = "/number-resource")
 public class NumbersResource extends HttpServlet{
@@ -16,8 +15,7 @@ public class NumbersResource extends HttpServlet{
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        PropertyConfigurator.configure("log4j.properties");
-        logger.info("do get");
+        logger.info("MAKE GET REQUEST");
         response.setContentType("text/html");
 
         // Hello
