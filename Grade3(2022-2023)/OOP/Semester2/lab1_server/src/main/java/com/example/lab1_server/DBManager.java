@@ -6,11 +6,14 @@ import com.example.dbObjects.Service;
 import java.sql.*;
 import java.util.ArrayList;
 
+
 public class DBManager {
-    private static Connection conn;
-    public static void main(String[] args)
+    private Connection conn;
+
+    public void main2(String[] args)
     {
         try{
+
             conn = GetDBConnection();
 
             if (conn != null) {
@@ -38,19 +41,23 @@ public class DBManager {
         }
     }
 
+    public void Init() throws SQLException, ClassNotFoundException {
+        conn = GetDBConnection();
+    }
+
     private static Connection GetDBConnection() throws ClassNotFoundException, SQLException
     {
         Class.forName("org.postgresql.Driver");
-
         String url = "jdbc:postgresql://localhost:5432/phonestation";
         String user = "postgres";
         String password = "admin";
+
         Connection connection = DriverManager.getConnection(url, user, password);
 
         return connection;
     }
 
-    private static boolean IsUserAdmin(String email) {
+    public boolean IsUserAdmin(String email) {
         try
         {
             Statement stmt = conn.createStatement();
@@ -65,7 +72,7 @@ public class DBManager {
         }
     }
 
-    private static Client GetClient(String email) {
+    public Client GetClient(String email) {
         try
         {
             Statement stmt = conn.createStatement();
@@ -90,7 +97,7 @@ public class DBManager {
         }
     }
 
-    private static void AddNewClient(String email, int phonenumber) {
+    public void AddNewClient(String email, int phonenumber) {
         try
         {
             Statement stmt = conn.createStatement();
@@ -115,7 +122,7 @@ public class DBManager {
         }
     }
 
-    private static void ConfirmClient(int id) {
+    public void ConfirmClient(int id) {
         try
         {
             Statement stmt = conn.createStatement();
@@ -137,7 +144,7 @@ public class DBManager {
         }
     }
 
-    private static void UnconfirmClient(int id) {
+    public void UnconfirmClient(int id) {
         try
         {
             Statement stmt = conn.createStatement();
@@ -159,7 +166,7 @@ public class DBManager {
         }
     }
 
-    private static void BanClient(int id) {
+    public void BanClient(int id) {
         try
         {
             Statement stmt = conn.createStatement();
@@ -181,7 +188,7 @@ public class DBManager {
         }
     }
 
-    private static void UnbanClient(int id) {
+    public void UnbanClient(int id) {
         try
         {
             Statement stmt = conn.createStatement();
@@ -203,7 +210,7 @@ public class DBManager {
         }
     }
 
-    private static ArrayList<Service> GetAllServices() {
+    public ArrayList<Service> GetAllServices() {
         try
         {
             Statement stmt = conn.createStatement();
@@ -227,7 +234,7 @@ public class DBManager {
         }
     }
 
-    private static void AddServiceToClient(int clientId, int serviceId) {
+    public void AddServiceToClient(int clientId, int serviceId) {
         try
         {
             Statement stmt = conn.createStatement();
@@ -251,7 +258,7 @@ public class DBManager {
         }
     }
 
-    private static void AddClientPayment(int clientId, int serviceId) {
+    public void AddClientPayment(int clientId, int serviceId) {
         try
         {
             Statement stmt = conn.createStatement();
@@ -275,7 +282,7 @@ public class DBManager {
         }
     }
 
-    private static ArrayList<Service> GetAllClientUnpaidServices(int clientId) {
+    public ArrayList<Service> GetAllClientUnpaidServices(int clientId) {
         try
         {
             Statement stmt = conn.createStatement();

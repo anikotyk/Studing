@@ -1,8 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom'
 import './index.css';
-import Template from "./Template";
-import {render} from "@testing-library/react";
 import App from "./App";
 import {Auth0Provider} from "@auth0/auth0-react";
 

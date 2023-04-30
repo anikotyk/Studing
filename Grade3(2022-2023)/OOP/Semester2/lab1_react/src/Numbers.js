@@ -7,7 +7,7 @@ export default class Numbers extends React.Component{
         this.client = new Client();
         this.state = {res:"" };
 
-        this.client.numbers().then((r)=>{
+        this.client.getUserInfo().then((r)=>{
             this.setState({res:r});
         });
     }
