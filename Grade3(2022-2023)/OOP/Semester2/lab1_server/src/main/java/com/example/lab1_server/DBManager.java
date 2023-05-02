@@ -10,36 +10,6 @@ import java.util.ArrayList;
 public class DBManager {
     private Connection conn;
 
-    public void main2(String[] args)
-    {
-        try{
-
-            conn = GetDBConnection();
-
-            if (conn != null) {
-                System.out.println("Connected to the database");
-                if(IsUserAdmin("anikotyk@gmail.com")){
-                    System.out.println("admin");
-                }
-                System.out.println(GetClient("a"));
-               // AddNewClient("an", 123);
-                ConfirmClient(2);
-                BanClient(2);
-                UnbanClient(2);
-                GetAllServices();
-                AddServiceToClient(1, 5);
-                AddServiceToClient(1, 4);
-                AddServiceToClient(1, 3);
-                AddClientPayment(1, 4);
-                GetAllClientUnpaidServices(1);
-            }
-        }
-        catch (Exception e)
-        {
-            System.out.println(e);
-        }
-    }
-
     public void Init() throws SQLException, ClassNotFoundException {
         conn = GetDBConnection();
     }
@@ -81,7 +51,7 @@ public class DBManager {
                 int id = rs.getInt("id");
                 boolean isConfirmed = rs.getBoolean("isConfirmed");
                 boolean isBanned = rs.getBoolean("isBanned");
-                int phonenumber = rs.getInt("phonenumber");
+                long phonenumber = rs.getLong("phonenumber");
 
                 Client client = new Client(id, isConfirmed, isBanned, phonenumber, email);
                 return client;
@@ -278,7 +248,6 @@ public class DBManager {
                     int price = rs.getInt("price");
                     Service service = new Service(id, price, name);
                     services.add(service);
-                    System.out.println(service);
                 }
             }catch (SQLException ex) {
                 ex.printStackTrace();
@@ -312,7 +281,6 @@ public class DBManager {
                     int price = rs.getInt("price");
                     Service service = new Service(id, price, name);
                     services.add(service);
-                    System.out.println(service);
                 }
             }catch (SQLException ex) {
                 ex.printStackTrace();
@@ -346,7 +314,6 @@ public class DBManager {
                     int price = rs.getInt("price");
                     Service service = new Service(id, price, name);
                     services.add(service);
-                    System.out.println(service);
                 }
             }catch (SQLException ex) {
                 ex.printStackTrace();
@@ -372,7 +339,7 @@ public class DBManager {
                 int id = rs.getInt("id");
                 boolean isConfirmed = rs.getBoolean("isConfirmed");
                 boolean isBanned = rs.getBoolean("isBanned");
-                int phonenumber = rs.getInt("phonenumber");
+                long phonenumber = rs.getLong("phonenumber");
                 String email = rs.getString("email");
 
                 Client client = new Client(id, isConfirmed, isBanned, phonenumber, email);
@@ -386,7 +353,7 @@ public class DBManager {
         }
     }
 
-    public void SetClientPhone(int id, int phone) {
+    public void SetClientPhone(int id, long phone) {
         try
         {
             Statement stmt = conn.createStatement();

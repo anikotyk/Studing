@@ -31,7 +31,7 @@ public class SetClientPhoneServlet extends DBServlet {
 
         try {
             int clientId = requestJsonData.getInt("clientId");
-            int clientPhone = requestJsonData.getInt("clientPhone");
+            long clientPhone = requestJsonData.getLong("clientPhone");
             dbManager.SetClientPhone(clientId, clientPhone);
             out.println("true");
             logger.info("SET CLIENT WITH ID " + clientId +" PHONE NUMBER "+clientPhone);

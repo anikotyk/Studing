@@ -2,13 +2,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>JSP - Hello World</title>
+    <title>Phone station</title>
 </head>
 <body>
-<h1><%= "Hello World!" %>
+<h1><%= "Phone station server" %>
 </h1>
-<br/>
-<a href="hello-servlet">click</a>
-<a href="number-resource">num</a>
 </body>
 </html>

@@ -1,7 +1,6 @@
 package com.example.servlets;
 
 import com.example.dbObjects.Client;
-import com.example.dbObjects.Service;
 import com.google.gson.Gson;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -35,6 +34,7 @@ public class GetClientServlet extends DBServlet {
             String clientEmail = requestJsonData.getString("clientEmail");
             Client client = dbManager.GetClient(clientEmail);
             if(client == null){
+                logger.info("CREATE CLIENT WITH EMAIL " + clientEmail);
                 dbManager.AddNewClient(clientEmail);
                 client = dbManager.GetClient(clientEmail);
             }

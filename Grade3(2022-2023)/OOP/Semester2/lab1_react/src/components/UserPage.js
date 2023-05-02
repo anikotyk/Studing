@@ -8,6 +8,63 @@ import {
 } from "../DBRequests";
 import Service from "../Service";
 import {useAuth0} from "@auth0/auth0-react";
+import LoadingComponent from "./LoadingComponent";
+
+function formatPhoneNumber(phoneNumberString) {
+    if(phoneNumberString.length!=10){ return phoneNumberString; }
+    var cleaned = ('' + phoneNumberString).replace(/\D/g, '');
+    var match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
+    if (match) {
+        return '(' + match[1] + ') ' + match[2] + '-' + match[3];
+    }
+    return null;
+}
+
+function GetListServices(client, allServices, userAddedServices, userPaidServices){
+    const listServices = allServices.map(service =>{
+            const isAdded = userAddedServices.some(obj => obj.id === service.id);
+            const isPaid = userPaidServices.some(obj => obj.id === service.id);
+
+            let addDiv;
+            let payDiv;
+
+            if(!isAdded){
+                addDiv = <button
+                    className="btn btn-success btn-circle btn-sm"
+                    onClick={()=> addServiceToClient(client.id, service.id).then((r)=>{window.location.reload(false);})}
+                > <p className="plus-text">+</p></button>;
+            }
+            else{
+                if(!isPaid){
+                    payDiv = <button
+                        className="btn btn-primary"
+                        onClick={()=> addUserPayment(client.id, service.id).then((r)=>{window.location.reload(false);})}
+                    > Pay {service.price}$ </button>;
+                }
+            }
+
+            let elemClass = "list-group-item d-flex justify-content-between align-items-center ";
+
+            if(isAdded && isPaid){
+                elemClass += "list-group-item-success";
+            }else if(isAdded && !isPaid){
+                elemClass += "list-group-item-danger";
+            }
+
+            let elem = <li class={elemClass}>
+                <div className="ms-2 me-auto">
+                    <div className="fw-bold">{service.name}</div>
+                    Price: {service.price}$
+                </div>
+                {addDiv} {payDiv}
+            </li>;
+
+            return elem;
+        }
+    );
+
+    return listServices;
+}
 
 const UserPage = ({client})=>{
     const { user} = useAuth0();
@@ -48,48 +105,9 @@ const UserPage = ({client})=>{
         });
     }
 
-    if(allServices==null || userAddedServices==null || userPaidServices==null) return <div>User Page</div>
-    const listServices = allServices.map(service =>{
-        const isAdded = userAddedServices.some(obj => obj.id === service.id);
-        const isPaid = userPaidServices.some(obj => obj.id === service.id);
+    if(allServices==null || userAddedServices==null || userPaidServices==null) return <LoadingComponent/>
 
-        let addDiv;
-        let payDiv;
-
-        if(!isAdded){
-            addDiv = <button
-                class="btn btn-success btn-circle btn-sm"
-                onClick={()=> addServiceToClient(client.id, service.id).then((r)=>{window.location.reload(false);})}
-            > + </button>;
-        }
-        else{
-            if(!isPaid){
-                payDiv = <button
-                    class="btn btn-primary"
-                    onClick={()=> addUserPayment(client.id, service.id).then((r)=>{window.location.reload(false);})}
-                > Pay {service.price}$ </button>;
-            }
-        }
-
-        let elemClass = "list-group-item d-flex justify-content-between align-items-center ";
-
-            if(isAdded && isPaid){
-                elemClass += "list-group-item-success";
-            }else if(isAdded && !isPaid){
-                elemClass += "list-group-item-danger";
-            }
-
-        let elem = <li class={elemClass}>
-            <div className="ms-2 me-auto">
-                <div className="fw-bold">{service.name}</div>
-                Price: {service.price}$
-            </div>
-            {addDiv} {payDiv}
-        </li>;
-
-        return elem;
-    }
-    );
+    const listServices = GetListServices(client, allServices, userAddedServices, userPaidServices)
 
     return (
         <div class="d-flex flex-user">
@@ -98,7 +116,7 @@ const UserPage = ({client})=>{
                          className="rounded-circle img-fluid img-profile"/>
                     <h5 className="my-3">{user.nickname}</h5>
                     <p className="text-muted mb-1">{client.email}</p>
-                    <p className="text-muted mb-1"> {client.phonenumber}</p>
+                    <p className="text-muted mb-1"> {formatPhoneNumber(client.phonenumber.toString())}</p>
                 </div>
                 <div className="col-lg-8 card-body text-center shadow-sm p-3 mb-5 bg-white rounded">
                     <h3 className="my-3">

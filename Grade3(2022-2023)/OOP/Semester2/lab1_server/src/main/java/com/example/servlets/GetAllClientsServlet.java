@@ -1,7 +1,6 @@
 package com.example.servlets;
 
 import com.example.dbObjects.Client;
-import com.example.dbObjects.Service;
 import com.google.gson.Gson;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServletRequest;

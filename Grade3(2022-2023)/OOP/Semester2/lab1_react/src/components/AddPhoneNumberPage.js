@@ -1,16 +1,23 @@
 import {setClientPhone} from "../DBRequests";
+import {Button} from "react-bootstrap";
 
 const AddPhoneNumberPage = ({clientId})=>{
-    let inputField = <input type="number" id="phone" />;
-    let setButton = <button id="setButton" onClick={()=>SetPhoneNumber(clientId)}> Set </button>;
-    return <div>Enter your phone number: {inputField} {setButton}</div>;
+    let inputFieldId ="phone";
+
+    return <div className="form-group centered shadow-sm p-3 mb-5 bg-white rounded">
+        <label htmlFor="inputNumber">Phone number</label>
+        <div className="d-flex flex-client-info">
+            <input type="number" className="form-control" id={inputFieldId} aria-describedby="phoneHelp"
+               placeholder="Enter phone number"/>
+            <Button variant="primary" id="setButton" onClick={()=>SetPhoneNumber(clientId, inputFieldId)}> Enter </Button>
+        </div>
+        <small id="phoneHelp" className="form-text text-muted">Write number without any symbols or spaces</small>
+    </div>
 }
 
-function SetPhoneNumber(clientId){
-    var inputField = document.getElementById("phone");
+function SetPhoneNumber(clientId, inputFieldId){
+    var inputField = document.getElementById(inputFieldId);
     if(inputField!=null && inputField.value.trim() != ""){
-        console.log(clientId+" "+inputField.value);
-        document.getElementById("setButton").style.display = 'none';
         setClientPhone(clientId, inputField.value).then(r=>{
             window.location.reload(false);
         })
