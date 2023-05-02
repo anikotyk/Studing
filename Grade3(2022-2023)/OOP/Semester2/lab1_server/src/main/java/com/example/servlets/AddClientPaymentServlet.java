@@ -6,13 +6,14 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.json.JSONException;
 
-import java.io.*;
+import java.io.IOException;
+import java.io.PrintWriter;
 
-@WebServlet(name = "confirmClientServlet", value = "/confirm-client")
-public class ConfirmClientServlet extends DBServlet {
 
+@WebServlet(name = "addClientPaymentServlet", value = "/add-client-payment")
+public class AddClientPaymentServlet extends DBServlet {
     @Override
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         super.doPost(request, response);
 
         PrintWriter out = response.getWriter();
@@ -30,12 +31,13 @@ public class ConfirmClientServlet extends DBServlet {
 
         try {
             int clientId = requestJsonData.getInt("clientId");
-            dbManager.ConfirmClient(clientId);
-            out.println(true);
-            logger.info("CONFIRMED CLIENT WITH ID " + clientId);
+            int serviceId = requestJsonData.getInt("serviceId");
+            dbManager.AddClientPayment(clientId, serviceId);
+            out.println("true");
+            logger.info("PAY SERVICE WITH ID " +serviceId+ " CLIENT WITH ID "+clientId);
         } catch (JSONException e) {
-            out.println("DOESN'T CONTAIN REQUIRED KEY");
-            logger.info("DOESN'T CONTAIN REQUIRED KEY");
+            out.println("DOESN'T CONTAIN REQUIRED KEY/S");
+            logger.info("DOESN'T CONTAIN REQUIRED KEY/S");
         }
 
         out.close();

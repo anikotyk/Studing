@@ -1,31 +1,19 @@
 export default class Client{
-    getUserInfo(){
-        var params = 'clientId=2'
-        var data = new FormData();
-        data.append('clientId', "2");
-        let result = new Promise((resolve, reject)=>{
-            let request = new XMLHttpRequest();
-            request.open("POST", "http://localhost:8080/lab1_server_war_exploded/confirm-client-servlet");
-            request.onreadystatechange=()=>{
-                if(request.readyState == 4 && request.status == 200){
-                    resolve(request.responseText);
-                }
-            }
-            request.send(data);
-        });
-        return result;
+    id;
+    isConfirmed;
+    isBanned;
+    phonenumber;
+    email;
+
+    constructor(id, isConfirmed, isBanned, phonenumber, email) {
+        this.id = id;
+        this.isConfirmed = isConfirmed;
+        this.isBanned = isBanned;
+        this.phonenumber = phonenumber;
+        this.email = email;
     }
-    numbers(){
-        let result = new Promise((resolve, reject)=>{
-            let request = new XMLHttpRequest();
-            request.open("GET", "http://localhost:8080/lab1_server_war_exploded/number-resource");
-            request.onreadystatechange=()=>{
-                if(request.readyState == 4 && request.status == 200){
-                    resolve(request.responseText);
-                }
-            }
-            request.send();
-        });
-        return result;
+
+    static from(json){
+        return Object.assign(new Client(), json);
     }
 }

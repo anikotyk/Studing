@@ -25,7 +25,6 @@ public class DBManager {
                // AddNewClient("an", 123);
                 ConfirmClient(2);
                 BanClient(2);
-                UnconfirmClient(2);
                 UnbanClient(2);
                 GetAllServices();
                 AddServiceToClient(1, 5);
@@ -97,16 +96,15 @@ public class DBManager {
         }
     }
 
-    public void AddNewClient(String email, int phonenumber) {
+    public void AddNewClient(String email) {
         try
         {
             Statement stmt = conn.createStatement();
-            String sql = "INSERT INTO \"Clients\" (email, phonenumber) VALUES (?, ?)";
+            String sql = "INSERT INTO \"Clients\" (email) VALUES (?)";
 
             PreparedStatement pstmt = conn.prepareStatement(sql);
             try{
                 pstmt.setString(1, email);
-                pstmt.setInt(2, phonenumber);
                 int rowsInserted = pstmt.executeUpdate();
                 if (rowsInserted > 0) {
                     //System.out.println("A new row has been inserted.");
@@ -127,28 +125,6 @@ public class DBManager {
         {
             Statement stmt = conn.createStatement();
             String sql = "UPDATE \"Clients\" SET \"isConfirmed\" = true WHERE id = "+id;
-
-            PreparedStatement pstmt = conn.prepareStatement(sql);
-            try{
-                int rowsUpdated = pstmt.executeUpdate();
-                /*if (rowsUpdated > 0) {
-                    System.out.println("The row has been updated.");
-                }*/
-            }catch (SQLException ex) {
-                ex.printStackTrace();
-            }
-        }
-        catch (SQLException e)
-        {
-            throw new RuntimeException(e);
-        }
-    }
-
-    public void UnconfirmClient(int id) {
-        try
-        {
-            Statement stmt = conn.createStatement();
-            String sql = "UPDATE \"Clients\" SET \"isConfirmed\" = false WHERE id = "+id;
 
             PreparedStatement pstmt = conn.prepareStatement(sql);
             try{
@@ -282,6 +258,40 @@ public class DBManager {
         }
     }
 
+    public ArrayList<Service> GetAllClientAddedServices(int clientId) {
+        try
+        {
+            Statement stmt = conn.createStatement();
+            String sql = "SELECT DISTINCT s.* " +
+                    "FROM \"Services\" s " +
+                    "INNER JOIN \"ClientsServices\" cs ON s.\"id\" = cs.\"serviceId\" " +
+                    "WHERE cs.\"clientId\" = ?";
+
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            ArrayList<Service> services = new ArrayList<Service>();
+            try{
+                pstmt.setInt(1, clientId); // set clientId parameter
+                ResultSet rs = pstmt.executeQuery();
+                while (rs.next()) {
+                    int id = rs.getInt("id");
+                    String name = rs.getString("name");
+                    int price = rs.getInt("price");
+                    Service service = new Service(id, price, name);
+                    services.add(service);
+                    System.out.println(service);
+                }
+            }catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+
+            return services;
+        }
+        catch (SQLException e)
+        {
+            throw new RuntimeException(e);
+        }
+    }
+
     public ArrayList<Service> GetAllClientUnpaidServices(int clientId) {
         try
         {
@@ -309,6 +319,88 @@ public class DBManager {
             }
 
             return services;
+        }
+        catch (SQLException e)
+        {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public ArrayList<Service> GetAllClientPaidServices(int clientId) {
+        try
+        {
+            Statement stmt = conn.createStatement();
+            String sql = "SELECT DISTINCT s.* " +
+                    "FROM \"Services\" s " +
+                    "INNER JOIN \"Payments\" p ON s.\"id\" = p.\"serviceId\" " +
+                    "WHERE p.\"clientId\" = ?";
+
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            ArrayList<Service> services = new ArrayList<Service>();
+            try{
+                pstmt.setInt(1, clientId); // set clientId parameter
+                ResultSet rs = pstmt.executeQuery();
+                while (rs.next()) {
+                    int id = rs.getInt("id");
+                    String name = rs.getString("name");
+                    int price = rs.getInt("price");
+                    Service service = new Service(id, price, name);
+                    services.add(service);
+                    System.out.println(service);
+                }
+            }catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+
+            return services;
+        }
+        catch (SQLException e)
+        {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public ArrayList<Client> GetAllClients() {
+        try
+        {
+            Statement stmt = conn.createStatement();
+            String sql = "SELECT * FROM \"Clients\"";
+
+            ResultSet rs = stmt.executeQuery(sql);
+            ArrayList<Client> clients = new ArrayList<>();
+            while (rs.next()){
+                int id = rs.getInt("id");
+                boolean isConfirmed = rs.getBoolean("isConfirmed");
+                boolean isBanned = rs.getBoolean("isBanned");
+                int phonenumber = rs.getInt("phonenumber");
+                String email = rs.getString("email");
+
+                Client client = new Client(id, isConfirmed, isBanned, phonenumber, email);
+                clients.add(client);
+            }
+            return clients;
+        }
+        catch (SQLException e)
+        {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void SetClientPhone(int id, int phone) {
+        try
+        {
+            Statement stmt = conn.createStatement();
+            String sql = "UPDATE \"Clients\" SET \"phonenumber\" = "+phone+" WHERE id = "+id;
+
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            try{
+                int rowsUpdated = pstmt.executeUpdate();
+                /*if (rowsUpdated > 0) {
+                    System.out.println("The row has been updated.");
+                }*/
+            }catch (SQLException ex) {
+                ex.printStackTrace();
+            }
         }
         catch (SQLException e)
         {

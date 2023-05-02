@@ -1,5 +1,4 @@
 package com.example.servlets;
-
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -8,8 +7,8 @@ import org.json.JSONException;
 
 import java.io.*;
 
-@WebServlet(name = "confirmClientServlet", value = "/confirm-client")
-public class ConfirmClientServlet extends DBServlet {
+@WebServlet(name = "banClientServlet", value = "/ban-client")
+public class BanClientServlet extends DBServlet {
 
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -30,9 +29,9 @@ public class ConfirmClientServlet extends DBServlet {
 
         try {
             int clientId = requestJsonData.getInt("clientId");
-            dbManager.ConfirmClient(clientId);
-            out.println(true);
-            logger.info("CONFIRMED CLIENT WITH ID " + clientId);
+            dbManager.BanClient(clientId);
+            out.println("true");
+            logger.info("BAN CLIENT WITH ID " + clientId);
         } catch (JSONException e) {
             out.println("DOESN'T CONTAIN REQUIRED KEY");
             logger.info("DOESN'T CONTAIN REQUIRED KEY");

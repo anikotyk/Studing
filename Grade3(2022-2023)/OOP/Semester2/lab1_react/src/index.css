@@ -7,7 +7,49 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+#app{
+  width: 100%;
+  height: 100vh;
+  background-color: #eee;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+#appContent{
+  width: 90%;
+  margin: auto;
+  padding-top: 25px;
+}
+
+#pageContent{
+  width: 100%;
+  margin: auto;
+  padding-top: 75px;
+}
+
+#logButton{
+  float: right;
+}
+
+.btn-circle.btn-sm {
+  width: 30px;
+  height: 30px;
+  padding: 0px;
+  border-radius: 15px;
+  font-size: 20px;
+  text-align: center;
+
+  line-height: 28px;
+}
+
+.flex-user{
+  gap: 30px;
+}
+
+.img-profile{
+  width: 150px;
+  margin: auto;
 }
