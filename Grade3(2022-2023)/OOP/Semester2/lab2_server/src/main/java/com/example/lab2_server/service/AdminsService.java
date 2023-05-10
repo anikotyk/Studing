@@ -7,10 +7,10 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class AdminService {
+public class AdminsService {
     private final AdminDao adminDao;
 
-    public AdminService(AdminDao adminDao){
+    public AdminsService(AdminDao adminDao){
         this.adminDao = adminDao;
     }
 

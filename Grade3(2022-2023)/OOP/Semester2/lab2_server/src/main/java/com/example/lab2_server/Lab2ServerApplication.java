@@ -1,7 +1,6 @@
 package com.example.lab2_server;
 
 import com.example.lab2_server.dao.ClientDao;
-import com.example.lab2_server.model.Client;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -20,12 +19,7 @@ public class Lab2ServerApplication {
 	@Bean
 	CommandLineRunner commandLineRunner(ClientDao clientDao){
 		return args -> {
-			Client client = new Client();
-			client.setEmail("anna8");
-			clientDao.save(client);
 
-			Client client2 = clientDao.findAllByEmail("anna8").get(0);
-			System.out.println(client2.isConfirmed());
 		};
 	}
 }

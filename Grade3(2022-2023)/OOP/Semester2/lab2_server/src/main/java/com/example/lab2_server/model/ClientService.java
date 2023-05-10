@@ -1,18 +1,16 @@
 package com.example.lab2_server.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 @ToString
 @Entity
 @Table(name = "ClientsServices")
-public class ClientsService {
+public class ClientService {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -22,4 +20,9 @@ public class ClientsService {
 
     @Column(name="serviceId")
     private long serviceId;
+
+    public ClientService(long clientId, long serviceId){
+        this.clientId = clientId;
+        this.serviceId = serviceId;
+    }
 }
