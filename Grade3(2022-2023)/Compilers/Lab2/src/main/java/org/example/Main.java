@@ -7,7 +7,7 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        String file = "C:\\Study\\GitHub\\Studing\\Grade3(2022-2023)\\Compilers\\Lab1\\main.py";
+        String file = "C:\\Study\\GitHub\\Studing\\Grade3(2022-2023)\\Compilers\\Lab2\\main.py";
         String code = Files.readString(Paths.get(file));
 
         PythonLexer lexer = new PythonLexer(code);
