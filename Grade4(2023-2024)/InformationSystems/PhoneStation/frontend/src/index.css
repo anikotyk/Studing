@@ -1,0 +1,92 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#app{
+  width: 100%;
+  height: 100vh;
+  background-color: #eee;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+#appContent{
+  width: 90%;
+  margin: auto;
+  padding-top: 25px;
+}
+
+#pageContent{
+  width: 100%;
+  margin: auto;
+  padding-top: 75px;
+}
+
+#logButton{
+  float: right;
+}
+
+.btn-circle.btn-sm {
+  width: 30px;
+  height: 30px;
+  padding: 0px;
+  border-radius: 15px;
+  font-size: 20px;
+  text-align: center;
+
+  line-height: 28px;
+}
+
+.flex-user{
+  gap: 30px;
+}
+
+.flex-client-info{
+  gap:10px;
+}
+
+.img-profile{
+  width: 150px;
+  margin: auto;
+}
+
+.ul-clients{
+  margin:auto;
+  border-width: 0px;
+  width:50%;
+}
+
+.button-display{
+  display: block;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+  padding: 10px;
+  margin: auto;
+}
+
+.title{
+  font-size: 100px;
+  font-family: Bahnschrift;
+}
+
+.small-title{
+  font-size: 50px;
+  font-family: Bahnschrift;
+}
+
+.plus-text{
+  margin: -15px;
+}
