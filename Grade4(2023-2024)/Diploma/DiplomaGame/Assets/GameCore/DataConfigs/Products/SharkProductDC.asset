@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b108d7595c884535bf902f05c39ff91a, type: 3}
+  m_Name: SharkProductDC
+  m_EditorClassIdentifier: 
+  id: Shark
+  infinite: 1
+  icon: {fileID: 21300000, guid: 9a53ac00b3013f44aa71a58c25acbf87, type: 3}
+  viewPrefab: {fileID: 3183609164072970304, guid: 142ec7e0836dfd54bb759d2d6d6779ed, type: 3}

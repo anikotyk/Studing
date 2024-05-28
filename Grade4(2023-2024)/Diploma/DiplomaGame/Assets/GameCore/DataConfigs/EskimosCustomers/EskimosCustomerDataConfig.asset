@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a7e99559d88e1b429562b1b402c84b2, type: 3}
+  m_Name: EskimosCustomerDataConfig
+  m_EditorClassIdentifier: 
+  id: EskimosCustomer
+  view: {fileID: 3907387064511799883, guid: 0597c32d60d61874ab8f135f4ac3d25a, type: 3}

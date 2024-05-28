@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa40babe1c800794ba95d43581182df1, type: 3}
+  m_Name: CapacityPowerUpDC
+  m_EditorClassIdentifier: 
+  title: Super Bag
+  description: x3 Capacity
+  shortDescription: x3
+  intervalAppear: 240
+  minDelayFirstAppear: 30
+  maxDelayFirstAppear: 50
+  modelToWindow: {fileID: 6953344766170192317, guid: 13d51f89c2565944c82442a085d9e0b6, type: 3}
+  superPowerPrefab: {fileID: 660602521468128941, guid: 17c0ebbb4211c20498c31e63caa1b6db, type: 3}
+  sprite: {fileID: 21300000, guid: e830806756c80eb45added6f6f81a871, type: 3}

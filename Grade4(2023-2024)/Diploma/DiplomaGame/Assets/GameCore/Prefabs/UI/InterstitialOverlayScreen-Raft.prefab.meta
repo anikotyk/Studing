@@ -1,0 +1,11 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/GameCore/Prefabs/FederalReserve/Spaces/StatueRoom.prefab.meta
+guid: 958a02c6b804c4441b69b2b21b9ac790
+========
+guid: 38fd6ef9db71346b8ad207a013cc2195
+>>>>>>>> 8d0fd02f8 (ad break screen):Assets/GameCore/Prefabs/UI/InterstitialOverlayScreen-Bank.prefab.meta
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
